@@ -35,6 +35,10 @@
 
   html{scroll-behavior:smooth;}
 
+  /* barra de desplazamiento oculta (se sigue pudiendo hacer scroll) */
+  html, *{scrollbar-width:none; -ms-overflow-style:none;}
+  *::-webkit-scrollbar{width:0; height:0;}
+
   body{
     background:var(--bg);
     color:var(--text);
@@ -121,7 +125,7 @@
   .mobile-menu a{color:var(--text);}
 
   /* ---------- sections ---------- */
-  section{position:relative; z-index:1; padding:120px 0 40px;}
+  section{position:relative; z-index:1; padding:120px 0 40px; scroll-margin-top:72px;}
   .eyebrow{
     font-family:var(--mono); font-size:12px; color:var(--cyan);
     letter-spacing:0.08em; display:flex; align-items:center; gap:10px;
@@ -145,11 +149,6 @@
   .hero-grid{
     display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
   }
-  .hero-copy .kicker{
-    font-family:var(--mono); font-size:13px; color:var(--amber);
-    display:flex; align-items:center; gap:8px; margin-bottom:20px;
-  }
-  .kicker .dot{width:7px; height:7px; border-radius:50%; background:var(--amber); animation:pulse 2.2s infinite;}
   .hero-copy h1{
     font-family:var(--sans); font-weight:800; font-size:clamp(38px,5.4vw,60px);
     line-height:1.08; letter-spacing:-0.02em; margin-bottom:20px;
@@ -188,8 +187,9 @@
     display:flex; align-items:center; gap:8px; padding:12px 16px;
     background:var(--panel-2); border-bottom:1px solid var(--border);
   }
-  .term-bar .tdot{width:11px; height:11px; border-radius:50%;}
-  .tdot.r{background:#e2665a;} .tdot.y{background:#f2b545;} .tdot.g{background:#5eead4;}
+  .term-prompt{font-family:var(--mono); font-size:12px; color:var(--text-faint); letter-spacing:.01em;}
+  .term-prompt .u{color:var(--cyan);}
+  .term-prompt .c{color:var(--text-dim);}
   .term-bar .term-title{
     margin-left:auto; font-family:var(--mono); font-size:11.5px; color:var(--text-faint);
   }
@@ -223,7 +223,7 @@
 
   /* ---------- stack ---------- */
   .stack-grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:18px;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(min(230px,100%),1fr)); gap:18px;
   }
   .stack-card{
     background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
@@ -272,7 +272,7 @@
   .diff li::before{content:'+'; position:absolute; left:0; color:var(--cyan); font-weight:700;}
 
   /* ---------- projects ---------- */
-  .proj-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;}
+  .proj-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px,100%),1fr)); gap:20px;}
   .proj-card{
     background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
     padding:26px; display:flex; flex-direction:column; height:100%;
@@ -346,7 +346,8 @@
   .btn-more{cursor:pointer;}
   .btn-more .arr{display:inline-block; transition:transform .25s ease;}
   .btn-more[aria-expanded="true"] .arr{transform:rotate(180deg);}
-  .modal-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:14px; margin-top:22px;}
+  .modal-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(200px,100%),1fr)); gap:14px; margin-top:22px;}
+  .modal-gallery[hidden]{display:none;}
   .modal-gallery:not([hidden]){animation:modalIn .3s ease;}
   .shot{margin:0; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:var(--panel-2);}
   .shot:first-child{grid-column:1 / -1;}
@@ -404,7 +405,8 @@
     background:var(--cyan-dim); border:1px solid rgba(94,234,212,.18); color:var(--cyan);
     transition:background .2s ease, color .2s ease;
   }
-  .chip-txt{display:flex; flex-direction:column; line-height:1.3;}
+  .chip-txt{display:flex; flex-direction:column; line-height:1.3; min-width:0;}
+  .chip-txt span{overflow-wrap:anywhere;}
   .chip-txt small{font-family:var(--mono); font-size:10.5px; color:var(--text-dim); letter-spacing:.05em;}
   .chip-txt span{font-family:var(--mono); font-size:13px;}
   .contact-chip:hover{border-color:var(--cyan); transform:translateY(-2px); box-shadow:0 14px 30px -18px var(--cyan-glow);}
@@ -414,6 +416,22 @@
     text-align:center; padding:40px 20px 32px; color:var(--text-faint);
     font-family:var(--mono); font-size:12px; position:relative; z-index:1;
   }
+  /* ---------- back to top ---------- */
+  .to-top{
+    position:fixed; right:24px; bottom:24px; z-index:90;
+    width:46px; height:46px; border-radius:10px; cursor:pointer;
+    background:var(--panel); border:1px solid var(--border); color:var(--cyan);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 14px 30px -14px rgba(0,0,0,.8);
+    opacity:0; transform:translateY(14px); pointer-events:none;
+    transition:opacity .28s ease, transform .28s cubic-bezier(.2,.8,.2,1), border-color .2s ease, background .2s ease;
+  }
+  .to-top.show{opacity:1; transform:translateY(0); pointer-events:auto;}
+  .to-top:hover{background:var(--cyan); color:#04120f; border-color:var(--cyan);}
+  @media (max-width:860px){
+    .to-top{right:16px; bottom:16px; width:42px; height:42px;}
+  }
+
   footer .heart{color:var(--red); vertical-align:-2px; margin:0 2px;}
   footer a{color:var(--text-dim); transition:color .2s ease;}
   footer a:hover{color:var(--cyan);}
@@ -428,6 +446,51 @@
     .contact-panel{padding:34px 22px;}
     .modal-body{padding:22px;}
     .edu-row .degree{white-space:normal;}
+    .nav-cta{display:none;}
+    .proj-modal{width:calc(100vw - 24px); max-height:calc(100dvh - 32px);}
+  }
+
+  @media (max-width:560px){
+    .wrap{padding:0 18px;}
+    nav{padding:14px 18px;}
+    .logo{font-size:13.5px;}
+    section{padding:76px 0 16px;}
+    h2.title{margin-bottom:30px;}
+    .hero{padding-top:104px;}
+    .hero-copy p.lead{font-size:15.5px;}
+    .hero-actions{gap:10px;}
+    .hero-actions .btn{flex:1 1 auto; justify-content:center;}
+
+    .term-bar{padding:10px 13px;}
+    .term-bar .term-title{display:none;}
+    .term-body{font-size:11.5px; padding:18px 15px; min-height:auto;}
+    .term-line{margin-bottom:8px;}
+
+    .log-item{padding-left:20px;}
+    .log-head{gap:8px;}
+    .log-date{margin-left:0;}
+    .log-role{font-size:17.5px;}
+    .diff li{font-size:13px;}
+
+    .stack-card{padding:18px;}
+    .proj-card{padding:20px;}
+
+    .edu-row{flex-direction:column; gap:4px;}
+    .edu-row .yr{align-self:flex-start;}
+
+    .contact-panel{padding:28px 16px;}
+    .contact-links{flex-direction:column; align-items:stretch;}
+    .contact-chip{width:100%;}
+
+    .modal-body{padding:18px;}
+    .modal-body h3{font-size:21px;}
+    .modal-desc{font-size:14px;}
+    .modal-actions{flex-direction:column; align-items:stretch; gap:10px;}
+    .modal-actions .btn-more{justify-content:center;}
+    .modal-count{text-align:center;}
+    .modal-gallery{grid-template-columns:1fr; gap:12px; margin-top:18px;}
+
+    footer{padding:34px 18px 28px; font-size:11.5px;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -467,7 +530,6 @@
   <section class="hero wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <div class="kicker"><span class="dot"></span> disponible para nuevos proyectos...</div>
         <h1>Construyo sistemas backend <span class="accent">sólidos y escalables</span>.</h1>
         <p class="lead">Desarrollador Backend en Maracaibo, Venezuela. Diseño APIs REST y arquitecturas de microservicios con NestJS, Node.js y Java — enfocado en escalabilidad, rendimiento y código mantenible.</p>
         <div class="hero-actions">
@@ -489,7 +551,7 @@
 
       <div class="terminal">
         <div class="term-bar">
-          <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+          <span class="term-prompt"><span class="u">jose@dev</span>:<span class="c">~</span>$</span>
           <span class="term-title">bash — ~/home</span>
         </div>
         <div class="term-body" id="termBody"></div>
@@ -701,9 +763,13 @@
   made with <svg class="heart" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="amor"><path d="M12 21s-7.5-4.6-9.9-9.3C.6 8.6 2.4 4.5 6.2 4.1c2.2-.2 4 1 5.8 3.1 1.8-2.1 3.6-3.3 5.8-3.1 3.8.4 5.6 4.5 4.1 7.6C19.5 16.4 12 21 12 21z"/></svg> by <a href="https://github.com/iFlam3" target="_blank" rel="noopener">iFlam3</a> - ©2026
 </footer>
 
+<button class="to-top" id="toTop" aria-label="Volver al inicio de la página">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
 <dialog class="proj-modal" id="projModal" aria-labelledby="modalTitle">
   <div class="term-bar">
-    <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+    <span class="term-prompt"><span class="u">jose@dev</span>:<span class="c">~</span>$</span>
     <span class="term-title" id="modalPath"></span>
     <button class="modal-close" id="modalClose" aria-label="Cerrar">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -809,6 +875,15 @@
     });
   });
 
+  // ---------- back to top ----------
+  const toTop = document.getElementById('toTop');
+  const toggleToTop = ()=> toTop.classList.toggle('show', window.scrollY > 600);
+  toggleToTop();
+  window.addEventListener('scroll', toggleToTop, { passive:true });
+  toTop.addEventListener('click', ()=>{
+    window.scrollTo({ top:0, behavior: reducedMotion ? 'auto' : 'smooth' });
+  });
+
   // ---------- project modal ----------
   // Capturas: coloca las imágenes en assets/proyectos/ con estos nombres.
   const projects = {
@@ -825,9 +900,9 @@
       ],
       tags: ['NestJS', 'Angular', 'MySQL', 'REST'],
       shots: [
-        { src: 'assets/proyectos/notilab-1.png', cap: 'Vista principal' },
-        { src: 'assets/proyectos/notilab-2.png', cap: 'Administración de recursos' },
-        { src: 'assets/proyectos/notilab-3.png', cap: 'Flujo de trabajo' },
+        { src: 'assets/proyectos/notilab-2.jpg', cap: 'Estado de los equipos del laboratorio' },
+        { src: 'assets/proyectos/notilab-1.jpg', cap: 'Inicio de sesión' },
+        { src: 'assets/proyectos/notilab-3.jpg', cap: 'Registro de chequeos por turno' },
       ],
     },
     perifericos: {
