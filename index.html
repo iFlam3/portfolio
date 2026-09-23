@@ -222,22 +222,46 @@
   }
 
   /* ---------- stack ---------- */
-  .stack-grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(min(230px,100%),1fr)); gap:18px;
+  .stack-filters{
+    display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px;
   }
-  .stack-card{
-    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
-    padding:22px; transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+  .filter-btn{
+    font-family:var(--mono); font-size:12.5px; cursor:pointer;
+    color:var(--text-dim); background:var(--panel-2); border:1px solid var(--border);
+    padding:7px 13px; border-radius:7px; display:inline-flex; align-items:center; gap:7px;
+    transition:color .2s ease, border-color .2s ease, background .2s ease;
   }
-  .stack-card:hover{
-    transform:translateY(-4px); border-color:var(--cyan);
-    box-shadow:0 16px 34px -18px var(--cyan-glow);
+  .filter-btn .count{color:var(--text-faint); font-size:11px;}
+  .filter-btn:hover{color:var(--text); border-color:var(--text-faint);}
+  .filter-btn[aria-pressed="true"]{
+    color:var(--cyan); border-color:var(--cyan); background:var(--cyan-dim);
   }
-  .stack-card h3{
-    font-family:var(--mono); font-size:13px; color:var(--amber);
-    text-transform:lowercase; margin-bottom:16px; display:flex; align-items:center; gap:8px;
+  .filter-btn[aria-pressed="true"] .count{color:var(--cyan);}
+
+  .tech-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(min(124px,100%),1fr)); gap:12px;
   }
-  .stack-card h3::before{content:'//';color:var(--text-faint);}
+  .tech{
+    position:relative; display:flex; flex-direction:column; align-items:center; gap:10px;
+    padding:20px 12px 16px; border:1px solid var(--border); border-radius:10px;
+    background:var(--panel); text-align:center;
+    transition:transform .24s cubic-bezier(.2,.8,.2,1), border-color .24s ease, background .24s ease, opacity .24s ease;
+  }
+  .tech img{
+    width:34px; height:34px; object-fit:contain;
+    transition:transform .24s cubic-bezier(.2,.8,.2,1);
+  }
+  .tech .name{font-family:var(--mono); font-size:12.5px; color:var(--text); line-height:1.2;}
+  .tech .cat{
+    font-family:var(--mono); font-size:10px; color:var(--text-faint); letter-spacing:.04em;
+  }
+  .tech:hover{transform:translateY(-4px); border-color:var(--cyan); background:var(--panel-2);}
+  .tech:hover img{transform:scale(1.12);}
+  .tech:hover .cat{color:var(--cyan);}
+  .tech[hidden]{display:none;}
+  .tech.in{animation:techIn .34s cubic-bezier(.2,.8,.2,1) both;}
+  @keyframes techIn{from{opacity:0; transform:translateY(10px) scale(.96);} to{opacity:1; transform:none;}}
+
   .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
   .tag{
     font-family:var(--mono); font-size:12px; padding:6px 10px; border-radius:6px;
@@ -472,7 +496,9 @@
     .log-role{font-size:17.5px;}
     .diff li{font-size:13px;}
 
-    .stack-card{padding:18px;}
+    .tech{padding:16px 10px 13px;}
+    .tech img{width:30px; height:30px;}
+    .filter-btn{font-size:12px; padding:6px 11px;}
     .proj-card{padding:20px;}
 
     .edu-row{flex-direction:column; gap:4px;}
@@ -561,33 +587,39 @@
 
   <!-- STACK -->
   <section id="stack" class="wrap reveal">
-    <div class="eyebrow">cat stack.json</div>
+    <div class="eyebrow">stack --list</div>
     <h2 class="title">Stack <span class="muted">// herramientas de trabajo</span></h2>
-    <div class="stack-grid">
-      <div class="stack-card">
-        <h3>backend & apis</h3>
-        <div class="tag-row">
-          <span class="tag">NestJS</span><span class="tag">Node.js</span><span class="tag">Supabase</span><span class="tag">Java</span>
-        </div>
-      </div>
-      <div class="stack-card">
-        <h3>lenguajes</h3>
-        <div class="tag-row">
-          <span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Java</span>
-        </div>
-      </div>
-      <div class="stack-card">
-        <h3>datos</h3>
-        <div class="tag-row">
-          <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Admin. de BD</span>
-        </div>
-      </div>
-      <div class="stack-card">
-        <h3>infra & tooling</h3>
-        <div class="tag-row">
-          <span class="tag">Linux Servers</span><span class="tag">Bash</span><span class="tag">Git / GitHub</span>
-        </div>
-      </div>
+
+    <div class="stack-filters" id="stackFilters" role="group" aria-label="Filtrar tecnologías por categoría">
+      <button class="filter-btn" type="button" data-filter="todo" aria-pressed="true" aria-controls="techGrid">--todo <span class="count"></span></button>
+      <button class="filter-btn" type="button" data-filter="backend" aria-pressed="false" aria-controls="techGrid">--backend <span class="count"></span></button>
+      <button class="filter-btn" type="button" data-filter="lenguaje" aria-pressed="false" aria-controls="techGrid">--lenguajes <span class="count"></span></button>
+      <button class="filter-btn" type="button" data-filter="frontend" aria-pressed="false" aria-controls="techGrid">--frontend <span class="count"></span></button>
+      <button class="filter-btn" type="button" data-filter="datos" aria-pressed="false" aria-controls="techGrid">--datos <span class="count"></span></button>
+      <button class="filter-btn" type="button" data-filter="infra" aria-pressed="false" aria-controls="techGrid">--infra <span class="count"></span></button>
+    </div>
+
+    <div class="tech-grid" id="techGrid" aria-live="polite">
+      <div class="tech" data-cat="backend"><img src="assets/icons/nestjs.svg" alt="NestJS" loading="lazy" width="34" height="34"><span class="name">NestJS</span><span class="cat">backend</span></div>
+      <div class="tech" data-cat="backend"><img src="assets/icons/nodejs.svg" alt="Node.js" loading="lazy" width="34" height="34"><span class="name">Node.js</span><span class="cat">backend</span></div>
+      <div class="tech" data-cat="backend"><img src="assets/icons/java.svg" alt="Java" loading="lazy" width="34" height="34"><span class="name">Java</span><span class="cat">backend</span></div>
+      <div class="tech" data-cat="backend"><img src="assets/icons/supabase.svg" alt="Supabase" loading="lazy" width="34" height="34"><span class="name">Supabase</span><span class="cat">backend</span></div>
+
+      <div class="tech" data-cat="lenguaje"><img src="assets/icons/typescript.svg" alt="TypeScript" loading="lazy" width="34" height="34"><span class="name">TypeScript</span><span class="cat">lenguaje</span></div>
+      <div class="tech" data-cat="lenguaje"><img src="assets/icons/javascript.svg" alt="JavaScript" loading="lazy" width="34" height="34"><span class="name">JavaScript</span><span class="cat">lenguaje</span></div>
+      <div class="tech" data-cat="lenguaje"><img src="assets/icons/python.svg" alt="Python" loading="lazy" width="34" height="34"><span class="name">Python</span><span class="cat">lenguaje</span></div>
+
+      <div class="tech" data-cat="frontend"><img src="assets/icons/html5.svg" alt="HTML5" loading="lazy" width="34" height="34"><span class="name">HTML5</span><span class="cat">frontend</span></div>
+      <div class="tech" data-cat="frontend"><img src="assets/icons/css3.svg" alt="CSS3" loading="lazy" width="34" height="34"><span class="name">CSS3</span><span class="cat">frontend</span></div>
+
+      <div class="tech" data-cat="datos"><img src="assets/icons/postgresql.svg" alt="PostgreSQL" loading="lazy" width="34" height="34"><span class="name">PostgreSQL</span><span class="cat">datos</span></div>
+      <div class="tech" data-cat="datos"><img src="assets/icons/mysql.svg" alt="MySQL" loading="lazy" width="34" height="34"><span class="name">MySQL</span><span class="cat">datos</span></div>
+
+      <div class="tech" data-cat="infra"><img src="assets/icons/linux.svg" alt="Linux" loading="lazy" width="34" height="34"><span class="name">Linux</span><span class="cat">infra</span></div>
+      <div class="tech" data-cat="infra"><img src="assets/icons/bash.svg" alt="Bash" loading="lazy" width="34" height="34"><span class="name">Bash</span><span class="cat">infra</span></div>
+      <div class="tech" data-cat="infra"><img src="assets/icons/powershell.svg" alt="PowerShell" loading="lazy" width="34" height="34"><span class="name">PowerShell</span><span class="cat">infra</span></div>
+      <div class="tech" data-cat="infra"><img src="assets/icons/git.svg" alt="Git" loading="lazy" width="34" height="34"><span class="name">Git</span><span class="cat">infra</span></div>
+      <div class="tech" data-cat="infra"><img src="assets/icons/github.svg" alt="GitHub" loading="lazy" width="34" height="34"><span class="name">GitHub</span><span class="cat">infra</span></div>
     </div>
   </section>
 
@@ -662,7 +694,7 @@
         <div class="proj-more"><span>./ver-detalles</span><span class="arr">→</span></div>
       </div>
 
-      <div class="proj-card is-clickable" data-project="perifericos" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Ver detalles de Detección de periféricos">
+      <div class="proj-card">
         <div class="proj-top">
           <div class="proj-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
@@ -670,9 +702,13 @@
           <span class="proj-badge">tiempo real</span>
         </div>
         <h3>Detección de periféricos</h3>
-        <p>Sistema de monitoreo en tiempo real para falta de periféricos, con logs, reconexión automática y alertas vía HTTP.</p>
+        <p>Sistema de monitoreo en tiempo real que detecta la falta o desconexión de periféricos en las estaciones del laboratorio: registro de eventos, reconexión automática y alertas vía HTTP.</p>
         <div class="tag-row"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">HTTP</span></div>
-        <div class="proj-more"><span>./ver-detalles</span><span class="arr">→</span></div>
+        <div class="proj-links">
+          <a class="proj-link" href="https://iflam3.github.io/Un-Plugged/" target="_blank" rel="noopener">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>demo
+          </a>
+        </div>
       </div>
 
       <div class="proj-card">
@@ -875,6 +911,33 @@
     });
   });
 
+  // ---------- filtro del stack ----------
+  const techs = [...document.querySelectorAll('.tech')];
+  const filterBtns = [...document.querySelectorAll('.filter-btn')];
+
+  filterBtns.forEach(btn=>{
+    const f = btn.dataset.filter;
+    const n = f === 'todo' ? techs.length : techs.filter(t => t.dataset.cat === f).length;
+    btn.querySelector('.count').textContent = `(${n})`;
+  });
+
+  function applyFilter(f){
+    filterBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === f)));
+    let i = 0;
+    techs.forEach(t=>{
+      const match = f === 'todo' || t.dataset.cat === f;
+      t.classList.remove('in');
+      t.hidden = !match;
+      if(match && !reducedMotion){
+        t.style.animationDelay = `${i++ * 28}ms`;
+        void t.offsetWidth;          // reinicia la animación
+        t.classList.add('in');
+      }
+    });
+  }
+
+  filterBtns.forEach(btn => btn.addEventListener('click', ()=> applyFilter(btn.dataset.filter)));
+
   // ---------- back to top ----------
   const toTop = document.getElementById('toTop');
   const toggleToTop = ()=> toTop.classList.toggle('show', window.scrollY > 600);
@@ -903,24 +966,6 @@
         { src: 'assets/proyectos/notilab-2.jpg', cap: 'Estado de los equipos del laboratorio' },
         { src: 'assets/proyectos/notilab-1.jpg', cap: 'Inicio de sesión' },
         { src: 'assets/proyectos/notilab-3.jpg', cap: 'Registro de chequeos por turno' },
-      ],
-    },
-    perifericos: {
-      path: '~/proyectos/deteccion-perifericos',
-      badge: 'tiempo real',
-      title: 'Detección de periféricos',
-      desc: 'Sistema de monitoreo en tiempo real que detecta la falta o desconexión de periféricos en las estaciones de trabajo del laboratorio y notifica al instante, para reaccionar antes de que el equipo quede incompleto.',
-      points: [
-        'Monitoreo continuo de periféricos en cada estación',
-        'Alertas enviadas vía HTTP al detectar un periférico faltante',
-        'Registro de eventos (logs) para seguimiento e historial',
-        'Reconexión automática ante caídas de comunicación',
-      ],
-      tags: ['Python', 'Java', 'HTTP'],
-      shots: [
-        { src: 'assets/proyectos/perifericos-1.png', cap: 'Panel de monitoreo' },
-        { src: 'assets/proyectos/perifericos-2.png', cap: 'Alerta de periférico faltante' },
-        { src: 'assets/proyectos/perifericos-3.png', cap: 'Registro de eventos' },
       ],
     },
   };
