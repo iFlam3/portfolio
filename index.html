@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jose Hernandez — Backend Developer</title>
 <meta name="description" content="Portafolio de Jose Hernandez, Desarrollador Backend especializado en NestJS, Node.js y arquitecturas de microservicios.">
@@ -101,6 +102,12 @@
   }
   .nav-links a::before{content:'';}
   .nav-links a:hover{color:var(--text);}
+  .nav-links a::after{
+    content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px;
+    background:var(--cyan); transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+  }
+  .nav-links a.active{color:var(--text);}
+  .nav-links a.active::after{transform:scaleX(1);}
   .nav-links a span{color:var(--cyan);}
   .nav-cta{
     font-family:var(--mono); font-size:12px; color:var(--bg);
@@ -109,6 +116,16 @@
     white-space:nowrap;
   }
   .nav-cta:hover{transform:translateY(-1px); box-shadow:0 6px 20px var(--cyan-glow);}
+  .nav-actions{display:flex; align-items:center; gap:14px;}
+  .lang-btn{
+    font-family:var(--mono); font-size:12px; cursor:pointer;
+    background:none; border:1px solid var(--border); color:var(--text-faint);
+    padding:6px 10px; border-radius:6px; display:inline-flex; align-items:center; gap:5px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .lang-btn:hover{border-color:var(--cyan); color:var(--text-dim);}
+  .lang-btn [data-l]{transition:color .2s ease;}
+  .lang-btn [data-l].on{color:var(--cyan); font-weight:600;}
   .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; z-index:110;}
   .burger span{width:22px; height:2px; background:var(--text); display:block; transition:.25s;}
   .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -123,6 +140,13 @@
   }
   .mobile-menu.open{opacity:1; visibility:visible;}
   .mobile-menu a{color:var(--text);}
+  .mobile-menu a.active{color:var(--cyan);}
+  body.menu-open{overflow:hidden;}
+
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+  }
 
   /* ---------- sections ---------- */
   section{position:relative; z-index:1; padding:120px 0 40px; scroll-margin-top:72px;}
@@ -138,8 +162,8 @@
   }
   h2.title .muted{color:var(--text-faint); font-weight:400;}
 
-  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
+  .js .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .js .reveal.in{opacity:1; transform:translateY(0);}
 
   /* ---------- hero ---------- */
   .hero{
@@ -375,6 +399,10 @@
   .modal-gallery:not([hidden]){animation:modalIn .3s ease;}
   .shot{margin:0; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:var(--panel-2);}
   .shot:first-child{grid-column:1 / -1;}
+  .shot:not(:first-child){cursor:zoom-in; transition:border-color .2s ease, transform .2s ease;}
+  .shot:not(:first-child):hover{border-color:var(--cyan); transform:translateY(-2px);}
+  .shot.promoted{animation:shotIn .32s cubic-bezier(.2,.8,.2,1);}
+  @keyframes shotIn{from{opacity:.4; transform:scale(.985);} to{opacity:1; transform:none;}}
   .shot img{display:block; width:100%; aspect-ratio:16/10; object-fit:cover;}
   .shot figcaption{font-family:var(--mono); font-size:11.5px; color:var(--text-faint); padding:8px 12px; border-top:1px solid var(--border);}
   .shot-ph{
@@ -487,6 +515,7 @@
 
     .term-bar{padding:10px 13px;}
     .term-bar .term-title{display:none;}
+    .proj-modal .modal-close{margin-left:auto;}
     .term-body{font-size:11.5px; padding:18px 15px; min-height:auto;}
     .term-line{margin-bottom:8px;}
 
@@ -534,21 +563,24 @@
     <a href="#top" class="logo"><span class="dot"></span>jose_hernandez</a>
     <div class="nav-links">
       <a href="#stack"><span>01.</span> Stack</a>
-      <a href="#experiencia"><span>02.</span> Experiencia</a>
-      <a href="#proyectos"><span>03.</span> Proyectos</a>
-      <a href="#formacion"><span>04.</span> Formación</a>
+      <a href="#experiencia" data-i18n="nav.exp"><span>02.</span> Experiencia</a>
+      <a href="#proyectos" data-i18n="nav.proj"><span>03.</span> Proyectos</a>
+      <a href="#formacion" data-i18n="nav.edu"><span>04.</span> Formación</a>
     </div>
-    <a href="#contacto" class="nav-cta">contact --init</a>
-    <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    <div class="nav-actions">
+      <button class="lang-btn" id="langBtn" type="button"><span data-l="es" lang="es">es</span><span aria-hidden="true">/</span><span data-l="en" lang="en">en</span></button>
+      <a href="#contacto" class="nav-cta">contact --init</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
   </nav>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#stack">Stack</a>
-  <a href="#experiencia">Experiencia</a>
-  <a href="#proyectos">Proyectos</a>
-  <a href="#formacion">Formación</a>
-  <a href="#contacto">Contacto</a>
+  <a href="#experiencia" data-i18n="m.exp">Experiencia</a>
+  <a href="#proyectos" data-i18n="m.proj">Proyectos</a>
+  <a href="#formacion" data-i18n="m.edu">Formación</a>
+  <a href="#contacto" data-i18n="m.contact">Contacto</a>
 </div>
 
 <main id="top">
@@ -556,11 +588,11 @@
   <section class="hero wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <h1>Construyo sistemas backend <span class="accent">sólidos y escalables</span>.</h1>
-        <p class="lead">Desarrollador Backend en Maracaibo, Venezuela. Diseño APIs REST y arquitecturas de microservicios con NestJS, Node.js y Java — enfocado en escalabilidad, rendimiento y código mantenible.</p>
+        <h1 data-i18n="hero.h1">Construyo sistemas backend <span class="accent">sólidos y escalables</span>.</h1>
+        <p class="lead" data-i18n="hero.lead">Desarrollador Backend en Maracaibo, Venezuela. Diseño APIs REST y arquitecturas de microservicios con NestJS, Node.js y Java — enfocado en escalabilidad, rendimiento y código mantenible.</p>
         <div class="hero-actions">
-          <a href="#proyectos" class="btn btn-primary">Ver proyectos →</a>
-          <a href="#contacto" class="btn btn-ghost">Contactar</a>
+          <a href="#proyectos" class="btn btn-primary" data-i18n="hero.cta1">Ver proyectos →</a>
+          <a href="#contacto" class="btn btn-ghost" data-i18n="hero.cta2">Contactar</a>
         </div>
         <div class="social-row">
           <a href="https://github.com/iFlam3" target="_blank" rel="noopener" aria-label="GitHub">
@@ -569,7 +601,7 @@
           <a href="mailto:jhernandezdev05@gmail.com" aria-label="Email">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="m4 6 8 7 8-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="tel:+584246150916" aria-label="Teléfono">
+          <a href="tel:+584246150916" aria-label="Teléfono" data-i18n-aria="aria.phone">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -588,18 +620,19 @@
   <!-- STACK -->
   <section id="stack" class="wrap reveal">
     <div class="eyebrow">stack --list</div>
-    <h2 class="title">Stack <span class="muted">// herramientas de trabajo</span></h2>
+    <h2 class="title" data-i18n="stack.title">Stack <span class="muted">// herramientas de trabajo</span></h2>
 
-    <div class="stack-filters" id="stackFilters" role="group" aria-label="Filtrar tecnologías por categoría">
-      <button class="filter-btn" type="button" data-filter="todo" aria-pressed="true" aria-controls="techGrid">--todo <span class="count"></span></button>
+    <div class="stack-filters" id="stackFilters" role="group" aria-label="Filtrar tecnologías por categoría" data-i18n-aria="aria.filters">
+      <button class="filter-btn" type="button" data-filter="todo" aria-pressed="true" aria-controls="techGrid"><span data-i18n="f.all">--todo</span> <span class="count"></span></button>
       <button class="filter-btn" type="button" data-filter="backend" aria-pressed="false" aria-controls="techGrid">--backend <span class="count"></span></button>
-      <button class="filter-btn" type="button" data-filter="lenguaje" aria-pressed="false" aria-controls="techGrid">--lenguajes <span class="count"></span></button>
+      <button class="filter-btn" type="button" data-filter="lenguaje" aria-pressed="false" aria-controls="techGrid"><span data-i18n="f.lang">--lenguajes</span> <span class="count"></span></button>
       <button class="filter-btn" type="button" data-filter="frontend" aria-pressed="false" aria-controls="techGrid">--frontend <span class="count"></span></button>
-      <button class="filter-btn" type="button" data-filter="datos" aria-pressed="false" aria-controls="techGrid">--datos <span class="count"></span></button>
+      <button class="filter-btn" type="button" data-filter="datos" aria-pressed="false" aria-controls="techGrid"><span data-i18n="f.data">--datos</span> <span class="count"></span></button>
       <button class="filter-btn" type="button" data-filter="infra" aria-pressed="false" aria-controls="techGrid">--infra <span class="count"></span></button>
     </div>
 
-    <div class="tech-grid" id="techGrid" aria-live="polite">
+    <p class="sr-only" id="stackStatus" role="status" aria-live="polite"></p>
+    <div class="tech-grid" id="techGrid">
       <div class="tech" data-cat="backend"><img src="assets/icons/nestjs.svg" alt="NestJS" loading="lazy" width="34" height="34"><span class="name">NestJS</span><span class="cat">backend</span></div>
       <div class="tech" data-cat="backend"><img src="assets/icons/nodejs.svg" alt="Node.js" loading="lazy" width="34" height="34"><span class="name">Node.js</span><span class="cat">backend</span></div>
       <div class="tech" data-cat="backend"><img src="assets/icons/java.svg" alt="Java" loading="lazy" width="34" height="34"><span class="name">Java</span><span class="cat">backend</span></div>
@@ -625,26 +658,27 @@
 
   <!-- EXPERIENCIA -->
   <section id="experiencia" class="wrap reveal">
-    <div class="eyebrow">git log --oneline --reverse</div>
-    <h2 class="title">Experiencia <span class="muted">// historial de commits</span></h2>
+    <div class="eyebrow">git log --oneline</div>
+    <h2 class="title" data-i18n="exp.title">Experiencia <span class="muted">// historial de commits</span></h2>
 
     <div class="log-item">
-      <div class="log-head"><span class="log-hash">#b74e309</span><span class="log-meta">HEAD -&gt; main, origin/main</span><span class="log-date">2026 — Presente</span></div>
-      <div class="log-role">Ingeniero de Desarrollo</div>
+      <div class="log-head"><span class="log-hash">#b74e309</span><span class="log-meta">HEAD -&gt; main, origin/main</span><span class="log-date" data-i18n="exp1.date">2026 — Presente</span></div>
+      <div class="log-role" data-i18n="exp1.role">Ingeniero de Desarrollo</div>
       <div class="log-org">NETSOLCA</div>
-      <ul class="diff">
+      <ul class="diff" data-i18n="exp1.list">
         <li>Desarrollo y mantenimiento de APIs REST (Java | NestJS)</li>
         <li>Desarrollo web sobre NestJS</li>
         <li>Desarrollo y mantenimiento server-side para múltiples softwares</li>
-        <li>Soporte técnico</li>
+        <li>Hacking Ético: Pen-Testing en entornos Windows/Linux</li>
+        <li>Ciberseguridad Ofensiva: ARP Spoofing, Post-Explotación y Evasión</li>
       </ul>
     </div>
 
     <div class="log-item">
-      <div class="log-head"><span class="log-hash">#8e21b47</span><span class="log-meta">feature/backend-services</span><span class="log-date">2026 — Presente</span></div>
-      <div class="log-role">Desarrollador Backend</div>
+      <div class="log-head"><span class="log-hash">#8e21b47</span><span class="log-meta">feature/backend-services</span><span class="log-date" data-i18n="exp2.date">2026 — Presente</span></div>
+      <div class="log-role" data-i18n="exp2.role">Desarrollador Backend</div>
       <div class="log-org">URBE</div>
-      <ul class="diff">
+      <ul class="diff" data-i18n="exp2.list">
         <li>Diseño e implementación de 5+ servicios escalables y arquitecturas de microservicios con NestJS, soportando más de 5,000 consultas concurrentes</li>
         <li>Desarrollo y mantenimiento de APIs REST robustas para administración de recursos</li>
         <li>Comunicación eficiente entre frontend (Angular) y base de datos (MySQL)</li>
@@ -653,10 +687,10 @@
     </div>
 
     <div class="log-item">
-      <div class="log-head"><span class="log-hash">#2c9d1a0</span><span class="log-meta">tag: soporte-nivel-1</span><span class="log-date">2024 — 2025</span></div>
-      <div class="log-role">Especialista en Soporte Técnico I</div>
+      <div class="log-head"><span class="log-hash">#2c9d1a0</span><span class="log-meta" data-i18n="exp3.tag">tag: soporte-nivel-1</span><span class="log-date">2024 — 2025</span></div>
+      <div class="log-role" data-i18n="exp3.role">Especialista en Soporte Técnico I</div>
       <div class="log-org">URBE</div>
-      <ul class="diff">
+      <ul class="diff" data-i18n="exp3.list">
         <li>Scripts de automatización en Bash para configuración masiva de estaciones de trabajo</li>
         <li>Mantenimiento preventivo y correctivo de hardware de alto rendimiento</li>
         <li>Soporte técnico nivel 1 y 2 a estudiantes y personal académico</li>
@@ -665,10 +699,10 @@
     </div>
 
     <div class="log-item">
-      <div class="log-head"><span class="log-hash">#f3a9c21</span><span class="log-meta">tag: primer-commit</span><span class="log-date">2022 — 2024</span></div>
-      <div class="log-role">Especialista en Soporte Técnico</div>
+      <div class="log-head"><span class="log-hash">#f3a9c21</span><span class="log-meta" data-i18n="exp4.tag">tag: primer-commit</span><span class="log-date">2022 — 2024</span></div>
+      <div class="log-role" data-i18n="exp4.role">Especialista en Soporte Técnico</div>
       <div class="log-org">URBE</div>
-      <ul class="diff">
+      <ul class="diff" data-i18n="exp4.list">
         <li>Ciclo de vida de hardware: diagnóstico, migración y escalamiento de equipos</li>
         <li>Manejo de CRM (Tawk.to) para seguimiento y análisis de datos de usuarios</li>
         <li>Diagnóstico y resolución de incidencias en tiempo real</li>
@@ -678,20 +712,20 @@
 
   <!-- PROYECTOS -->
   <section id="proyectos" class="wrap reveal">
-    <div class="eyebrow">ls -la ./proyectos</div>
-    <h2 class="title">Proyectos <span class="muted">// trabajo aplicado</span></h2>
+    <div class="eyebrow" data-i18n="proj.eyebrow">ls -la ./proyectos</div>
+    <h2 class="title" data-i18n="proj.title">Proyectos <span class="muted">// trabajo aplicado</span></h2>
     <div class="proj-grid">
-      <div class="proj-card is-clickable" data-project="notilab" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Ver detalles de Notilab">
+      <div class="proj-card is-clickable" data-project="notilab" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Ver detalles de Notilab" data-i18n-aria="aria.notilab">
         <div class="proj-top">
           <div class="proj-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
           </div>
-          <span class="proj-badge">interno</span>
+          <span class="proj-badge" data-i18n="p1.badge">interno</span>
         </div>
         <h3>Notilab</h3>
-        <p>Herramienta web para la organización y administración del equipo de laboratorio: control de recursos y flujo de trabajo del equipo.</p>
+        <p data-i18n="p1.desc">Herramienta web para la organización y administración del equipo de laboratorio: control de recursos y flujo de trabajo del equipo.</p>
         <div class="tag-row"><span class="tag">NestJS</span><span class="tag">Angular</span><span class="tag">MySQL</span></div>
-        <div class="proj-more"><span>./ver-detalles</span><span class="arr">→</span></div>
+        <div class="proj-more"><span data-i18n="p1.more">./ver-detalles</span><span class="arr">→</span></div>
       </div>
 
       <div class="proj-card">
@@ -699,10 +733,10 @@
           <div class="proj-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
           </div>
-          <span class="proj-badge">tiempo real</span>
+          <span class="proj-badge" data-i18n="p2.badge">tiempo real</span>
         </div>
-        <h3>Detección de periféricos</h3>
-        <p>Sistema de monitoreo en tiempo real que detecta la falta o desconexión de periféricos en las estaciones del laboratorio: registro de eventos, reconexión automática y alertas vía HTTP.</p>
+        <h3 data-i18n="p2.title">Detección de periféricos</h3>
+        <p data-i18n="p2.desc">Sistema de monitoreo en tiempo real que detecta la falta o desconexión de periféricos en las estaciones del laboratorio: registro de eventos, reconexión automática y alertas vía HTTP.</p>
         <div class="tag-row"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">HTTP</span></div>
         <div class="proj-links">
           <a class="proj-link" href="https://iflam3.github.io/Un-Plugged/" target="_blank" rel="noopener">
@@ -716,10 +750,10 @@
           <div class="proj-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="3"/><circle cx="12" cy="7" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="17" r="1.6"/></svg>
           </div>
-          <span class="proj-badge">en vivo</span>
+          <span class="proj-badge" data-i18n="p3.badge">en vivo</span>
         </div>
         <h3>Circula</h3>
-        <p>Campaña ciudadana de seguridad vial en Venezuela. El usuario elige MOTO o CARRO y recibe una experiencia personalizada: cifras recientes con fuente, videos educativos, test de riesgo, números de emergencia y un compromiso compartible.</p>
+        <p data-i18n="p3.desc">Campaña ciudadana de seguridad vial en Venezuela. El usuario elige MOTO o CARRO y recibe una experiencia personalizada: cifras recientes con fuente, videos educativos, test de riesgo, números de emergencia y un compromiso compartible.</p>
         <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
         <div class="proj-links">
           <a class="proj-link" href="https://iflam3.github.io/Circula/" target="_blank" rel="noopener">
@@ -733,10 +767,10 @@
           <div class="proj-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
           </div>
-          <span class="proj-badge">automatización</span>
+          <span class="proj-badge" data-i18n="p4.badge">automatización</span>
         </div>
-        <h3>Automatización de estaciones</h3>
-        <p>Scripts en Bash para la configuración masiva de estaciones de trabajo en laboratorios de computación, reduciendo tiempo de despliegue.</p>
+        <h3 data-i18n="p4.title">Automatización de estaciones</h3>
+        <p data-i18n="p4.desc">Scripts en Bash para la configuración masiva de estaciones de trabajo en laboratorios de computación, reduciendo tiempo de despliegue.</p>
         <div class="tag-row"><span class="tag">Bash</span><span class="tag">Linux</span></div>
       </div>
 
@@ -745,24 +779,24 @@
           <div class="proj-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
           </div>
-          <span class="proj-badge">producción</span>
+          <span class="proj-badge" data-i18n="p5.badge">producción</span>
         </div>
-        <h3>Arquitectura de microservicios</h3>
-        <p>5+ servicios escalables construidos con NestJS, soportando más de 5,000 consultas concurrentes para administración de recursos.</p>
-        <div class="tag-row"><span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">REST</span></div>
+        <h3 data-i18n="p5.title">Arquitectura de microservicios</h3>
+        <p data-i18n="p5.desc">5+ servicios escalables construidos con NestJS, soportando más de 5,000 consultas concurrentes para administración de recursos.</p>
+        <div class="tag-row"><span class="tag">NestJS</span><span class="tag">MySQL</span><span class="tag">REST</span></div>
       </div>
     </div>
   </section>
 
   <!-- FORMACION -->
   <section id="formacion" class="wrap reveal">
-    <div class="eyebrow">cat formacion.md</div>
-    <h2 class="title">Formación <span class="muted">// académica</span></h2>
+    <div class="eyebrow" data-i18n="edu.eyebrow">cat formacion.md</div>
+    <h2 class="title" data-i18n="edu.title">Formación <span class="muted">// académica</span></h2>
     <div class="edu-grid">
       <div class="edu-col">
-        <h3>académica</h3>
-        <div class="edu-row"><span class="name">Universidad Rafael Belloso Chacín (URBE) <span class="sep">—</span> <span class="degree">Ingeniero en Informática</span> <span class="note">· 10mo trimestre</span></span><span class="yr">2022 — Presente</span></div>
-        <div class="edu-row"><span class="name">U.E.P. Colegio Santa Mariana de Jesús <span class="sep">—</span> <span class="degree">Bachiller en Ciencias</span></span><span class="yr">2011 — 2022</span></div>
+        <h3 data-i18n="edu.h3">académica</h3>
+        <div class="edu-row"><span class="name">Universidad Rafael Belloso Chacín (URBE) <span class="sep">—</span> <span class="degree" data-i18n="edu1.degree">Ingeniero en Informática</span> <span class="note" data-i18n="edu1.note">· 10mo trimestre</span></span><span class="yr" data-i18n="edu1.yr">2022 — Presente</span></div>
+        <div class="edu-row"><span class="name">U.E.P. Colegio Santa Mariana de Jesús <span class="sep">—</span> <span class="degree" data-i18n="edu2.degree">Bachiller en Ciencias</span></span><span class="yr">2011 — 2022</span></div>
       </div>
     </div>
   </section>
@@ -771,8 +805,8 @@
   <section id="contacto" class="wrap reveal">
     <div class="contact-panel">
       <div class="eyebrow" style="justify-content:center;">./contact --init</div>
-      <h2>¿Construimos algo juntos?</h2>
-      <p>Abierto a nuevas oportunidades como Desarrollador Backend. Escríbeme y respondo lo antes posible.</p>
+      <h2 data-i18n="contact.h2">¿Construimos algo juntos?</h2>
+      <p data-i18n="contact.p">Abierto a nuevas oportunidades como Desarrollador Backend. Escríbeme y respondo lo antes posible.</p>
       <div class="contact-links">
         <a class="contact-chip" href="mailto:jhernandezdev05@gmail.com">
           <span class="chip-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
@@ -780,7 +814,7 @@
         </a>
         <a class="contact-chip" href="tel:+584246150916">
           <span class="chip-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg></span>
-          <span class="chip-txt"><small>teléfono</small><span>+58 424-6150916</span></span>
+          <span class="chip-txt"><small data-i18n="contact.phone">teléfono</small><span>+58 424-6150916</span></span>
         </a>
         <a class="contact-chip" href="https://github.com/iFlam3" target="_blank" rel="noopener">
           <span class="chip-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.67-1.26-1.67-1.03-.7.08-.68.08-.68 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.8 1.17 1.81 1.17 3.05 0 4.36-2.65 5.32-5.18 5.6.41.35.77 1.04.77 2.11 0 1.52-.01 2.75-.01 3.12 0 .3.2.66.79.55A11.03 11.03 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg></span>
@@ -788,7 +822,7 @@
         </a>
         <a class="contact-chip" href="https://www.google.com/maps/place/Maracaibo,+Zulia,+Venezuela" target="_blank" rel="noopener">
           <span class="chip-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-          <span class="chip-txt"><small>ubicación</small><span>Maracaibo, Venezuela</span></span>
+          <span class="chip-txt"><small data-i18n="contact.loc">ubicación</small><span>Maracaibo, Venezuela</span></span>
         </a>
       </div>
     </div>
@@ -796,10 +830,10 @@
 </main>
 
 <footer>
-  made with <svg class="heart" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="amor"><path d="M12 21s-7.5-4.6-9.9-9.3C.6 8.6 2.4 4.5 6.2 4.1c2.2-.2 4 1 5.8 3.1 1.8-2.1 3.6-3.3 5.8-3.1 3.8.4 5.6 4.5 4.1 7.6C19.5 16.4 12 21 12 21z"/></svg> by <a href="https://github.com/iFlam3" target="_blank" rel="noopener">iFlam3</a> - ©2026
+  <span data-i18n="foot.made">hecho con</span> <svg class="heart" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="amor" data-i18n-aria="aria.love"><path d="M12 21s-7.5-4.6-9.9-9.3C.6 8.6 2.4 4.5 6.2 4.1c2.2-.2 4 1 5.8 3.1 1.8-2.1 3.6-3.3 5.8-3.1 3.8.4 5.6 4.5 4.1 7.6C19.5 16.4 12 21 12 21z"/></svg> <span data-i18n="foot.by">por</span> <a href="https://github.com/iFlam3" target="_blank" rel="noopener">iFlam3</a> - ©2026
 </footer>
 
-<button class="to-top" id="toTop" aria-label="Volver al inicio de la página">
+<button class="to-top" id="toTop" aria-label="Volver al inicio de la página" data-i18n-aria="aria.top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
@@ -807,7 +841,7 @@
   <div class="term-bar">
     <span class="term-prompt"><span class="u">jose@dev</span>:<span class="c">~</span>$</span>
     <span class="term-title" id="modalPath"></span>
-    <button class="modal-close" id="modalClose" aria-label="Cerrar">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar" data-i18n-aria="aria.close">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </div>
@@ -826,40 +860,182 @@
 </dialog>
 
 <script>
+  // ---------- idioma (es / en) ----------
+  // El español vive en el HTML; aquí solo va el inglés de los elementos con data-i18n.
+  const EN = {
+    'nav.exp': '<span>02.</span> Experience',
+    'nav.proj': '<span>03.</span> Projects',
+    'nav.edu': '<span>04.</span> Education',
+    'm.exp': 'Experience', 'm.proj': 'Projects', 'm.edu': 'Education', 'm.contact': 'Contact',
+
+    'hero.h1': 'I build <span class="accent">solid, scalable</span> backend systems.',
+    'hero.lead': 'Backend Developer based in Maracaibo, Venezuela. I design REST APIs and microservice architectures with NestJS, Node.js and Java — focused on scalability, performance and maintainable code.',
+    'hero.cta1': 'View projects →',
+    'hero.cta2': 'Get in touch',
+
+    'stack.title': 'Stack <span class="muted">// tools of the trade</span>',
+    'f.all': '--all', 'f.lang': '--languages', 'f.data': '--data',
+
+    'exp.title': 'Experience <span class="muted">// commit history</span>',
+    'exp1.date': '2026 — Present',
+    'exp1.role': 'Development Engineer',
+    'exp1.list': `
+        <li>Development and maintenance of REST APIs (Java | NestJS)</li>
+        <li>Web development on NestJS</li>
+        <li>Server-side development and maintenance for multiple software products</li>
+        <li>Ethical Hacking: Pen-Testing in Windows/Linux environments</li>
+        <li>Offensive Security: ARP Spoofing, Post-Exploitation and Evasion</li>`,
+    'exp2.date': '2026 — Present',
+    'exp2.role': 'Backend Developer',
+    'exp2.list': `
+        <li>Designed and built 5+ scalable services and microservice architectures with NestJS, handling over 5,000 concurrent queries</li>
+        <li>Development and maintenance of robust REST APIs for resource management</li>
+        <li>Efficient communication between the frontend (Angular) and the database (MySQL)</li>
+        <li>Contributed to Notilab, a web tool for the computer lab</li>`,
+    'exp3.tag': 'tag: support-tier-1',
+    'exp3.role': 'IT Support Specialist I',
+    'exp3.list': `
+        <li>Bash automation scripts for bulk workstation configuration</li>
+        <li>Preventive and corrective maintenance of high-performance hardware</li>
+        <li>Tier 1 and 2 technical support for students and academic staff</li>
+        <li>Real-time missing-peripheral detection system (Python, Java, HTTP alerts)</li>`,
+    'exp4.tag': 'tag: first-commit',
+    'exp4.role': 'IT Support Specialist',
+    'exp4.list': `
+        <li>Hardware lifecycle: diagnostics, migration and equipment upgrades</li>
+        <li>CRM management (Tawk.to) for tracking and analyzing user data</li>
+        <li>Real-time incident diagnosis and resolution</li>`,
+
+    'proj.eyebrow': 'ls -la ./projects',
+    'proj.title': 'Projects <span class="muted">// applied work</span>',
+    'p1.badge': 'internal',
+    'p1.desc': 'Web tool for organizing and managing the lab team: resource control and team workflow.',
+    'p1.more': './view-details',
+    'p2.badge': 'real-time',
+    'p2.title': 'Peripheral detection',
+    'p2.desc': 'Real-time monitoring system that detects missing or disconnected peripherals on lab workstations: event logging, automatic reconnection and HTTP alerts.',
+    'p3.badge': 'live',
+    'p3.desc': 'Citizen road-safety campaign in Venezuela. Users pick MOTORCYCLE or CAR and get a tailored experience: recent sourced statistics, educational videos, a risk quiz, emergency numbers and a shareable pledge.',
+    'p4.badge': 'automation',
+    'p4.title': 'Workstation automation',
+    'p4.desc': 'Bash scripts for bulk configuration of workstations in computer labs, cutting deployment time.',
+    'p5.badge': 'production',
+    'p5.title': 'Microservices architecture',
+    'p5.desc': '5+ scalable services built with NestJS, handling over 5,000 concurrent queries for resource management.',
+
+    'edu.eyebrow': 'cat education.md',
+    'edu.title': 'Education <span class="muted">// academic</span>',
+    'edu.h3': 'academic',
+    'edu1.degree': 'B.S. in Computer Engineering',
+    'edu1.note': '· 10th trimester',
+    'edu1.yr': '2022 — Present',
+    'edu2.degree': 'High School Diploma in Science',
+
+    'contact.h2': 'Shall we build something together?',
+    'contact.p': 'Open to new opportunities as a Backend Developer. Drop me a line and I’ll get back to you as soon as possible.',
+    'contact.phone': 'phone',
+    'contact.loc': 'location',
+
+    'foot.made': 'made with',
+    'foot.by': 'by',
+  };
+
+  const EN_ARIA = {
+    'aria.phone': 'Phone',
+    'aria.filters': 'Filter technologies by category',
+    'aria.notilab': 'View Notilab details',
+    'aria.love': 'love',
+    'aria.top': 'Back to top',
+    'aria.close': 'Close',
+  };
+
+  // Textos que genera el JS
+  const STR = {
+    es: {
+      metaDesc: 'Portafolio de Jose Hernandez, Desarrollador Backend especializado en NestJS, Node.js y arquitecturas de microservicios.',
+      langBtn: 'Switch to English',
+      menuOpen: 'Abrir menú', menuClose: 'Cerrar menú',
+      showing: n => `Mostrando ${n} tecnologías`,
+      shots: n => `${n} capturas disponibles`,
+      more: 'Ver más', less: 'Ver menos',
+      viewLarge: cap => `Ver en grande: ${cap}`,
+      pending: 'captura pendiente',
+      status: 'status: online — construyendo APIs',
+      cats: { backend:'backend', lenguaje:'lenguaje', frontend:'frontend', datos:'datos', infra:'infra' },
+      term: [
+        { prompt: '$', text: 'whoami', type: 'cmd' },
+        { text: 'jose_hernandez', type: 'out' },
+        { prompt: '$', text: 'cat role.txt', type: 'cmd' },
+        { text: 'Backend Developer — Node.js · NestJS · Java', type: 'out' },
+        { prompt: '$', text: 'cat location.txt', type: 'cmd' },
+        { text: 'Maracaibo, Venezuela', type: 'out' },
+        { prompt: '$', text: 'grep -c "APIs" experiencia.log', type: 'cmd' },
+        { text: '5+ servicios en producción, 5,000+ req concurrentes', type: 'out' },
+      ],
+    },
+    en: {
+      metaDesc: 'Portfolio of Jose Hernandez, Backend Developer specialized in NestJS, Node.js and microservice architectures.',
+      langBtn: 'Cambiar a español',
+      menuOpen: 'Open menu', menuClose: 'Close menu',
+      showing: n => `Showing ${n} technologies`,
+      shots: n => `${n} screenshots available`,
+      more: 'Show more', less: 'Show less',
+      viewLarge: cap => `View larger: ${cap}`,
+      pending: 'screenshot pending',
+      status: 'status: online — building APIs',
+      cats: { backend:'backend', lenguaje:'language', frontend:'frontend', datos:'data', infra:'infra' },
+      term: [
+        { prompt: '$', text: 'whoami', type: 'cmd' },
+        { text: 'jose_hernandez', type: 'out' },
+        { prompt: '$', text: 'cat role.txt', type: 'cmd' },
+        { text: 'Backend Developer — Node.js · NestJS · Java', type: 'out' },
+        { prompt: '$', text: 'cat location.txt', type: 'cmd' },
+        { text: 'Maracaibo, Venezuela', type: 'out' },
+        { prompt: '$', text: 'grep -c "APIs" experience.log', type: 'cmd' },
+        { text: '5+ services in production, 5,000+ concurrent req', type: 'out' },
+      ],
+    },
+  };
+
+  // Guarda el español original del HTML para poder volver a él
+  const i18nEls = [...document.querySelectorAll('[data-i18n]')].map(el => ({ el, key: el.dataset.i18n, es: el.innerHTML }));
+  const i18nAria = [...document.querySelectorAll('[data-i18n-aria]')].map(el => ({ el, key: el.dataset.i18nAria, es: el.getAttribute('aria-label') }));
+
+  let lang = 'es';
+  try { lang = localStorage.getItem('lang') || ''; } catch(e) { lang = ''; }
+  if(lang !== 'es' && lang !== 'en') lang = (navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en';
+  const t = () => STR[lang];
+
   // ---------- terminal typing ----------
   const termBody = document.getElementById('termBody');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const lines = [
-    { prompt: '$', text: 'whoami', type: 'cmd' },
-    { text: 'jose_hernandez', type: 'out' },
-    { prompt: '$', text: 'cat role.txt', type: 'cmd' },
-    { text: 'Backend Developer — Node.js · NestJS · Java', type: 'out' },
-    { prompt: '$', text: 'cat location.txt', type: 'cmd' },
-    { text: 'Maracaibo, Venezuela', type: 'out' },
-    { prompt: '$', text: 'grep -c "APIs" experiencia.log', type: 'cmd' },
-    { text: '5+ servicios en producción, 5,000+ req concurrentes', type: 'out' },
-  ];
+  let termRun = 0;   // se incrementa para cancelar una animación en curso
 
   function renderStatic(){
-    termBody.innerHTML = lines.map(l => {
+    termBody.innerHTML = t().term.map(l => {
       if(l.type === 'cmd'){
         return `<div class="term-line"><span class="prompt">${l.prompt}</span><span class="out">${l.text}</span></div>`;
       }
       return `<div class="term-line" style="padding-left:18px;"><span class="comment">${l.text}</span></div>`;
-    }).join('') + `<div class="status-line"><span class="sdot"></span> status: online — construyendo APIs</div>`;
+    }).join('') + `<div class="status-line"><span class="sdot"></span> ${t().status}<span class="cursor"></span></div>`;
   }
 
-  async function typeLine(container, text, speed){
+  const sleep = ms => new Promise(r=>setTimeout(r, ms));
+
+  async function typeLine(container, text, speed, run){
     for(let i=0;i<=text.length;i++){
+      if(run !== termRun) return;
       container.textContent = text.slice(0,i);
-      await new Promise(r=>setTimeout(r, speed));
+      await sleep(speed);
     }
   }
 
   async function bootTerminal(){
+    const run = ++termRun;
+    termBody.replaceChildren();
     if(reducedMotion){ renderStatic(); return; }
-    for(const l of lines){
+    for(const l of t().term){
+      if(run !== termRun) return;
       const row = document.createElement('div');
       row.className = 'term-line';
       if(l.type === 'cmd'){
@@ -869,24 +1045,24 @@
         out.className = 'out';
         row.appendChild(prompt); row.appendChild(out);
         termBody.appendChild(row);
-        await typeLine(out, l.text, 32);
-        await new Promise(r=>setTimeout(r,180));
+        await typeLine(out, l.text, 32, run);
+        await sleep(180);
       } else {
         row.style.paddingLeft = '18px';
         const out = document.createElement('span');
         out.className = 'comment';
         row.appendChild(out);
         termBody.appendChild(row);
-        await typeLine(out, l.text, 14);
-        await new Promise(r=>setTimeout(r,260));
+        await typeLine(out, l.text, 14, run);
+        await sleep(260);
       }
     }
+    if(run !== termRun) return;
     const status = document.createElement('div');
     status.className = 'status-line';
-    status.innerHTML = '<span class="sdot"></span> status: online — construyendo APIs<span class="cursor"></span>';
+    status.innerHTML = `<span class="sdot"></span> ${t().status}<span class="cursor"></span>`;
     termBody.appendChild(status);
   }
-  bootTerminal();
 
   // ---------- scroll reveal ----------
   const revealEls = document.querySelectorAll('.reveal');
@@ -900,16 +1076,34 @@
   // ---------- mobile menu ----------
   const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
-  burger.addEventListener('click', ()=>{
-    burger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
+  function setMenu(open){
+    burger.classList.toggle('open', open);
+    mobileMenu.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? t().menuClose : t().menuOpen);
+  }
+  burger.addEventListener('click', ()=> setMenu(!mobileMenu.classList.contains('open')));
+  mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> setMenu(false)));
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape' && mobileMenu.classList.contains('open')){ setMenu(false); burger.focus(); }
   });
-  mobileMenu.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=>{
-      burger.classList.remove('open');
-      mobileMenu.classList.remove('open');
+  // si se agranda la ventana con el menú abierto, lo cierra
+  window.matchMedia('(min-width: 861px)').addEventListener('change', e=>{ if(e.matches) setMenu(false); });
+
+  // ---------- sección activa en el nav ----------
+  const navLinks = [...document.querySelectorAll('.nav-links a, .mobile-menu a')];
+  const spy = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      navLinks.forEach(a=>{
+        const on = a.getAttribute('href') === '#' + e.target.id;
+        a.classList.toggle('active', on);
+        if(on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      });
     });
-  });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section[id]').forEach(sec => spy.observe(sec));
 
   // ---------- filtro del stack ----------
   const techs = [...document.querySelectorAll('.tech')];
@@ -921,19 +1115,23 @@
     btn.querySelector('.count').textContent = `(${n})`;
   });
 
+  const stackStatus = document.getElementById('stackStatus');
+
   function applyFilter(f){
     filterBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === f)));
-    let i = 0;
+    let i = 0, shown = 0;
     techs.forEach(t=>{
       const match = f === 'todo' || t.dataset.cat === f;
       t.classList.remove('in');
       t.hidden = !match;
+      if(match) shown++;
       if(match && !reducedMotion){
         t.style.animationDelay = `${i++ * 28}ms`;
         void t.offsetWidth;          // reinicia la animación
         t.classList.add('in');
       }
     });
+    stackStatus.textContent = t().showing(shown);
   }
 
   filterBtns.forEach(btn => btn.addEventListener('click', ()=> applyFilter(btn.dataset.filter)));
@@ -951,22 +1149,34 @@
   // Capturas: coloca las imágenes en assets/proyectos/ con estos nombres.
   const projects = {
     notilab: {
-      path: '~/proyectos/notilab',
-      badge: 'interno',
-      title: 'Notilab',
-      desc: 'Herramienta web desarrollada para el laboratorio de computación de URBE. Centraliza la organización y administración del equipo de laboratorio: control de recursos, seguimiento del flujo de trabajo y comunicación entre el frontend y la base de datos a través de una API propia.',
-      points: [
-        'API REST en NestJS para la administración de recursos del laboratorio',
-        'Frontend en Angular conectado a la API',
-        'Persistencia de datos en MySQL',
-        'Organización del flujo de trabajo del equipo de laboratorio',
-      ],
       tags: ['NestJS', 'Angular', 'MySQL', 'REST'],
-      shots: [
-        { src: 'assets/proyectos/notilab-2.jpg', cap: 'Estado de los equipos del laboratorio' },
-        { src: 'assets/proyectos/notilab-1.jpg', cap: 'Inicio de sesión' },
-        { src: 'assets/proyectos/notilab-3.jpg', cap: 'Registro de chequeos por turno' },
-      ],
+      shots: ['assets/proyectos/notilab-2.jpg', 'assets/proyectos/notilab-1.jpg', 'assets/proyectos/notilab-3.jpg'],
+      es: {
+        path: '~/proyectos/notilab',
+        badge: 'interno',
+        title: 'Notilab',
+        desc: 'Herramienta web desarrollada para el laboratorio de computación de URBE. Centraliza la organización y administración del equipo de laboratorio: control de recursos, seguimiento del flujo de trabajo y comunicación entre el frontend y la base de datos a través de una API propia.',
+        points: [
+          'API REST en NestJS para la administración de recursos del laboratorio',
+          'Frontend en Angular conectado a la API',
+          'Persistencia de datos en MySQL',
+          'Organización del flujo de trabajo del equipo de laboratorio',
+        ],
+        caps: ['Estado de los equipos del laboratorio', 'Inicio de sesión', 'Registro de chequeos por turno'],
+      },
+      en: {
+        path: '~/projects/notilab',
+        badge: 'internal',
+        title: 'Notilab',
+        desc: 'Web tool built for the URBE computer lab. It centralizes the organization and management of the lab team: resource control, workflow tracking and communication between the frontend and the database through a custom API.',
+        points: [
+          'NestJS REST API for managing lab resources',
+          'Angular frontend connected to the API',
+          'Data persistence with MySQL',
+          'Workflow organization for the lab team',
+        ],
+        caps: ['Lab equipment status', 'Login', 'Per-shift check log'],
+      },
     },
   };
 
@@ -989,27 +1199,64 @@
     img.addEventListener('error', ()=>{
       const ph = el('div', 'shot-ph');
       ph.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-8 8"/></svg>';
-      ph.append(el('span', '', 'captura pendiente'), el('code', '', s.src));
+      ph.append(el('span', '', t().pending), el('code', '', s.src));
       img.replaceWith(ph);
     }, { once:true });
     fig.append(img, el('figcaption', '', s.cap));
+    fig.dataset.cap = s.cap;
     return fig;
   }
+
+  // Solo las miniaturas (no la principal) son clicables
+  function syncShots(){
+    [...gallery.children].forEach((f, i)=>{
+      if(i === 0){
+        f.removeAttribute('tabindex'); f.removeAttribute('role'); f.removeAttribute('aria-label');
+      } else {
+        f.tabIndex = 0; f.setAttribute('role', 'button');
+        f.setAttribute('aria-label', t().viewLarge(f.dataset.cap));
+      }
+    });
+  }
+
+  // Intercambia la miniatura con la captura principal
+  function promoteShot(fig){
+    const main = gallery.firstElementChild;
+    if(!fig || fig === main) return;
+    const next = fig.nextElementSibling;
+    gallery.insertBefore(fig, main);
+    gallery.insertBefore(main, next);
+    syncShots();
+    if(!reducedMotion){
+      fig.classList.remove('promoted'); void fig.offsetWidth; fig.classList.add('promoted');
+    }
+    fig.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest' });
+  }
+
+  gallery.addEventListener('click', e=> promoteShot(e.target.closest('.shot')));
+  gallery.addEventListener('keydown', e=>{
+    if((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('shot')){
+      e.preventDefault();
+      promoteShot(e.target);
+    }
+  });
 
   function openProject(key){
     const p = projects[key];
     if(!p) return;
-    $('modalPath').textContent = p.path;
-    $('modalBadge').textContent = p.badge;
-    $('modalTitle').textContent = p.title;
-    $('modalDesc').textContent = p.desc;
-    $('modalPoints').replaceChildren(...p.points.map(t => el('li', '', t)));
-    $('modalTags').replaceChildren(...p.tags.map(t => el('span', 'tag', t)));
-    $('modalCount').textContent = `${p.shots.length} capturas disponibles`;
-    gallery.replaceChildren(...p.shots.map(shotFigure));
+    const c = p[lang];
+    $('modalPath').textContent = c.path;
+    $('modalBadge').textContent = c.badge;
+    $('modalTitle').textContent = c.title;
+    $('modalDesc').textContent = c.desc;
+    $('modalPoints').replaceChildren(...c.points.map(txt => el('li', '', txt)));
+    $('modalTags').replaceChildren(...p.tags.map(txt => el('span', 'tag', txt)));
+    $('modalCount').textContent = t().shots(p.shots.length);
+    gallery.replaceChildren(...p.shots.map((src, i) => shotFigure({ src, cap: c.caps[i] })));
+    syncShots();
     gallery.hidden = true;
     moreBtn.setAttribute('aria-expanded', 'false');
-    $('modalMoreLabel').textContent = 'Ver más';
+    $('modalMoreLabel').textContent = t().more;
     modal.showModal();
     modal.querySelector('.modal-body').scrollTop = 0;
     document.body.classList.add('modal-open');
@@ -1017,9 +1264,10 @@
 
   function closeModal(){
     if(!modal.open || modal.classList.contains('closing')) return;
-    if(reducedMotion){ modal.close(); return; }
+    const finish = ()=>{ modal.classList.remove('closing'); modal.close(); document.body.classList.remove('modal-open'); };
+    if(reducedMotion){ finish(); return; }
     modal.classList.add('closing');
-    setTimeout(()=>{ modal.classList.remove('closing'); modal.close(); }, 180);
+    setTimeout(finish, 180);
   }
 
   document.querySelectorAll('.proj-card[data-project]').forEach(card=>{
@@ -1033,7 +1281,7 @@
     const open = gallery.hidden;
     gallery.hidden = !open;
     moreBtn.setAttribute('aria-expanded', String(open));
-    $('modalMoreLabel').textContent = open ? 'Ver menos' : 'Ver más';
+    $('modalMoreLabel').textContent = open ? t().less : t().more;
     if(open) gallery.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
   });
 
@@ -1081,9 +1329,41 @@
     });
     if(!reducedMotion) requestAnimationFrame(drawNodes);
   }
-  resize(); initNodes();
-  if(!reducedMotion){ drawNodes(); } else { drawNodes(); }
-  window.addEventListener('resize', ()=>{ resize(); initNodes(); });
+  resize(); initNodes(); drawNodes();
+  // En móvil la barra del navegador dispara "resize" al hacer scroll:
+  // solo se regeneran los nodos si cambia el ancho.
+  let lastW = window.innerWidth;
+  window.addEventListener('resize', ()=>{
+    if(window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
+    resize(); initNodes();
+    if(reducedMotion) drawNodes();
+  });
+
+  // ---------- aplicar idioma ----------
+  const langBtn = document.getElementById('langBtn');
+
+  function applyLang(next, { animateTerm = false } = {}){
+    lang = next;
+    document.documentElement.lang = lang;
+    document.querySelector('meta[name="description"]').content = t().metaDesc;
+    i18nEls.forEach(({ el, key, es }) => { el.innerHTML = lang === 'en' ? EN[key] : es; });
+    i18nAria.forEach(({ el, key, es }) => el.setAttribute('aria-label', lang === 'en' ? EN_ARIA[key] : es));
+    document.querySelectorAll('.tech .cat').forEach(c => { c.textContent = t().cats[c.closest('.tech').dataset.cat]; });
+    burger.setAttribute('aria-label', mobileMenu.classList.contains('open') ? t().menuClose : t().menuOpen);
+    langBtn.querySelectorAll('[data-l]').forEach(sp => sp.classList.toggle('on', sp.dataset.l === lang));
+    langBtn.setAttribute('aria-label', t().langBtn);
+    if(animateTerm) bootTerminal();
+    else { termRun++; renderStatic(); }
+  }
+
+  langBtn.addEventListener('click', ()=>{
+    const next = lang === 'es' ? 'en' : 'es';
+    try { localStorage.setItem('lang', next); } catch(e) {}
+    applyLang(next);
+  });
+
+  applyLang(lang, { animateTerm: true });
 </script>
 
 </body>
