@@ -4,946 +4,1008 @@
 <meta charset="UTF-8">
 <script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jose Hernandez — Backend Developer</title>
-<meta name="description" content="Portafolio de Jose Hernandez, Desarrollador Backend especializado en NestJS, Node.js y arquitecturas de microservicios.">
+<title>Jose Hernandez (iFlame) — Desarrollador Backend · NestJS, Node.js y Java</title>
+<meta name="description" content="Jose Hernandez (iFlame), desarrollador backend en Maracaibo, Venezuela. APIs REST y microservicios con NestJS, Node.js y Java. Proyectos, stack y contacto.">
+<meta name="author" content="Jose Hernandez">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://iflam3.github.io/portfolio/">
+<link rel="alternate" hreflang="es" href="https://iflam3.github.io/portfolio/">
+<link rel="alternate" hreflang="en" href="https://iflam3.github.io/portfolio/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://iflam3.github.io/portfolio/">
+<meta name="theme-color" content="#f6efe4">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="me" href="https://github.com/iFlam3">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="iFlame · Jose Hernandez">
+<meta property="og:title" content="Jose Hernandez (iFlame) — Desarrollador Backend">
+<meta property="og:description" content="APIs REST y microservicios con NestJS, Node.js y Java desde Maracaibo, Venezuela.">
+<meta property="og:url" content="https://iflam3.github.io/portfolio/">
+<meta property="og:image" content="https://iflam3.github.io/portfolio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo iFlame con una flama pixelada como punto de la i, y el texto Jose Hernandez, Desarrollador Backend.">
+<meta property="og:locale" content="es_VE">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="profile:first_name" content="Jose">
+<meta property="profile:last_name" content="Hernandez">
+<meta property="profile:username" content="iFlam3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jose Hernandez (iFlame) — Desarrollador Backend">
+<meta name="twitter:description" content="APIs REST y microservicios con NestJS, Node.js y Java desde Maracaibo, Venezuela.">
+<meta name="twitter:image" content="https://iflam3.github.io/portfolio/assets/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://iflam3.github.io/portfolio/#profile",
+      "url": "https://iflam3.github.io/portfolio/",
+      "name": "Jose Hernandez (iFlame) — Portafolio",
+      "inLanguage": ["es", "en"],
+      "dateModified": "2026-10-26",
+      "mainEntity": { "@id": "https://iflam3.github.io/portfolio/#person" },
+      "isPartOf": { "@id": "https://iflam3.github.io/portfolio/#website" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://iflam3.github.io/portfolio/#person",
+      "name": "Jose Hernandez",
+      "alternateName": ["iFlame", "iFlam3"],
+      "jobTitle": "Desarrollador Backend",
+      "url": "https://iflam3.github.io/portfolio/",
+      "image": "https://iflam3.github.io/portfolio/assets/og-image.png",
+      "sameAs": ["https://github.com/iFlam3"],
+      "address": { "@type": "PostalAddress", "addressLocality": "Maracaibo", "addressRegion": "Zulia", "addressCountry": "VE" },
+      "worksFor": { "@type": "Organization", "name": "NETSOLCA" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Rafael Belloso Chacín (URBE)" },
+      "knowsAbout": ["NestJS", "Node.js", "Java", "TypeScript", "JavaScript", "Python", "APIs REST", "Microservicios", "MySQL", "PostgreSQL", "Supabase", "Linux", "Bash", "PowerShell", "Git", "Ciberseguridad"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://iflam3.github.io/portfolio/#website",
+      "url": "https://iflam3.github.io/portfolio/",
+      "name": "iFlame",
+      "inLanguage": "es",
+      "publisher": { "@id": "https://iflam3.github.io/portfolio/#person" }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Proyectos",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "Notilab", "description": "Herramienta web para administrar el laboratorio de computación de URBE.", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "WebSite", "name": "Blasphemous · El peregrinaje del Penitente", "url": "https://blasphemousfan.vercel.app/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "WebSite", "name": "Circula", "url": "https://iflam3.github.io/Circula/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "WebSite", "name": "Un-Plugged · Detección de periféricos", "url": "https://iflam3.github.io/Un-Plugged/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } }
+      ]
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+  /* Los colores de tinta se animan al cambiar entre fondo claro y oscuro */
+  @property --fg      { syntax:'<color>'; inherits:true; initial-value:#1d1612; }
+  @property --muted   { syntax:'<color>'; inherits:true; initial-value:#5f5148; }
+  @property --faint   { syntax:'<color>'; inherits:true; initial-value:#8b7b6f; }
+  @property --line    { syntax:'<color>'; inherits:true; initial-value:rgba(29,22,18,.14); }
+  @property --panel   { syntax:'<color>'; inherits:true; initial-value:rgba(29,22,18,.04); }
+  @property --on-accent { syntax:'<color>'; inherits:true; initial-value:#fff8f0; }
+
   :root{
-    --bg:#0a0d12;
-    --bg-alt:#0d1119;
-    --panel:#10151d;
-    --panel-2:#0c1017;
-    --border:#1d2530;
-    --border-soft:rgba(255,255,255,0.07);
-    --text:#e8edf3;
-    --text-dim:#8b96a6;
-    --text-faint:#525c6b;
-    --cyan:#5eead4;
-    --cyan-glow:rgba(94,234,212,0.35);
-    --cyan-dim:rgba(94,234,212,0.12);
-    --amber:#f2b545;
-    --amber-dim:rgba(242,181,69,0.13);
-    --red:#e2665a;
-    --radius:12px;
-    --mono:'JetBrains Mono', monospace;
-    --sans:'Inter', sans-serif;
-    --maxw:1080px;
+    /* --bg y --accent los mueve el JS según el scroll */
+    --bg:#f6efe4;
+    --accent:#c2410c;
+
+    --fg:#1d1612;
+    --muted:#5f5148;
+    --faint:#8b7b6f;
+    --line:rgba(29,22,18,.14);
+    --panel:rgba(29,22,18,.04);
+    --on-accent:#fff8f0;
+
+    --display:'Archivo', 'Arial Narrow', sans-serif;
+    --sans:'Archivo', system-ui, sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+    --maxw:1240px;
+    --pad:clamp(18px, 4vw, 48px);
+    --nav-h:68px;
+
+    transition:--fg .45s ease, --muted .45s ease, --faint .45s ease, --line .45s ease, --panel .45s ease, --on-accent .45s ease;
+  }
+  :root.dark{
+    --fg:#f3ece6;
+    --muted:#b8aca3;
+    --faint:#85786f;
+    --line:rgba(243,236,230,.14);
+    --panel:rgba(243,236,230,.045);
+    --on-accent:#140b18;
   }
 
-  *{margin:0;padding:0;box-sizing:border-box;}
-
-  html{scroll-behavior:smooth;}
-
+  *{margin:0; padding:0; box-sizing:border-box;}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%;}
   /* barra de desplazamiento oculta (se sigue pudiendo hacer scroll) */
   html, *{scrollbar-width:none; -ms-overflow-style:none;}
   *::-webkit-scrollbar{width:0; height:0;}
 
   body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:var(--sans);
-    line-height:1.6;
-    overflow-x:hidden;
-    background-image:
-      radial-gradient(circle at 15% 8%, rgba(94,234,212,0.05), transparent 40%),
-      radial-gradient(circle at 85% 30%, rgba(242,181,69,0.04), transparent 40%);
+    background:var(--bg); color:var(--fg);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    overflow-x:hidden; -webkit-font-smoothing:antialiased;
   }
-
-  ::selection{background:var(--cyan-dim); color:var(--cyan);}
-
+  ::selection{background:var(--accent); color:var(--on-accent);}
   a{color:inherit; text-decoration:none;}
+  img, canvas{display:block; max-width:100%;}
+  button{font:inherit; color:inherit;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px;}
 
-  :focus-visible{
-    outline:2px solid var(--cyan);
-    outline-offset:3px;
-    border-radius:4px;
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--pad);}
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
   }
-
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
-
-  /* ---------- background grid ---------- */
-  .bg-grid{
-    position:fixed; inset:0; z-index:0; pointer-events:none;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size:42px 42px;
-    mask-image:radial-gradient(ellipse 70% 60% at 50% 0%, black 20%, transparent 75%);
+  .skip-link{
+    position:fixed; left:12px; top:-60px; z-index:200;
+    background:var(--fg); color:var(--bg); padding:10px 16px; border-radius:999px;
+    font-family:var(--mono); font-size:12px; transition:top .2s ease;
   }
+  .skip-link:focus{top:12px;}
 
-  #nodes{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.5;}
+  .label{
+    font-family:var(--mono); font-size:12px; font-weight:500;
+    text-transform:uppercase; letter-spacing:.07em;
+  }
 
   /* ---------- nav ---------- */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    backdrop-filter:blur(14px);
-    background:rgba(10,13,18,0.72);
-    border-bottom:1px solid var(--border-soft);
+  .site-header{
+    position:fixed; inset:0 0 auto; z-index:100;
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
   }
-  nav{
-    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
-    display:flex; align-items:center; justify-content:space-between;
+  .nav{height:var(--nav-h); display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .brand{
+    display:flex; align-items:center; gap:9px;
+    font-family:var(--display); font-weight:900; font-stretch:75%; font-size:24px; letter-spacing:-.01em;
   }
-  .logo{
-    font-family:var(--mono); font-weight:700; font-size:15px;
-    letter-spacing:0.02em; display:flex; align-items:center; gap:8px;
-  }
-  .logo .dot{
-    width:8px; height:8px; border-radius:50%; background:var(--cyan);
-    box-shadow:0 0 8px var(--cyan-glow);
-    animation:pulse 2.4s ease-in-out infinite;
-  }
-  .nav-links{display:flex; gap:32px; font-family:var(--mono); font-size:13px;}
+  .brand canvas{width:26px; height:26px; image-rendering:pixelated; image-rendering:crisp-edges;}
+  .nav-links{display:flex; gap:28px; list-style:none;}
   .nav-links a{
-    color:var(--text-dim); position:relative; padding:4px 0;
-    transition:color .2s ease;
+    display:inline-flex; gap:7px; padding:6px 0; position:relative;
+    color:var(--muted); transition:color .2s ease;
   }
-  .nav-links a::before{content:'';}
-  .nav-links a:hover{color:var(--text);}
+  .nav-links a .n{color:var(--accent);}
   .nav-links a::after{
-    content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px;
-    background:var(--cyan); transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
+    content:''; position:absolute; left:0; right:0; bottom:0; height:1px;
+    background:var(--fg); transform:scaleX(0); transform-origin:left; transition:transform .25s ease;
   }
-  .nav-links a.active{color:var(--text);}
+  .nav-links a:hover, .nav-links a.active{color:var(--fg);}
   .nav-links a.active::after{transform:scaleX(1);}
-  .nav-links a span{color:var(--cyan);}
-  .nav-cta{
-    font-family:var(--mono); font-size:12px; color:var(--bg);
-    background:var(--cyan); padding:8px 16px; border-radius:6px;
-    font-weight:600; transition:transform .18s ease, box-shadow .18s ease;
-    white-space:nowrap;
-  }
-  .nav-cta:hover{transform:translateY(-1px); box-shadow:0 6px 20px var(--cyan-glow);}
-  .nav-actions{display:flex; align-items:center; gap:14px;}
+  .nav-actions{display:flex; align-items:center; gap:12px;}
   .lang-btn{
-    font-family:var(--mono); font-size:12px; cursor:pointer;
-    background:none; border:1px solid var(--border); color:var(--text-faint);
-    padding:6px 10px; border-radius:6px; display:inline-flex; align-items:center; gap:5px;
-    transition:border-color .2s ease, color .2s ease;
+    background:none; border:1px solid var(--line); color:var(--faint); cursor:pointer;
+    padding:6px 11px; border-radius:999px; display:inline-flex; gap:5px;
+    transition:border-color .2s ease;
   }
-  .lang-btn:hover{border-color:var(--cyan); color:var(--text-dim);}
-  .lang-btn [data-l]{transition:color .2s ease;}
-  .lang-btn [data-l].on{color:var(--cyan); font-weight:600;}
-  .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; z-index:110;}
-  .burger span{width:22px; height:2px; background:var(--text); display:block; transition:.25s;}
+  .lang-btn:hover{border-color:var(--fg);}
+  .lang-btn [data-l].on{color:var(--fg); font-weight:700;}
+  .nav-cta{
+    background:var(--fg); color:var(--bg); padding:9px 16px; border-radius:999px; font-weight:700;
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-cta:hover{background:var(--accent); color:var(--on-accent);}
+  .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; z-index:110;}
+  .burger span{width:22px; height:2px; background:var(--fg); display:block; transition:transform .25s ease, opacity .25s ease;}
   .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   .burger.open span:nth-child(2){opacity:0;}
   .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
   .mobile-menu{
-    position:fixed; inset:0; z-index:99; background:rgba(8,10,14,0.98);
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px;
-    font-family:var(--mono); font-size:20px;
-    opacity:0; visibility:hidden; transition:opacity .3s ease;
+    position:fixed; inset:0; z-index:99; background:var(--bg);
+    display:flex; flex-direction:column; justify-content:center; gap:4px; padding:0 var(--pad);
+    opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s;
   }
   .mobile-menu.open{opacity:1; visibility:visible;}
-  .mobile-menu a{color:var(--text);}
-  .mobile-menu a.active{color:var(--cyan);}
+  .mobile-menu a{
+    font-family:var(--display); font-weight:900; font-stretch:62%; text-transform:uppercase;
+    font-size:clamp(46px, 15vw, 84px); line-height:1; color:var(--fg);
+  }
+  .mobile-menu a .n{font-family:var(--mono); font-size:13px; font-weight:500; color:var(--accent); vertical-align:top; margin-right:8px;}
+  .mobile-menu a.active{color:var(--accent);}
   body.menu-open{overflow:hidden;}
 
-  .sr-only{
-    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
-    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+  /* ---------- botones ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px;
+    font-weight:700; border:1px solid transparent; cursor:pointer;
+    transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
   }
-
-  /* ---------- sections ---------- */
-  section{position:relative; z-index:1; padding:120px 0 40px; scroll-margin-top:72px;}
-  .eyebrow{
-    font-family:var(--mono); font-size:12px; color:var(--cyan);
-    letter-spacing:0.08em; display:flex; align-items:center; gap:10px;
-    margin-bottom:14px; text-transform:lowercase;
-  }
-  .eyebrow::before{content:'$'; color:var(--text-faint);}
-  h2.title{
-    font-family:var(--mono); font-size:clamp(24px,3.4vw,34px);
-    font-weight:700; margin-bottom:44px; letter-spacing:-0.01em;
-  }
-  h2.title .muted{color:var(--text-faint); font-weight:400;}
-
-  .js .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
-  .js .reveal.in{opacity:1; transform:translateY(0);}
+  .btn .arr{display:inline-block; transition:transform .2s ease;}
+  .btn:hover .arr{transform:translateX(3px);}
+  .btn-primary{background:var(--accent); color:var(--on-accent);}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{border-color:var(--line); color:var(--fg);}
+  .btn-ghost:hover{border-color:var(--fg);}
 
   /* ---------- hero ---------- */
   .hero{
-    min-height:92vh; display:flex; flex-direction:column; justify-content:center;
-    padding-top:140px;
+    position:relative; min-height:100svh; overflow:hidden;
+    display:flex; flex-direction:column; padding-top:calc(var(--nav-h) + 22px);
   }
-  .hero-grid{
-    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  .hero > .wrap{width:100%;}
+  .hero-top{display:flex; justify-content:space-between; gap:16px; color:var(--muted);}
+  .hero-top strong{color:var(--fg); font-weight:700;}
+  .hero-top .coords{text-transform:none; letter-spacing:.02em;}
+  .hero-main{flex:1; display:flex; align-items:center; justify-content:flex-end; padding-top:32px; padding-bottom:32px;}
+  .hero-copy{max-width:600px;}
+  .hero h1{
+    font-family:var(--display); font-weight:800; font-stretch:82%;
+    font-size:clamp(38px, 5.2vw, 70px); line-height:1; letter-spacing:-.02em; margin-bottom:22px;
   }
-  .hero-copy h1{
-    font-family:var(--sans); font-weight:800; font-size:clamp(38px,5.4vw,60px);
-    line-height:1.08; letter-spacing:-0.02em; margin-bottom:20px;
-  }
-  .hero-copy h1 .accent{color:var(--cyan);}
-  .hero-copy p.lead{
-    color:var(--text-dim); font-size:17px; max-width:480px; margin-bottom:32px;
-  }
-  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
-  .btn{
-    font-family:var(--mono); font-size:13.5px; font-weight:600;
-    padding:13px 22px; border-radius:8px; display:inline-flex; align-items:center; gap:8px;
-    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-    border:1px solid transparent;
-  }
-  .btn-primary{background:var(--cyan); color:#04120f;}
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 28px var(--cyan-glow);}
-  .btn-ghost{border-color:var(--border); color:var(--text);}
-  .btn-ghost:hover{border-color:var(--cyan); color:var(--cyan); transform:translateY(-2px);}
-
-  .social-row{display:flex; gap:16px; align-items:center;}
+  .hero h1 em{font-style:normal; color:var(--accent);}
+  .lead{color:var(--muted); font-size:clamp(16px, 1.3vw, 18.5px); max-width:520px; margin-bottom:30px;}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:30px;}
+  .social-row{display:flex; gap:10px;}
   .social-row a{
-    width:38px; height:38px; border:1px solid var(--border); border-radius:8px;
-    display:flex; align-items:center; justify-content:center; color:var(--text-dim);
-    transition:.2s ease;
+    width:42px; height:42px; border-radius:50%; border:1px solid var(--line);
+    display:grid; place-items:center; color:var(--muted);
+    transition:color .2s ease, border-color .2s ease, transform .2s ease;
   }
-  .social-row a:hover{border-color:var(--cyan); color:var(--cyan); transform:translateY(-2px);}
+  .social-row a:hover{color:var(--fg); border-color:var(--fg); transform:translateY(-2px);}
 
-  /* terminal card */
-  .terminal{
-    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
-    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02) inset;
-    overflow:hidden;
+  /* ---------- logotipo gigante: la flama es el punto de la i ---------- */
+  .wordmark{
+    --wm-size:min(calc((min(100vw, var(--maxw)) - 2 * var(--pad)) / 2.42), 60svh);
+    --flame-h:clamp(200px, 50svh, 500px);
+    --flame-w:calc(var(--flame-h) * .4615);   /* 20 columnas × 0.6em / 26 filas */
+    position:relative; color:var(--fg);
+    font-family:var(--display); font-weight:900; font-stretch:62%;
+    font-size:var(--wm-size); line-height:.8; letter-spacing:-.005em; white-space:nowrap;
+    padding-left:max(0px, calc(var(--flame-w) / 2 - .11em + 4px));
+    margin-bottom:-.19em; user-select:none;
   }
-  .term-bar{
-    display:flex; align-items:center; gap:8px; padding:12px 16px;
-    background:var(--panel-2); border-bottom:1px solid var(--border);
+  .wm-i{position:relative; display:inline-block;}
+  .wm-x{display:inline-block; width:0; height:1ex; vertical-align:baseline;}
+  .ascii-flame{
+    position:absolute; left:50%; bottom:calc(var(--xb, .5em) + .025em);
+    width:var(--flame-w); height:var(--flame-h); max-width:none; transform:translateX(-50%);
+    pointer-events:none;
   }
-  .term-prompt{font-family:var(--mono); font-size:12px; color:var(--text-faint); letter-spacing:.01em;}
-  .term-prompt .u{color:var(--cyan);}
-  .term-prompt .c{color:var(--text-dim);}
-  .term-bar .term-title{
-    margin-left:auto; font-family:var(--mono); font-size:11.5px; color:var(--text-faint);
-  }
-  .term-body{
-    padding:24px 22px; font-family:var(--mono); font-size:14px; min-height:260px;
-  }
-  .term-line{margin-bottom:10px; color:var(--text-dim); display:flex; flex-wrap:wrap; gap:6px;}
-  .term-line .prompt{color:var(--cyan);}
-  .term-line .out{color:var(--text);}
-  .term-line .comment{color:var(--text-faint);}
-  .status-line{
-    display:flex; align-items:center; gap:9px; margin-top:16px; padding-top:16px;
-    border-top:1px dashed var(--border); color:var(--cyan); font-size:13px;
-  }
-  .status-line .sdot{
-    width:8px; height:8px; border-radius:50%; background:var(--cyan);
-    box-shadow:0 0 10px var(--cyan-glow); animation:pulse 2s infinite;
-  }
-  .cursor{
-    display:inline-block; width:8px; height:16px; background:var(--cyan);
-    animation:blink 1s step-end infinite; vertical-align:middle; margin-left:2px;
+  /* El del hero va completo y más pequeño; el del pie conserva el tamaño grande y recortado */
+  .hero .wordmark{
+    --wm-size:min(calc((min(100vw, var(--maxw)) - 2 * var(--pad)) / 2.42 * .62), 34svh);
+    --flame-h:clamp(170px, 36svh, 360px);
+    margin-bottom:clamp(28px, 4vw, 52px);
   }
 
-  @keyframes pulse{
-    0%,100%{opacity:1; transform:scale(1);}
-    50%{opacity:0.45; transform:scale(0.82);}
+  /* ---------- secciones ---------- */
+  .section{position:relative; padding:clamp(96px, 12vw, 168px) 0 clamp(40px, 6vw, 80px); scroll-margin-top:var(--nav-h);}
+  .sec-head{
+    display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:16px 40px;
+    padding-bottom:22px; margin-bottom:clamp(30px, 4.5vw, 54px); border-bottom:1px solid var(--line);
   }
-  @keyframes blink{
-    0%,49%{opacity:1;} 50%,100%{opacity:0;}
+  .sec-idx{flex-basis:100%; color:var(--accent);}
+  .sec-title{
+    font-family:var(--display); font-weight:900; font-stretch:62%;
+    font-size:clamp(64px, 12.5vw, 184px); line-height:.8; letter-spacing:-.005em; text-transform:uppercase;
   }
+  .sec-sub{color:var(--muted); max-width:340px; padding-bottom:.45em;}
+
+  .js .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1);}
+  .js .reveal.in{opacity:1; transform:none;}
 
   /* ---------- stack ---------- */
-  .stack-filters{
-    display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px;
-  }
+  .stack-filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;}
   .filter-btn{
-    font-family:var(--mono); font-size:12.5px; cursor:pointer;
-    color:var(--text-dim); background:var(--panel-2); border:1px solid var(--border);
-    padding:7px 13px; border-radius:7px; display:inline-flex; align-items:center; gap:7px;
-    transition:color .2s ease, border-color .2s ease, background .2s ease;
+    background:none; border:1px solid var(--line); color:var(--muted); cursor:pointer;
+    padding:8px 15px; border-radius:999px; display:inline-flex; align-items:center; gap:8px;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
   }
-  .filter-btn .count{color:var(--text-faint); font-size:11px;}
-  .filter-btn:hover{color:var(--text); border-color:var(--text-faint);}
-  .filter-btn[aria-pressed="true"]{
-    color:var(--cyan); border-color:var(--cyan); background:var(--cyan-dim);
-  }
-  .filter-btn[aria-pressed="true"] .count{color:var(--cyan);}
+  .filter-btn .count{opacity:.6;}
+  .filter-btn:hover{border-color:var(--fg); color:var(--fg);}
+  .filter-btn[aria-pressed="true"]{background:var(--fg); color:var(--bg); border-color:var(--fg);}
 
   .tech-grid{
-    display:grid; grid-template-columns:repeat(auto-fill, minmax(min(124px,100%),1fr)); gap:12px;
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(min(190px, 100%), 1fr));
+    border-top:1px solid var(--line); border-left:1px solid var(--line);
   }
   .tech{
-    position:relative; display:flex; flex-direction:column; align-items:center; gap:10px;
-    padding:20px 12px 16px; border:1px solid var(--border); border-radius:10px;
-    background:var(--panel); text-align:center;
-    transition:transform .24s cubic-bezier(.2,.8,.2,1), border-color .24s ease, background .24s ease, opacity .24s ease;
+    display:flex; align-items:center; gap:14px; padding:18px 16px;
+    border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    transition:background .25s ease;
   }
-  .tech img{
-    width:34px; height:34px; object-fit:contain;
-    transition:transform .24s cubic-bezier(.2,.8,.2,1);
+  .tech-ic{
+    width:46px; height:46px; border-radius:11px; flex-shrink:0; display:grid; place-items:center;
+    background:#fbf7f1; box-shadow:inset 0 0 0 1px rgba(29,22,18,.08);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1);
   }
-  .tech .name{font-family:var(--mono); font-size:12.5px; color:var(--text); line-height:1.2;}
-  .tech .cat{
-    font-family:var(--mono); font-size:10px; color:var(--text-faint); letter-spacing:.04em;
-  }
-  .tech:hover{transform:translateY(-4px); border-color:var(--cyan); background:var(--panel-2);}
-  .tech:hover img{transform:scale(1.12);}
-  .tech:hover .cat{color:var(--cyan);}
+  .tech-ic img{width:27px; height:27px; object-fit:contain;}
+  .tech .name{display:block; font-weight:600; font-size:15.5px; line-height:1.2;}
+  .tech .cat{display:block; margin-top:3px; color:var(--muted); font-size:11px;}
+  .tech:hover{background:var(--panel);}
+  .tech:hover .tech-ic{transform:translateY(-3px) rotate(-4deg);}
   .tech[hidden]{display:none;}
-  .tech.in{animation:techIn .34s cubic-bezier(.2,.8,.2,1) both;}
-  @keyframes techIn{from{opacity:0; transform:translateY(10px) scale(.96);} to{opacity:1; transform:none;}}
+  .tech.in{animation:techIn .36s cubic-bezier(.2,.8,.2,1) both;}
+  @keyframes techIn{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
 
-  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
-  .tag{
-    font-family:var(--mono); font-size:12px; padding:6px 10px; border-radius:6px;
-    background:var(--cyan-dim); color:var(--cyan); border:1px solid rgba(94,234,212,0.18);
+  /* ---------- trayectoria ---------- */
+  .rows{list-style:none;}
+  .job{
+    display:grid; grid-template-columns:190px minmax(0,1fr) minmax(0,1.35fr); gap:12px 44px;
+    padding:30px 0; border-bottom:1px solid var(--line);
   }
+  .job:first-child{padding-top:4px;}
+  .when{color:var(--muted); padding-top:7px;}
+  .job-role{font-family:var(--display); font-weight:800; font-stretch:82%; font-size:clamp(23px, 2.4vw, 31px); line-height:1.08;}
+  .job-org{color:var(--accent); margin-top:8px;}
+  .ticks{list-style:none; display:grid; gap:9px;}
+  .ticks li{position:relative; padding-left:20px; color:var(--muted);}
+  .ticks li::before{content:''; position:absolute; left:0; top:.62em; width:6px; height:6px; background:var(--accent);}
 
-  /* ---------- experience / git log ---------- */
-  .log-item{
-    border-left:2px solid var(--border); padding:0 0 34px 26px; position:relative;
+  /* ---------- proyectos ---------- */
+  .proj{
+    position:relative; isolation:isolate;
+    display:grid; grid-template-columns:70px minmax(0,1fr) minmax(0,1.15fr) auto; gap:12px 36px; align-items:start;
+    padding:30px 0; border-bottom:1px solid var(--line);
   }
-  .log-item::before{
-    content:''; position:absolute; left:-7px; top:4px; width:12px; height:12px;
-    border-radius:50%; background:var(--bg); border:2px solid var(--cyan);
+  .proj:first-child{padding-top:6px;}
+  .proj::before{
+    content:''; position:absolute; z-index:-1; top:0; bottom:0; left:calc(-1 * var(--pad)); right:calc(-1 * var(--pad));
+    background:var(--panel); opacity:0; transition:opacity .25s ease;
   }
-  .log-item:last-child{padding-bottom:0;}
-  .log-head{
-    display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:6px;
-    font-family:var(--mono); font-size:13px;
+  .proj:hover::before{opacity:1;}
+  .proj-idx{color:var(--faint); padding-top:10px; transition:color .25s ease;}
+  .proj:hover .proj-idx{color:var(--accent);}
+  .proj-name{
+    font-family:var(--display); font-weight:800; font-stretch:78%;
+    font-size:clamp(28px, 3.3vw, 46px); line-height:1; letter-spacing:-.01em;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
   }
-  .log-hash{color:var(--amber);}
-  .log-meta{color:var(--text-faint); font-size:12.5px;}
-  .log-role{font-family:var(--sans); font-weight:700; font-size:19px; margin:6px 0 2px;}
-  .log-org{color:var(--cyan); font-family:var(--mono); font-size:13px; margin-bottom:12px;}
-  .log-date{
-    margin-left:auto; font-family:var(--mono); font-size:12px; color:var(--text-faint);
-    background:var(--panel); border:1px solid var(--border); padding:3px 10px; border-radius:20px;
+  .proj:hover .proj-name{transform:translateX(6px);}
+  .proj-badge{display:inline-block; margin-top:12px; color:var(--accent);}
+  .proj-desc{color:var(--muted);}
+  .proj-tags{list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin-top:14px;}
+  .proj-tags li{
+    font-family:var(--mono); font-size:11px; color:var(--muted);
+    border:1px solid var(--line); border-radius:999px; padding:3px 10px;
   }
-  .diff{list-style:none; display:flex; flex-direction:column; gap:6px;}
-  .diff li{
-    font-family:var(--mono); font-size:13.5px; color:var(--text-dim); padding-left:18px; position:relative;
+  .proj-act{padding-top:4px;}
+  .proj-btn{
+    display:inline-flex; align-items:center; gap:8px; white-space:nowrap; cursor:pointer;
+    padding:10px 16px; border-radius:999px; border:1px solid var(--fg); background:none; color:var(--fg); font-weight:700;
+    transition:background .2s ease, color .2s ease;
   }
-  .diff li::before{content:'+'; position:absolute; left:0; color:var(--cyan); font-weight:700;}
+  .proj-btn .arr{display:inline-block; transition:transform .2s ease;}
+  .proj-btn:hover{background:var(--fg); color:var(--bg);}
+  .proj-btn:hover .arr{transform:translate(2px,-2px);}
+  .proj[data-project]{cursor:pointer;}
 
-  /* ---------- projects ---------- */
-  .proj-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px,100%),1fr)); gap:20px;}
-  .proj-card{
-    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
-    padding:26px; display:flex; flex-direction:column; height:100%;
-    transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-  }
-  .proj-card:hover{
-    transform:translateY(-5px); border-color:var(--cyan);
-    box-shadow:0 20px 40px -20px var(--cyan-glow);
-  }
-  .proj-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:14px;}
-  .proj-icon{
-    width:38px; height:38px; border-radius:8px; background:var(--cyan-dim);
-    display:flex; align-items:center; justify-content:center; color:var(--cyan); flex-shrink:0;
-  }
-  .proj-badge{
-    font-family:var(--mono); font-size:10.5px; color:var(--amber); background:var(--amber-dim);
-    border:1px solid rgba(242,181,69,0.25); padding:4px 9px; border-radius:20px; white-space:nowrap;
-  }
-  .proj-card h3{font-size:17px; font-weight:700; margin-bottom:10px;}
-  .proj-card p{color:var(--text-dim); font-size:14px; margin-bottom:18px; flex-grow:1;}
-  .proj-card .tag-row{margin-top:auto;}
-  .proj-card.is-clickable{cursor:pointer;}
-  .proj-card.is-clickable:active{transform:translateY(-2px) scale(.99);}
-  .proj-more{
-    display:flex; align-items:center; justify-content:space-between; gap:10px;
-    margin-top:18px; padding-top:14px; border-top:1px dashed var(--border);
-    font-family:var(--mono); font-size:12px; color:var(--text-faint); transition:color .2s ease;
-  }
-  .proj-more .arr{display:inline-block; transition:transform .22s ease;}
-  .proj-card.is-clickable:hover .proj-more,
-  .proj-card.is-clickable:focus-visible .proj-more{color:var(--cyan);}
-  .proj-card.is-clickable:hover .proj-more .arr{transform:translateX(4px);}
-  .proj-links{display:flex; gap:10px; margin-top:18px; padding-top:14px; border-top:1px dashed var(--border);}
-  .proj-link{
-    font-family:var(--mono); font-size:12px; color:var(--text-dim); display:inline-flex; align-items:center; gap:6px;
-    padding:6px 11px; border:1px solid var(--border); border-radius:6px; transition:color .2s ease, border-color .2s ease;
-  }
-  .proj-link:hover{color:var(--cyan); border-color:var(--cyan);}
-
-  /* ---------- project modal ---------- */
+  /* ---------- ventana de proyecto ---------- */
   body.modal-open{overflow:hidden;}
   .proj-modal{
-    width:min(720px, calc(100vw - 32px)); max-height:calc(100dvh - 48px); max-width:none;
-    margin:auto; padding:0; border:1px solid var(--border); border-radius:var(--radius);
-    background:var(--panel); color:var(--text); overflow:hidden;
-    box-shadow:0 40px 80px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(94,234,212,.06);
+    width:min(760px, calc(100vw - 32px)); max-height:calc(100dvh - 48px); max-width:none;
+    margin:auto; padding:0; border:1px solid var(--line); border-radius:18px;
+    background:var(--bg); color:var(--fg); overflow:hidden;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.6);
   }
-  .proj-modal[open]{display:flex; flex-direction:column; animation:modalIn .28s cubic-bezier(.2,.8,.2,1);}
-  .proj-modal::backdrop{background:rgba(5,7,10,.72); backdrop-filter:blur(6px); animation:fadeIn .28s ease;}
+  .proj-modal[open]{display:flex; flex-direction:column; animation:modalIn .3s cubic-bezier(.2,.8,.2,1);}
+  .proj-modal::backdrop{background:rgba(8,5,10,.62); backdrop-filter:blur(6px); animation:fadeIn .3s ease;}
   .proj-modal.closing{animation:modalOut .18s ease forwards;}
   .proj-modal.closing::backdrop{animation:fadeOut .18s ease forwards;}
   @keyframes modalIn{from{opacity:0; transform:translateY(16px) scale(.97);} to{opacity:1; transform:none;}}
   @keyframes modalOut{to{opacity:0; transform:translateY(8px) scale(.98);}}
   @keyframes fadeIn{from{opacity:0;}}
   @keyframes fadeOut{to{opacity:0;}}
+  .modal-head{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 22px; border-bottom:1px solid var(--line);}
+  .modal-kicker{color:var(--muted);}
   .modal-close{
-    margin-left:14px; width:28px; height:28px; border-radius:6px; cursor:pointer;
-    background:none; border:1px solid var(--border); color:var(--text-dim);
-    display:flex; align-items:center; justify-content:center; transition:color .2s ease, border-color .2s ease;
+    width:36px; height:36px; border-radius:50%; cursor:pointer; flex-shrink:0;
+    background:none; border:1px solid var(--line); color:var(--fg);
+    display:grid; place-items:center; transition:border-color .2s ease, background .2s ease, color .2s ease;
   }
-  .modal-close:hover{color:var(--cyan); border-color:var(--cyan);}
+  .modal-close:hover{background:var(--fg); color:var(--bg); border-color:var(--fg);}
   .modal-body{padding:28px; overflow-y:auto;}
-  .modal-body h3{font-size:26px; font-weight:800; letter-spacing:-.01em; margin:14px 0 12px;}
-  .modal-desc{color:var(--text-dim); font-size:15px; margin-bottom:20px;}
-  .modal-body .diff{margin-bottom:22px;}
+  .modal-body h3{
+    font-family:var(--display); font-weight:900; font-stretch:70%; text-transform:uppercase;
+    font-size:clamp(40px, 7vw, 64px); line-height:.9; margin:10px 0 16px;
+  }
+  .modal-badge{color:var(--accent);}
+  .modal-desc{color:var(--muted); margin-bottom:20px;}
+  .modal-body .ticks{margin-bottom:22px;}
+  .modal-tags{list-style:none; display:flex; flex-wrap:wrap; gap:6px;}
+  .modal-tags li{font-family:var(--mono); font-size:11px; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
   .modal-actions{
     display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
-    margin-top:24px; padding-top:20px; border-top:1px dashed var(--border);
+    margin-top:24px; padding-top:20px; border-top:1px solid var(--line);
   }
-  .modal-count{font-family:var(--mono); font-size:12px; color:var(--text-dim);}
-  .btn-more{cursor:pointer;}
-  .btn-more .arr{display:inline-block; transition:transform .25s ease;}
+  .modal-count{color:var(--muted);}
+  .btn-more .arr{transition:transform .25s ease;}
   .btn-more[aria-expanded="true"] .arr{transform:rotate(180deg);}
   .modal-gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(200px,100%),1fr)); gap:14px; margin-top:22px;}
   .modal-gallery[hidden]{display:none;}
   .modal-gallery:not([hidden]){animation:modalIn .3s ease;}
-  .shot{margin:0; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:var(--panel-2);}
+  .shot{margin:0; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--panel);}
   .shot:first-child{grid-column:1 / -1;}
   .shot:not(:first-child){cursor:zoom-in; transition:border-color .2s ease, transform .2s ease;}
-  .shot:not(:first-child):hover{border-color:var(--cyan); transform:translateY(-2px);}
+  .shot:not(:first-child):hover{border-color:var(--fg); transform:translateY(-2px);}
   .shot.promoted{animation:shotIn .32s cubic-bezier(.2,.8,.2,1);}
   @keyframes shotIn{from{opacity:.4; transform:scale(.985);} to{opacity:1; transform:none;}}
   .shot img{display:block; width:100%; aspect-ratio:16/10; object-fit:cover;}
-  .shot figcaption{font-family:var(--mono); font-size:11.5px; color:var(--text-faint); padding:8px 12px; border-top:1px solid var(--border);}
+  .shot figcaption{font-family:var(--mono); font-size:11.5px; color:var(--muted); padding:8px 12px; border-top:1px solid var(--line);}
   .shot-ph{
     aspect-ratio:16/10; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
-    padding:12px; text-align:center; color:var(--text-faint); font-family:var(--mono); font-size:11.5px;
-    background:repeating-linear-gradient(45deg, transparent 0 10px, rgba(255,255,255,.018) 10px 20px);
+    padding:12px; text-align:center; color:var(--muted); font-family:var(--mono); font-size:11.5px;
   }
-  .shot-ph code{color:var(--text-dim);}
 
-  /* ---------- education ---------- */
-  .edu-grid{display:grid; grid-template-columns:1fr; gap:40px; max-width:820px;}
-  .edu-col h3{
-    font-family:var(--mono); font-size:13px; color:var(--amber); margin-bottom:18px; text-transform:lowercase;
+  /* ---------- formación ---------- */
+  .edu{
+    display:grid; grid-template-columns:190px minmax(0,1fr); gap:10px 44px;
+    padding:26px 0; border-bottom:1px solid var(--line);
   }
-  .edu-row{
-    display:flex; justify-content:space-between; gap:14px; padding:14px 0;
-    border-bottom:1px solid var(--border-soft);
-  }
-  .edu-row:last-child{border-bottom:none;}
-  .edu-row .name{font-size:14.5px; color:var(--text);}
-  .edu-row .degree{color:var(--cyan); font-family:var(--mono); font-size:13.5px; font-weight:500; white-space:nowrap;}
-  .edu-row .sep{color:var(--text-faint);}
-  .edu-row .note{color:var(--text-faint); font-family:var(--mono); font-size:12px;}
-  .edu-row .yr{font-family:var(--mono); font-size:12.5px; color:var(--text-faint); white-space:nowrap;}
+  .edu:first-child{padding-top:4px;}
+  .edu-name{font-family:var(--display); font-weight:800; font-stretch:82%; font-size:clamp(22px, 2.3vw, 30px); line-height:1.1;}
+  .edu-degree{color:var(--accent); margin-top:8px;}
+  .edu-note{color:var(--muted);}
 
-  /* ---------- contact ---------- */
-  .contact-panel{
-    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
-    padding:48px; text-align:center; position:relative; overflow:hidden;
+  /* ---------- contacto ---------- */
+  .contact-title{
+    font-family:var(--display); font-weight:900; font-stretch:62%; text-transform:uppercase;
+    font-size:clamp(58px, 10.5vw, 156px); line-height:.94; letter-spacing:-.005em; max-width:11ch;
+    margin:18px 0 26px;
   }
-  .contact-panel::before{
-    content:''; position:absolute; inset:0;
-    background:radial-gradient(circle at 50% 0%, var(--cyan-dim), transparent 60%);
-    pointer-events:none;
+  .contact-lead{color:var(--muted); max-width:520px; margin-bottom:clamp(30px, 4vw, 48px);}
+  .contact-list{list-style:none;}
+  .contact-list li:first-child a{border-top:1px solid var(--line);}
+  .contact-list a{
+    display:grid; grid-template-columns:44px 150px minmax(0,1fr) auto; align-items:center; gap:18px;
+    padding:18px 0; border-bottom:1px solid var(--line);
+    transition:padding .3s cubic-bezier(.2,.8,.2,1), color .2s ease;
   }
-  .contact-panel h2{
-    font-size:clamp(26px,4vw,38px); font-weight:800; margin-bottom:14px; position:relative;
+  .contact-list .ic{
+    width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+    display:grid; place-items:center; color:var(--accent);
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
   }
-  .contact-panel p{color:var(--text-dim); max-width:480px; margin:0 auto 30px; position:relative;}
-  .contact-links{
-    display:flex; flex-wrap:wrap; justify-content:center; gap:14px; position:relative;
-  }
-  .contact-chip{
-    display:flex; align-items:center; gap:12px; text-align:left;
-    border:1px solid var(--border); padding:9px 18px 9px 9px; border-radius:10px; color:var(--text);
-    background:rgba(10,13,18,.55);
-    transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;
-  }
-  .chip-ic{
-    width:38px; height:38px; border-radius:8px; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center;
-    background:var(--cyan-dim); border:1px solid rgba(94,234,212,.18); color:var(--cyan);
-    transition:background .2s ease, color .2s ease;
-  }
-  .chip-txt{display:flex; flex-direction:column; line-height:1.3; min-width:0;}
-  .chip-txt span{overflow-wrap:anywhere;}
-  .chip-txt small{font-family:var(--mono); font-size:10.5px; color:var(--text-dim); letter-spacing:.05em;}
-  .chip-txt span{font-family:var(--mono); font-size:13px;}
-  .contact-chip:hover{border-color:var(--cyan); transform:translateY(-2px); box-shadow:0 14px 30px -18px var(--cyan-glow);}
-  .contact-chip:hover .chip-ic{background:var(--cyan); color:#04120f;}
+  .contact-list .k{color:var(--muted);}
+  .contact-list .v{font-family:var(--display); font-weight:700; font-stretch:90%; font-size:clamp(18px, 2vw, 24px); overflow-wrap:anywhere;}
+  .contact-list .arr{font-size:20px; color:var(--muted); transition:transform .25s ease, color .2s ease;}
+  .contact-list a:hover{padding-left:10px;}
+  .contact-list a:hover .ic{background:var(--accent); color:var(--on-accent); border-color:var(--accent);}
+  .contact-list a:hover .arr{color:var(--accent); transform:translate(3px,-3px);}
 
-  footer{
-    text-align:center; padding:40px 20px 32px; color:var(--text-faint);
-    font-family:var(--mono); font-size:12px; position:relative; z-index:1;
-  }
-  /* ---------- back to top ---------- */
+  /* ---------- pie ---------- */
+  .site-footer{position:relative; overflow:hidden; padding-top:clamp(56px, 8vw, 96px);}
+  .foot-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px 24px; color:var(--muted);}
+  .foot-row a{color:var(--fg);}
+  .foot-row a:hover{color:var(--accent);}
+  .heart{display:inline-block; vertical-align:-2px; margin:0 2px; color:#e2665a;}
+  .site-footer .wordmark{margin-top:calc(var(--flame-h) * .82); color:color-mix(in srgb, var(--fg) 86%, var(--accent));}
+
+  /* ---------- volver arriba ---------- */
   .to-top{
-    position:fixed; right:24px; bottom:24px; z-index:90;
-    width:46px; height:46px; border-radius:10px; cursor:pointer;
-    background:var(--panel); border:1px solid var(--border); color:var(--cyan);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 14px 30px -14px rgba(0,0,0,.8);
+    position:fixed; right:22px; bottom:22px; z-index:90;
+    width:48px; height:48px; border-radius:50%; cursor:pointer;
+    background:var(--fg); color:var(--bg); border:none;
+    display:grid; place-items:center; box-shadow:0 14px 30px -14px rgba(0,0,0,.6);
     opacity:0; transform:translateY(14px); pointer-events:none;
-    transition:opacity .28s ease, transform .28s cubic-bezier(.2,.8,.2,1), border-color .2s ease, background .2s ease;
+    transition:opacity .28s ease, transform .28s cubic-bezier(.2,.8,.2,1), background .2s ease, color .2s ease;
   }
-  .to-top.show{opacity:1; transform:translateY(0); pointer-events:auto;}
-  .to-top:hover{background:var(--cyan); color:#04120f; border-color:var(--cyan);}
-  @media (max-width:860px){
-    .to-top{right:16px; bottom:16px; width:42px; height:42px;}
-  }
+  .to-top.show{opacity:1; transform:none; pointer-events:auto;}
+  .to-top:hover{background:var(--accent); color:var(--on-accent);}
 
-  footer .heart{color:var(--red); vertical-align:-2px; margin:0 2px;}
-  footer a{color:var(--text-dim); transition:color .2s ease;}
-  footer a:hover{color:var(--cyan);}
-
-  @media (max-width:860px){
-    .nav-links{display:none;}
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .nav-links, .nav-cta{display:none;}
     .burger{display:flex;}
-    .hero-grid{grid-template-columns:1fr;}
-    .edu-grid{grid-template-columns:1fr;}
-    .hero{padding-top:120px; min-height:auto;}
-    section{padding:88px 0 20px;}
-    .contact-panel{padding:34px 22px;}
-    .modal-body{padding:22px;}
-    .edu-row .degree{white-space:normal;}
-    .nav-cta{display:none;}
-    .proj-modal{width:calc(100vw - 24px); max-height:calc(100dvh - 32px);}
+    .hero-main{justify-content:flex-start;}
+    .job{grid-template-columns:150px minmax(0,1fr); }
+    .job .ticks{grid-column:2;}
+    .proj{grid-template-columns:56px minmax(0,1fr) auto;}
+    .proj-info{grid-column:2 / -1;}
+    .proj-act{grid-column:3; grid-row:1;}
+    .edu{grid-template-columns:150px minmax(0,1fr);}
   }
 
-  @media (max-width:560px){
-    .wrap{padding:0 18px;}
-    nav{padding:14px 18px;}
-    .logo{font-size:13.5px;}
-    section{padding:76px 0 16px;}
-    h2.title{margin-bottom:30px;}
-    .hero{padding-top:104px;}
-    .hero-copy p.lead{font-size:15.5px;}
-    .hero-actions{gap:10px;}
+  @media (max-width:640px){
+    .hero-top{flex-direction:column; gap:2px;}
+    .hero-main{padding-top:26px; padding-bottom:calc(var(--flame-h-m) + 12px); align-items:flex-start;}
+    .hero{--flame-h-m:clamp(160px, 26svh, 230px);}
+    .hero .wordmark{--flame-h:var(--flame-h-m); --wm-size:calc((100vw - 2 * var(--pad)) / 2.42 * .8);}
     .hero-actions .btn{flex:1 1 auto; justify-content:center;}
 
-    .term-bar{padding:10px 13px;}
-    .term-bar .term-title{display:none;}
-    .proj-modal .modal-close{margin-left:auto;}
-    .term-body{font-size:11.5px; padding:18px 15px; min-height:auto;}
-    .term-line{margin-bottom:8px;}
+    .sec-sub{max-width:none; padding-bottom:0;}
 
-    .log-item{padding-left:20px;}
-    .log-head{gap:8px;}
-    .log-date{margin-left:0;}
-    .log-role{font-size:17.5px;}
-    .diff li{font-size:13px;}
+    .job, .edu{grid-template-columns:1fr; gap:8px;}
+    .job .ticks{grid-column:auto; margin-top:8px;}
+    .when{padding-top:0;}
 
-    .tech{padding:16px 10px 13px;}
-    .tech img{width:30px; height:30px;}
-    .filter-btn{font-size:12px; padding:6px 11px;}
-    .proj-card{padding:20px;}
+    .proj{grid-template-columns:1fr; gap:10px;}
+    .proj-idx{padding-top:0;}
+    .proj-info, .proj-act{grid-column:auto; grid-row:auto;}
 
-    .edu-row{flex-direction:column; gap:4px;}
-    .edu-row .yr{align-self:flex-start;}
+    .tech-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+    .tech{padding:14px 12px; gap:11px;}
+    .tech-ic{width:40px; height:40px;}
+    .tech-ic img{width:23px; height:23px;}
+    .tech .name{font-size:14px;}
 
-    .contact-panel{padding:28px 16px;}
-    .contact-links{flex-direction:column; align-items:stretch;}
-    .contact-chip{width:100%;}
+    .contact-list a{grid-template-columns:40px minmax(0,1fr) auto; gap:14px;}
+    .contact-list .ic{width:40px; height:40px;}
+    .contact-list .k{display:none;}
 
-    .modal-body{padding:18px;}
-    .modal-body h3{font-size:21px;}
-    .modal-desc{font-size:14px;}
-    .modal-actions{flex-direction:column; align-items:stretch; gap:10px;}
+    .modal-body{padding:20px;}
+    .modal-actions{flex-direction:column; align-items:stretch;}
     .modal-actions .btn-more{justify-content:center;}
-    .modal-count{text-align:center;}
-    .modal-gallery{grid-template-columns:1fr; gap:12px; margin-top:18px;}
-
-    footer{padding:34px 18px 28px; font-size:11.5px;}
+    .modal-gallery{grid-template-columns:1fr;}
+    .to-top{right:14px; bottom:14px; width:44px; height:44px;}
   }
 
   @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+    *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
   }
 </style>
 </head>
 <body>
 
-<div class="bg-grid"></div>
-<canvas id="nodes"></canvas>
+<a class="skip-link" href="#contenido" data-i18n="skip">Saltar al contenido</a>
 
-<header>
-  <nav>
-    <a href="#top" class="logo"><span class="dot"></span>jose_hernandez</a>
-    <div class="nav-links">
-      <a href="#stack"><span>01.</span> Stack</a>
-      <a href="#experiencia" data-i18n="nav.exp"><span>02.</span> Experiencia</a>
-      <a href="#proyectos" data-i18n="nav.proj"><span>03.</span> Proyectos</a>
-      <a href="#formacion" data-i18n="nav.edu"><span>04.</span> Formación</a>
-    </div>
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Principal" data-i18n-aria="aria.nav">
+    <a href="#top" class="brand" aria-label="iFlame, inicio" data-i18n-aria="aria.home"><canvas id="logoFlame" width="16" height="16" aria-hidden="true"></canvas>iFlame</a>
+    <ul class="nav-links label">
+      <li><a href="#stack"><span class="n">01</span>Stack</a></li>
+      <li><a href="#trayectoria" data-i18n="nav.exp"><span class="n">02</span>Trayectoria</a></li>
+      <li><a href="#proyectos" data-i18n="nav.proj"><span class="n">03</span>Proyectos</a></li>
+      <li><a href="#formacion" data-i18n="nav.edu"><span class="n">04</span>Formación</a></li>
+    </ul>
     <div class="nav-actions">
-      <button class="lang-btn" id="langBtn" type="button"><span data-l="es" lang="es">es</span><span aria-hidden="true">/</span><span data-l="en" lang="en">en</span></button>
-      <a href="#contacto" class="nav-cta">contact --init</a>
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+      <button class="lang-btn label" id="langBtn" type="button"><span data-l="es" lang="es">es</span><span aria-hidden="true">/</span><span data-l="en" lang="en">en</span></button>
+      <a href="#contacto" class="nav-cta label" data-i18n="nav.contact">Contacto</a>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#stack">Stack</a>
-  <a href="#experiencia" data-i18n="m.exp">Experiencia</a>
-  <a href="#proyectos" data-i18n="m.proj">Proyectos</a>
-  <a href="#formacion" data-i18n="m.edu">Formación</a>
-  <a href="#contacto" data-i18n="m.contact">Contacto</a>
+  <a href="#stack"><span class="n">01</span>Stack</a>
+  <a href="#trayectoria" data-i18n="m.exp"><span class="n">02</span>Trayectoria</a>
+  <a href="#proyectos" data-i18n="m.proj"><span class="n">03</span>Proyectos</a>
+  <a href="#formacion" data-i18n="m.edu"><span class="n">04</span>Formación</a>
+  <a href="#contacto" data-i18n="m.contact"><span class="n">05</span>Contacto</a>
 </div>
 
 <main id="top">
   <!-- HERO -->
-  <section class="hero wrap">
-    <div class="hero-grid">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-top wrap label">
+      <p><strong>Jose Hernandez</strong> <span data-i18n="hero.role">— Desarrollador Backend</span></p>
+      <p class="coords" data-i18n="hero.coords">Maracaibo, VE · 10.64° N 71.61° O</p>
+    </div>
+
+    <div class="hero-main wrap" id="contenido">
       <div class="hero-copy">
-        <h1 data-i18n="hero.h1">Construyo sistemas backend <span class="accent">sólidos y escalables</span>.</h1>
-        <p class="lead" data-i18n="hero.lead">Desarrollador Backend en Maracaibo, Venezuela. Diseño APIs REST y arquitecturas de microservicios con NestJS, Node.js y Java — enfocado en escalabilidad, rendimiento y código mantenible.</p>
+        <h1 id="heroTitle" data-i18n="hero.h1">Construyo sistemas backend <em>sólidos y escalables</em>.</h1>
+        <p class="lead" data-i18n="hero.lead">Diseño APIs REST y arquitecturas de microservicios con NestJS, Node.js y Java: servicios que escalan, rinden bajo carga y se mantienen sin dolor.</p>
         <div class="hero-actions">
-          <a href="#proyectos" class="btn btn-primary" data-i18n="hero.cta1">Ver proyectos →</a>
-          <a href="#contacto" class="btn btn-ghost" data-i18n="hero.cta2">Contactar</a>
+          <a href="#proyectos" class="btn btn-primary label"><span data-i18n="hero.cta1">Ver proyectos</span> <span class="arr" aria-hidden="true">→</span></a>
+          <a href="#contacto" class="btn btn-ghost label" data-i18n="hero.cta2">Escríbeme</a>
         </div>
         <div class="social-row">
-          <a href="https://github.com/iFlam3" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.67-1.26-1.67-1.03-.7.08-.68.08-.68 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.8 1.17 1.81 1.17 3.05 0 4.36-2.65 5.32-5.18 5.6.41.35.77 1.04.77 2.11 0 1.52-.01 2.75-.01 3.12 0 .3.2.66.79.55A11.03 11.03 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+          <a href="https://github.com/iFlam3" target="_blank" rel="noopener me" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.67-1.26-1.67-1.03-.7.08-.68.08-.68 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.8 1.17 1.81 1.17 3.05 0 4.36-2.65 5.32-5.18 5.6.41.35.77 1.04.77 2.11 0 1.52-.01 2.75-.01 3.12 0 .3.2.66.79.55A11.03 11.03 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
           </a>
           <a href="mailto:jhernandezdev05@gmail.com" aria-label="Email">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="m4 6 8 7 8-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           </a>
           <a href="tel:+584246150916" aria-label="Teléfono" data-i18n-aria="aria.phone">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
           </a>
         </div>
       </div>
+    </div>
 
-      <div class="terminal">
-        <div class="term-bar">
-          <span class="term-prompt"><span class="u">jose@dev</span>:<span class="c">~</span>$</span>
-          <span class="term-title">bash — ~/home</span>
-        </div>
-        <div class="term-body" id="termBody"></div>
+    <div class="wrap">
+      <div class="wordmark" aria-hidden="true">
+        <span class="wm-i">ı<span class="wm-x"></span><canvas class="ascii-flame" id="heroFlame"></canvas></span>Flame
       </div>
     </div>
   </section>
 
   <!-- STACK -->
-  <section id="stack" class="wrap reveal">
-    <div class="eyebrow">stack --list</div>
-    <h2 class="title" data-i18n="stack.title">Stack <span class="muted">// herramientas de trabajo</span></h2>
+  <section id="stack" class="section reveal" aria-labelledby="stackTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-idx label">(01)</span>
+        <h2 class="sec-title" id="stackTitle">Stack</h2>
+        <p class="sec-sub" data-i18n="stack.sub">Lo que uso a diario para diseñar, construir y desplegar.</p>
+      </header>
 
-    <div class="stack-filters" id="stackFilters" role="group" aria-label="Filtrar tecnologías por categoría" data-i18n-aria="aria.filters">
-      <button class="filter-btn" type="button" data-filter="todo" aria-pressed="true" aria-controls="techGrid"><span data-i18n="f.all">--todo</span> <span class="count"></span></button>
-      <button class="filter-btn" type="button" data-filter="backend" aria-pressed="false" aria-controls="techGrid">--backend <span class="count"></span></button>
-      <button class="filter-btn" type="button" data-filter="lenguaje" aria-pressed="false" aria-controls="techGrid"><span data-i18n="f.lang">--lenguajes</span> <span class="count"></span></button>
-      <button class="filter-btn" type="button" data-filter="frontend" aria-pressed="false" aria-controls="techGrid">--frontend <span class="count"></span></button>
-      <button class="filter-btn" type="button" data-filter="datos" aria-pressed="false" aria-controls="techGrid"><span data-i18n="f.data">--datos</span> <span class="count"></span></button>
-      <button class="filter-btn" type="button" data-filter="infra" aria-pressed="false" aria-controls="techGrid">--infra <span class="count"></span></button>
-    </div>
+      <div class="stack-filters" role="group" aria-label="Filtrar tecnologías por categoría" data-i18n-aria="aria.filters">
+        <button class="filter-btn label" type="button" data-filter="todo" aria-pressed="true" aria-controls="techGrid"><span data-i18n="f.all">Todo</span> <span class="count"></span></button>
+        <button class="filter-btn label" type="button" data-filter="backend" aria-pressed="false" aria-controls="techGrid">Backend <span class="count"></span></button>
+        <button class="filter-btn label" type="button" data-filter="lenguaje" aria-pressed="false" aria-controls="techGrid"><span data-i18n="f.lang">Lenguajes</span> <span class="count"></span></button>
+        <button class="filter-btn label" type="button" data-filter="frontend" aria-pressed="false" aria-controls="techGrid">Frontend <span class="count"></span></button>
+        <button class="filter-btn label" type="button" data-filter="datos" aria-pressed="false" aria-controls="techGrid"><span data-i18n="f.data">Datos</span> <span class="count"></span></button>
+        <button class="filter-btn label" type="button" data-filter="infra" aria-pressed="false" aria-controls="techGrid">Infra <span class="count"></span></button>
+      </div>
 
-    <p class="sr-only" id="stackStatus" role="status" aria-live="polite"></p>
-    <div class="tech-grid" id="techGrid">
-      <div class="tech" data-cat="backend"><img src="assets/icons/nestjs.svg" alt="NestJS" loading="lazy" width="34" height="34"><span class="name">NestJS</span><span class="cat">backend</span></div>
-      <div class="tech" data-cat="backend"><img src="assets/icons/nodejs.svg" alt="Node.js" loading="lazy" width="34" height="34"><span class="name">Node.js</span><span class="cat">backend</span></div>
-      <div class="tech" data-cat="backend"><img src="assets/icons/java.svg" alt="Java" loading="lazy" width="34" height="34"><span class="name">Java</span><span class="cat">backend</span></div>
-      <div class="tech" data-cat="backend"><img src="assets/icons/supabase.svg" alt="Supabase" loading="lazy" width="34" height="34"><span class="name">Supabase</span><span class="cat">backend</span></div>
-
-      <div class="tech" data-cat="lenguaje"><img src="assets/icons/typescript.svg" alt="TypeScript" loading="lazy" width="34" height="34"><span class="name">TypeScript</span><span class="cat">lenguaje</span></div>
-      <div class="tech" data-cat="lenguaje"><img src="assets/icons/javascript.svg" alt="JavaScript" loading="lazy" width="34" height="34"><span class="name">JavaScript</span><span class="cat">lenguaje</span></div>
-      <div class="tech" data-cat="lenguaje"><img src="assets/icons/python.svg" alt="Python" loading="lazy" width="34" height="34"><span class="name">Python</span><span class="cat">lenguaje</span></div>
-
-      <div class="tech" data-cat="frontend"><img src="assets/icons/html5.svg" alt="HTML5" loading="lazy" width="34" height="34"><span class="name">HTML5</span><span class="cat">frontend</span></div>
-      <div class="tech" data-cat="frontend"><img src="assets/icons/css3.svg" alt="CSS3" loading="lazy" width="34" height="34"><span class="name">CSS3</span><span class="cat">frontend</span></div>
-
-      <div class="tech" data-cat="datos"><img src="assets/icons/postgresql.svg" alt="PostgreSQL" loading="lazy" width="34" height="34"><span class="name">PostgreSQL</span><span class="cat">datos</span></div>
-      <div class="tech" data-cat="datos"><img src="assets/icons/mysql.svg" alt="MySQL" loading="lazy" width="34" height="34"><span class="name">MySQL</span><span class="cat">datos</span></div>
-
-      <div class="tech" data-cat="infra"><img src="assets/icons/linux.svg" alt="Linux" loading="lazy" width="34" height="34"><span class="name">Linux</span><span class="cat">infra</span></div>
-      <div class="tech" data-cat="infra"><img src="assets/icons/bash.svg" alt="Bash" loading="lazy" width="34" height="34"><span class="name">Bash</span><span class="cat">infra</span></div>
-      <div class="tech" data-cat="infra"><img src="assets/icons/powershell.svg" alt="PowerShell" loading="lazy" width="34" height="34"><span class="name">PowerShell</span><span class="cat">infra</span></div>
-      <div class="tech" data-cat="infra"><img src="assets/icons/git.svg" alt="Git" loading="lazy" width="34" height="34"><span class="name">Git</span><span class="cat">infra</span></div>
-      <div class="tech" data-cat="infra"><img src="assets/icons/github.svg" alt="GitHub" loading="lazy" width="34" height="34"><span class="name">GitHub</span><span class="cat">infra</span></div>
+      <p class="sr-only" id="stackStatus" role="status" aria-live="polite"></p>
+      <ul class="tech-grid" id="techGrid" role="list" style="list-style:none">
+        <li class="tech" data-cat="backend"><span class="tech-ic"><img src="assets/icons/nestjs.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">NestJS</span><span class="cat label">backend</span></span></li>
+        <li class="tech" data-cat="backend"><span class="tech-ic"><img src="assets/icons/nodejs.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Node.js</span><span class="cat label">backend</span></span></li>
+        <li class="tech" data-cat="backend"><span class="tech-ic"><img src="assets/icons/java.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Java</span><span class="cat label">backend</span></span></li>
+        <li class="tech" data-cat="backend"><span class="tech-ic"><img src="assets/icons/supabase.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Supabase</span><span class="cat label">backend</span></span></li>
+        <li class="tech" data-cat="lenguaje"><span class="tech-ic"><img src="assets/icons/typescript.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">TypeScript</span><span class="cat label">lenguaje</span></span></li>
+        <li class="tech" data-cat="lenguaje"><span class="tech-ic"><img src="assets/icons/javascript.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">JavaScript</span><span class="cat label">lenguaje</span></span></li>
+        <li class="tech" data-cat="lenguaje"><span class="tech-ic"><img src="assets/icons/python.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Python</span><span class="cat label">lenguaje</span></span></li>
+        <li class="tech" data-cat="frontend"><span class="tech-ic"><img src="assets/icons/html5.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">HTML5</span><span class="cat label">frontend</span></span></li>
+        <li class="tech" data-cat="frontend"><span class="tech-ic"><img src="assets/icons/css3.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">CSS3</span><span class="cat label">frontend</span></span></li>
+        <li class="tech" data-cat="datos"><span class="tech-ic"><img src="assets/icons/postgresql.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">PostgreSQL</span><span class="cat label">datos</span></span></li>
+        <li class="tech" data-cat="datos"><span class="tech-ic"><img src="assets/icons/mysql.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">MySQL</span><span class="cat label">datos</span></span></li>
+        <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/linux.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Linux</span><span class="cat label">infra</span></span></li>
+        <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/bash.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Bash</span><span class="cat label">infra</span></span></li>
+        <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/powershell.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">PowerShell</span><span class="cat label">infra</span></span></li>
+        <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/git.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Git</span><span class="cat label">infra</span></span></li>
+        <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/github.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">GitHub</span><span class="cat label">infra</span></span></li>
+      </ul>
     </div>
   </section>
 
-  <!-- EXPERIENCIA -->
-  <section id="experiencia" class="wrap reveal">
-    <div class="eyebrow">git log --oneline</div>
-    <h2 class="title" data-i18n="exp.title">Experiencia <span class="muted">// historial de commits</span></h2>
+  <!-- TRAYECTORIA -->
+  <section id="trayectoria" class="section reveal" aria-labelledby="expTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-idx label">(02)</span>
+        <h2 class="sec-title" id="expTitle" data-i18n="exp.title">Trayectoria</h2>
+        <p class="sec-sub" data-i18n="exp.sub">Dónde he trabajado y qué he construido.</p>
+      </header>
 
-    <div class="log-item">
-      <div class="log-head"><span class="log-hash">#b74e309</span><span class="log-meta">HEAD -&gt; main, origin/main</span><span class="log-date" data-i18n="exp1.date">2026 — Presente</span></div>
-      <div class="log-role" data-i18n="exp1.role">Ingeniero de Desarrollo</div>
-      <div class="log-org">NETSOLCA</div>
-      <ul class="diff" data-i18n="exp1.list">
-        <li>Desarrollo y mantenimiento de APIs REST (Java | NestJS)</li>
-        <li>Desarrollo web sobre NestJS</li>
-        <li>Desarrollo y mantenimiento server-side para múltiples softwares</li>
-        <li>Hacking Ético: Pen-Testing en entornos Windows/Linux</li>
-        <li>Ciberseguridad Ofensiva: ARP Spoofing, Post-Explotación y Evasión</li>
-      </ul>
-    </div>
-
-    <div class="log-item">
-      <div class="log-head"><span class="log-hash">#8e21b47</span><span class="log-meta">feature/backend-services</span><span class="log-date" data-i18n="exp2.date">2026 — Presente</span></div>
-      <div class="log-role" data-i18n="exp2.role">Desarrollador Backend</div>
-      <div class="log-org">URBE</div>
-      <ul class="diff" data-i18n="exp2.list">
-        <li>Diseño e implementación de 5+ servicios escalables y arquitecturas de microservicios con NestJS, soportando más de 5,000 consultas concurrentes</li>
-        <li>Desarrollo y mantenimiento de APIs REST robustas para administración de recursos</li>
-        <li>Comunicación eficiente entre frontend (Angular) y base de datos (MySQL)</li>
-        <li>Colaboración en Notilab, herramienta web para el laboratorio</li>
-      </ul>
-    </div>
-
-    <div class="log-item">
-      <div class="log-head"><span class="log-hash">#2c9d1a0</span><span class="log-meta" data-i18n="exp3.tag">tag: soporte-nivel-1</span><span class="log-date">2024 — 2025</span></div>
-      <div class="log-role" data-i18n="exp3.role">Especialista en Soporte Técnico I</div>
-      <div class="log-org">URBE</div>
-      <ul class="diff" data-i18n="exp3.list">
-        <li>Scripts de automatización en Bash para configuración masiva de estaciones de trabajo</li>
-        <li>Mantenimiento preventivo y correctivo de hardware de alto rendimiento</li>
-        <li>Soporte técnico nivel 1 y 2 a estudiantes y personal académico</li>
-        <li>Sistema de detección en tiempo real de falta de periféricos (Python, Java, alertas vía HTTP)</li>
-      </ul>
-    </div>
-
-    <div class="log-item">
-      <div class="log-head"><span class="log-hash">#f3a9c21</span><span class="log-meta" data-i18n="exp4.tag">tag: primer-commit</span><span class="log-date">2022 — 2024</span></div>
-      <div class="log-role" data-i18n="exp4.role">Especialista en Soporte Técnico</div>
-      <div class="log-org">URBE</div>
-      <ul class="diff" data-i18n="exp4.list">
-        <li>Ciclo de vida de hardware: diagnóstico, migración y escalamiento de equipos</li>
-        <li>Manejo de CRM (Tawk.to) para seguimiento y análisis de datos de usuarios</li>
-        <li>Diagnóstico y resolución de incidencias en tiempo real</li>
-      </ul>
+      <ol class="rows">
+        <li class="job">
+          <p class="when label" data-i18n="exp1.date">2026 — Presente</p>
+          <div>
+            <h3 class="job-role" data-i18n="exp1.role">Ingeniero de Desarrollo</h3>
+            <p class="job-org label">NETSOLCA</p>
+          </div>
+          <ul class="ticks" data-i18n="exp1.list">
+            <li>Desarrollo y mantenimiento de APIs REST (Java | NestJS)</li>
+            <li>Desarrollo web sobre NestJS</li>
+            <li>Desarrollo y mantenimiento server-side para múltiples softwares</li>
+            <li>Hacking Ético: Pen-Testing en entornos Windows/Linux</li>
+            <li>Ciberseguridad Ofensiva: ARP Spoofing, Post-Explotación y Evasión</li>
+          </ul>
+        </li>
+        <li class="job">
+          <p class="when label" data-i18n="exp2.date">2026 — Presente</p>
+          <div>
+            <h3 class="job-role" data-i18n="exp2.role">Desarrollador Backend</h3>
+            <p class="job-org label">URBE</p>
+          </div>
+          <ul class="ticks" data-i18n="exp2.list">
+            <li>Diseño e implementación de 5+ servicios escalables y arquitecturas de microservicios con NestJS, soportando más de 5,000 consultas concurrentes</li>
+            <li>Desarrollo y mantenimiento de APIs REST robustas para administración de recursos</li>
+            <li>Comunicación eficiente entre frontend (Angular) y base de datos (MySQL)</li>
+            <li>Colaboración en Notilab, herramienta web para el laboratorio</li>
+          </ul>
+        </li>
+        <li class="job">
+          <p class="when label">2024 — 2025</p>
+          <div>
+            <h3 class="job-role" data-i18n="exp3.role">Especialista en Soporte Técnico I</h3>
+            <p class="job-org label">URBE</p>
+          </div>
+          <ul class="ticks" data-i18n="exp3.list">
+            <li>Scripts de automatización en Bash para configuración masiva de estaciones de trabajo</li>
+            <li>Mantenimiento preventivo y correctivo de hardware de alto rendimiento</li>
+            <li>Soporte técnico nivel 1 y 2 a estudiantes y personal académico</li>
+            <li>Sistema de detección en tiempo real de falta de periféricos (Python, Java, alertas vía HTTP)</li>
+          </ul>
+        </li>
+        <li class="job">
+          <p class="when label">2022 — 2024</p>
+          <div>
+            <h3 class="job-role" data-i18n="exp4.role">Especialista en Soporte Técnico</h3>
+            <p class="job-org label">URBE</p>
+          </div>
+          <ul class="ticks" data-i18n="exp4.list">
+            <li>Ciclo de vida de hardware: diagnóstico, migración y escalamiento de equipos</li>
+            <li>Manejo de CRM (Tawk.to) para seguimiento y análisis de datos de usuarios</li>
+            <li>Diagnóstico y resolución de incidencias en tiempo real</li>
+          </ul>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- PROYECTOS -->
-  <section id="proyectos" class="wrap reveal">
-    <div class="eyebrow" data-i18n="proj.eyebrow">ls -la ./proyectos</div>
-    <h2 class="title" data-i18n="proj.title">Proyectos <span class="muted">// trabajo aplicado</span></h2>
-    <div class="proj-grid">
-      <div class="proj-card is-clickable" data-project="notilab" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Ver detalles de Notilab" data-i18n-aria="aria.notilab">
-        <div class="proj-top">
-          <div class="proj-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
-          </div>
-          <span class="proj-badge" data-i18n="p1.badge">interno</span>
-        </div>
-        <h3>Notilab</h3>
-        <p data-i18n="p1.desc">Herramienta web para la organización y administración del equipo de laboratorio: control de recursos y flujo de trabajo del equipo.</p>
-        <div class="tag-row"><span class="tag">NestJS</span><span class="tag">Angular</span><span class="tag">MySQL</span></div>
-        <div class="proj-more"><span data-i18n="p1.more">./ver-detalles</span><span class="arr">→</span></div>
-      </div>
+  <section id="proyectos" class="section reveal" aria-labelledby="projTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-idx label">(03)</span>
+        <h2 class="sec-title" id="projTitle" data-i18n="proj.title">Proyectos</h2>
+        <p class="sec-sub" data-i18n="proj.sub">Herramientas internas, sitios en vivo y sistemas en producción.</p>
+      </header>
 
-      <div class="proj-card">
-        <div class="proj-top">
-          <div class="proj-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <ol class="rows">
+        <li class="proj" data-project="notilab">
+          <span class="proj-idx label">//01</span>
+          <div>
+            <h3 class="proj-name">Notilab</h3>
+            <span class="proj-badge label" data-i18n="p1.badge">Interno · URBE</span>
           </div>
-          <span class="proj-badge" data-i18n="p2.badge">tiempo real</span>
-        </div>
-        <h3 data-i18n="p2.title">Detección de periféricos</h3>
-        <p data-i18n="p2.desc">Sistema de monitoreo en tiempo real que detecta la falta o desconexión de periféricos en las estaciones del laboratorio: registro de eventos, reconexión automática y alertas vía HTTP.</p>
-        <div class="tag-row"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">HTTP</span></div>
-        <div class="proj-links">
-          <a class="proj-link" href="https://iflam3.github.io/Un-Plugged/" target="_blank" rel="noopener">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>demo
-          </a>
-        </div>
-      </div>
+          <div class="proj-info">
+            <p class="proj-desc" data-i18n="p1.desc">Herramienta web para la organización y administración del equipo de laboratorio: control de recursos y flujo de trabajo del equipo.</p>
+            <ul class="proj-tags"><li>NestJS</li><li>Angular</li><li>MySQL</li></ul>
+          </div>
+          <div class="proj-act"><button class="proj-btn label" type="button" aria-haspopup="dialog"><span data-i18n="act.details">Ver detalles</span> <span class="arr" aria-hidden="true">↗</span></button></div>
+        </li>
 
-      <div class="proj-card">
-        <div class="proj-top">
-          <div class="proj-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="3"/><circle cx="12" cy="7" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="17" r="1.6"/></svg>
+        <li class="proj">
+          <span class="proj-idx label">//02</span>
+          <div>
+            <h3 class="proj-name">Blasphemous</h3>
+            <span class="proj-badge label" data-i18n="p2.badge">Fan site · en vivo</span>
           </div>
-          <span class="proj-badge" data-i18n="p3.badge">en vivo</span>
-        </div>
-        <h3>Circula</h3>
-        <p data-i18n="p3.desc">Campaña ciudadana de seguridad vial en Venezuela. El usuario elige MOTO o CARRO y recibe una experiencia personalizada: cifras recientes con fuente, videos educativos, test de riesgo, números de emergencia y un compromiso compartible.</p>
-        <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
-        <div class="proj-links">
-          <a class="proj-link" href="https://iflam3.github.io/Circula/" target="_blank" rel="noopener">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>demo
-          </a>
-        </div>
-      </div>
+          <div class="proj-info">
+            <p class="proj-desc" data-i18n="p2.desc">Sitio de fans, no oficial, del videojuego Blasphemous. «El peregrinaje del Penitente» recorre la historia de Cvstodia en seis capítulos con sus jefes, guía los tres finales tras un aviso de spoilers e incluye un simulador jugable del Penitente y el mapa completo.</p>
+            <ul class="proj-tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </div>
+          <div class="proj-act"><a class="proj-btn label" href="https://blasphemousfan.vercel.app/" target="_blank" rel="noopener"><span data-i18n="act.demo">Ver demo</span> <span class="arr" aria-hidden="true">↗</span></a></div>
+        </li>
 
-      <div class="proj-card">
-        <div class="proj-top">
-          <div class="proj-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
+        <li class="proj">
+          <span class="proj-idx label">//03</span>
+          <div>
+            <h3 class="proj-name">Circula</h3>
+            <span class="proj-badge label" data-i18n="p3.badge">Campaña · en vivo</span>
           </div>
-          <span class="proj-badge" data-i18n="p4.badge">automatización</span>
-        </div>
-        <h3 data-i18n="p4.title">Automatización de estaciones</h3>
-        <p data-i18n="p4.desc">Scripts en Bash para la configuración masiva de estaciones de trabajo en laboratorios de computación, reduciendo tiempo de despliegue.</p>
-        <div class="tag-row"><span class="tag">Bash</span><span class="tag">Linux</span></div>
-      </div>
+          <div class="proj-info">
+            <p class="proj-desc" data-i18n="p3.desc">Campaña ciudadana de seguridad vial en Venezuela. El usuario elige MOTO o CARRO y recibe una experiencia personalizada: cifras recientes con fuente, videos educativos, test de riesgo, números de emergencia y un compromiso compartible.</p>
+            <ul class="proj-tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          </div>
+          <div class="proj-act"><a class="proj-btn label" href="https://iflam3.github.io/Circula/" target="_blank" rel="noopener"><span data-i18n="act.demo">Ver demo</span> <span class="arr" aria-hidden="true">↗</span></a></div>
+        </li>
 
-      <div class="proj-card">
-        <div class="proj-top">
-          <div class="proj-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <li class="proj">
+          <span class="proj-idx label">//04</span>
+          <div>
+            <h3 class="proj-name" data-i18n="p4.title">Detección de periféricos</h3>
+            <span class="proj-badge label" data-i18n="p4.badge">Tiempo real</span>
           </div>
-          <span class="proj-badge" data-i18n="p5.badge">producción</span>
-        </div>
-        <h3 data-i18n="p5.title">Arquitectura de microservicios</h3>
-        <p data-i18n="p5.desc">5+ servicios escalables construidos con NestJS, soportando más de 5,000 consultas concurrentes para administración de recursos.</p>
-        <div class="tag-row"><span class="tag">NestJS</span><span class="tag">MySQL</span><span class="tag">REST</span></div>
-      </div>
+          <div class="proj-info">
+            <p class="proj-desc" data-i18n="p4.desc">Sistema de monitoreo en tiempo real que detecta la falta o desconexión de periféricos en las estaciones del laboratorio: registro de eventos, reconexión automática y alertas vía HTTP.</p>
+            <ul class="proj-tags"><li>Python</li><li>Java</li><li>HTTP</li></ul>
+          </div>
+          <div class="proj-act"><a class="proj-btn label" href="https://iflam3.github.io/Un-Plugged/" target="_blank" rel="noopener"><span data-i18n="act.demo">Ver demo</span> <span class="arr" aria-hidden="true">↗</span></a></div>
+        </li>
+
+        <li class="proj">
+          <span class="proj-idx label">//05</span>
+          <div>
+            <h3 class="proj-name" data-i18n="p5.title">Microservicios</h3>
+            <span class="proj-badge label" data-i18n="p5.badge">En producción</span>
+          </div>
+          <div class="proj-info">
+            <p class="proj-desc" data-i18n="p5.desc">5+ servicios escalables construidos con NestJS, soportando más de 5,000 consultas concurrentes para administración de recursos.</p>
+            <ul class="proj-tags"><li>NestJS</li><li>MySQL</li><li>REST</li></ul>
+          </div>
+          <div class="proj-act"></div>
+        </li>
+
+        <li class="proj">
+          <span class="proj-idx label">//06</span>
+          <div>
+            <h3 class="proj-name" data-i18n="p6.title">Automatización de estaciones</h3>
+            <span class="proj-badge label" data-i18n="p6.badge">Automatización</span>
+          </div>
+          <div class="proj-info">
+            <p class="proj-desc" data-i18n="p6.desc">Scripts en Bash para la configuración masiva de estaciones de trabajo en laboratorios de computación, reduciendo tiempo de despliegue.</p>
+            <ul class="proj-tags"><li>Bash</li><li>Linux</li></ul>
+          </div>
+          <div class="proj-act"></div>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- FORMACION -->
-  <section id="formacion" class="wrap reveal">
-    <div class="eyebrow" data-i18n="edu.eyebrow">cat formacion.md</div>
-    <h2 class="title" data-i18n="edu.title">Formación <span class="muted">// académica</span></h2>
-    <div class="edu-grid">
-      <div class="edu-col">
-        <h3 data-i18n="edu.h3">académica</h3>
-        <div class="edu-row"><span class="name">Universidad Rafael Belloso Chacín (URBE) <span class="sep">—</span> <span class="degree" data-i18n="edu1.degree">Ingeniero en Informática</span> <span class="note" data-i18n="edu1.note">· 10mo trimestre</span></span><span class="yr" data-i18n="edu1.yr">2022 — Presente</span></div>
-        <div class="edu-row"><span class="name">U.E.P. Colegio Santa Mariana de Jesús <span class="sep">—</span> <span class="degree" data-i18n="edu2.degree">Bachiller en Ciencias</span></span><span class="yr">2011 — 2022</span></div>
-      </div>
+  <section id="formacion" class="section reveal" aria-labelledby="eduTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-idx label">(04)</span>
+        <h2 class="sec-title" id="eduTitle" data-i18n="edu.title">Formación</h2>
+        <p class="sec-sub" data-i18n="edu.sub">Formación académica.</p>
+      </header>
+
+      <ol class="rows">
+        <li class="edu">
+          <p class="when label" data-i18n="edu1.yr">2022 — Presente</p>
+          <div>
+            <h3 class="edu-name">Universidad Rafael Belloso Chacín (URBE)</h3>
+            <p class="edu-degree label"><span data-i18n="edu1.degree">Ingeniero en Informática</span> <span class="edu-note" data-i18n="edu1.note">· 10mo trimestre</span></p>
+          </div>
+        </li>
+        <li class="edu">
+          <p class="when label">2011 — 2022</p>
+          <div>
+            <h3 class="edu-name">U.E.P. Colegio Santa Mariana de Jesús</h3>
+            <p class="edu-degree label" data-i18n="edu2.degree">Bachiller en Ciencias</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto" class="wrap reveal">
-    <div class="contact-panel">
-      <div class="eyebrow" style="justify-content:center;">./contact --init</div>
-      <h2 data-i18n="contact.h2">¿Construimos algo juntos?</h2>
-      <p data-i18n="contact.p">Abierto a nuevas oportunidades como Desarrollador Backend. Escríbeme y respondo lo antes posible.</p>
-      <div class="contact-links">
-        <a class="contact-chip" href="mailto:jhernandezdev05@gmail.com">
-          <span class="chip-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
-          <span class="chip-txt"><small>email</small><span>jhernandezdev05@gmail.com</span></span>
-        </a>
-        <a class="contact-chip" href="tel:+584246150916">
-          <span class="chip-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg></span>
-          <span class="chip-txt"><small data-i18n="contact.phone">teléfono</small><span>+58 424-6150916</span></span>
-        </a>
-        <a class="contact-chip" href="https://github.com/iFlam3" target="_blank" rel="noopener">
-          <span class="chip-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.67-1.26-1.67-1.03-.7.08-.68.08-.68 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.8 1.17 1.81 1.17 3.05 0 4.36-2.65 5.32-5.18 5.6.41.35.77 1.04.77 2.11 0 1.52-.01 2.75-.01 3.12 0 .3.2.66.79.55A11.03 11.03 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg></span>
-          <span class="chip-txt"><small>github</small><span>@iFlam3</span></span>
-        </a>
-        <a class="contact-chip" href="https://www.google.com/maps/place/Maracaibo,+Zulia,+Venezuela" target="_blank" rel="noopener">
-          <span class="chip-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-          <span class="chip-txt"><small data-i18n="contact.loc">ubicación</small><span>Maracaibo, Venezuela</span></span>
-        </a>
-      </div>
+  <section id="contacto" class="section reveal" aria-labelledby="contactTitle">
+    <div class="wrap">
+      <span class="sec-idx label">(05)</span>
+      <h2 class="contact-title" id="contactTitle" data-i18n="contact.h2">¿Construimos algo juntos?</h2>
+      <p class="contact-lead" data-i18n="contact.p">Abierto a nuevas oportunidades como Desarrollador Backend. Escríbeme y respondo lo antes posible.</p>
+      <ul class="contact-list">
+        <li><a href="mailto:jhernandezdev05@gmail.com">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span class="k label">Email</span><span class="v">jhernandezdev05@gmail.com</span><span class="arr" aria-hidden="true">↗</span>
+        </a></li>
+        <li><a href="tel:+584246150916">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span class="k label" data-i18n="contact.phone">Teléfono</span><span class="v">+58 424-6150916</span><span class="arr" aria-hidden="true">↗</span>
+        </a></li>
+        <li><a href="https://github.com/iFlam3" target="_blank" rel="noopener me">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.77 10.78.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.16.69-3.83-1.34-3.83-1.34-.52-1.31-1.26-1.67-1.26-1.67-1.03-.7.08-.68.08-.68 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.61 0-1.24.44-2.25 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.8 1.17 1.81 1.17 3.05 0 4.36-2.65 5.32-5.18 5.6.41.35.77 1.04.77 2.11 0 1.52-.01 2.75-.01 3.12 0 .3.2.66.79.55A11.03 11.03 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg></span>
+          <span class="k label">GitHub</span><span class="v">@iFlam3</span><span class="arr" aria-hidden="true">↗</span>
+        </a></li>
+        <li><a href="https://www.google.com/maps/place/Maracaibo,+Zulia,+Venezuela" target="_blank" rel="noopener">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span class="k label" data-i18n="contact.loc">Ubicación</span><span class="v">Maracaibo, Venezuela</span><span class="arr" aria-hidden="true">↗</span>
+        </a></li>
+      </ul>
     </div>
   </section>
 </main>
 
-<footer>
-  <span data-i18n="foot.made">hecho con</span> <svg class="heart" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="amor" data-i18n-aria="aria.love"><path d="M12 21s-7.5-4.6-9.9-9.3C.6 8.6 2.4 4.5 6.2 4.1c2.2-.2 4 1 5.8 3.1 1.8-2.1 3.6-3.3 5.8-3.1 3.8.4 5.6 4.5 4.1 7.6C19.5 16.4 12 21 12 21z"/></svg> <span data-i18n="foot.by">por</span> <a href="https://github.com/iFlam3" target="_blank" rel="noopener">iFlam3</a> - ©2026
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-row label">
+      <p><span data-i18n="foot.made">hecho con</span> <svg class="heart" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="amor" data-i18n-aria="aria.love"><path d="M12 21s-7.5-4.6-9.9-9.3C.6 8.6 2.4 4.5 6.2 4.1c2.2-.2 4 1 5.8 3.1 1.8-2.1 3.6-3.3 5.8-3.1 3.8.4 5.6 4.5 4.1 7.6C19.5 16.4 12 21 12 21z"/></svg> <span data-i18n="foot.by">por</span> <a href="https://github.com/iFlam3" target="_blank" rel="noopener">iFlam3</a> - ©2026</p>
+      <p>Maracaibo, Venezuela</p>
+    </div>
+    <div class="wordmark" aria-hidden="true">
+      <span class="wm-i">ı<span class="wm-x"></span><canvas class="ascii-flame" id="endFlame"></canvas></span>Flame
+    </div>
+  </div>
 </footer>
 
-<button class="to-top" id="toTop" aria-label="Volver al inicio de la página" data-i18n-aria="aria.top">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+<button class="to-top" id="toTop" type="button" aria-label="Volver al inicio de la página" data-i18n-aria="aria.top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
 <dialog class="proj-modal" id="projModal" aria-labelledby="modalTitle">
-  <div class="term-bar">
-    <span class="term-prompt"><span class="u">jose@dev</span>:<span class="c">~</span>$</span>
-    <span class="term-title" id="modalPath"></span>
-    <button class="modal-close" id="modalClose" aria-label="Cerrar" data-i18n-aria="aria.close">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  <div class="modal-head">
+    <span class="modal-kicker label" id="modalKicker">Proyecto · //01</span>
+    <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar" data-i18n-aria="aria.close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </div>
   <div class="modal-body">
-    <span class="proj-badge" id="modalBadge"></span>
+    <span class="modal-badge label" id="modalBadge"></span>
     <h3 id="modalTitle"></h3>
     <p class="modal-desc" id="modalDesc"></p>
-    <ul class="diff" id="modalPoints"></ul>
-    <div class="tag-row" id="modalTags"></div>
+    <ul class="ticks" id="modalPoints"></ul>
+    <ul class="modal-tags" id="modalTags"></ul>
     <div class="modal-actions">
-      <span class="modal-count" id="modalCount"></span>
-      <button class="btn btn-primary btn-more" id="modalMore" aria-expanded="false" aria-controls="modalGallery"><span id="modalMoreLabel">Ver más</span> <span class="arr">↓</span></button>
+      <span class="modal-count label" id="modalCount"></span>
+      <button class="btn btn-primary btn-more label" id="modalMore" type="button" aria-expanded="false" aria-controls="modalGallery"><span id="modalMoreLabel">Ver más</span> <span class="arr" aria-hidden="true">↓</span></button>
     </div>
     <div class="modal-gallery" id="modalGallery" hidden></div>
   </div>
 </dialog>
 
 <script>
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $  = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
   // ---------- idioma (es / en) ----------
   // El español vive en el HTML; aquí solo va el inglés de los elementos con data-i18n.
   const EN = {
-    'nav.exp': '<span>02.</span> Experience',
-    'nav.proj': '<span>03.</span> Projects',
-    'nav.edu': '<span>04.</span> Education',
-    'm.exp': 'Experience', 'm.proj': 'Projects', 'm.edu': 'Education', 'm.contact': 'Contact',
+    'skip': 'Skip to content',
+    'nav.exp': '<span class="n">02</span>Experience',
+    'nav.proj': '<span class="n">03</span>Projects',
+    'nav.edu': '<span class="n">04</span>Education',
+    'nav.contact': 'Contact',
+    'm.exp': '<span class="n">02</span>Experience',
+    'm.proj': '<span class="n">03</span>Projects',
+    'm.edu': '<span class="n">04</span>Education',
+    'm.contact': '<span class="n">05</span>Contact',
 
-    'hero.h1': 'I build <span class="accent">solid, scalable</span> backend systems.',
-    'hero.lead': 'Backend Developer based in Maracaibo, Venezuela. I design REST APIs and microservice architectures with NestJS, Node.js and Java — focused on scalability, performance and maintainable code.',
-    'hero.cta1': 'View projects →',
+    'hero.role': '— Backend Developer',
+    'hero.coords': 'Maracaibo, VE · 10.64° N 71.61° W',
+    'hero.h1': 'I build <em>solid, scalable</em> backend systems.',
+    'hero.lead': 'I design REST APIs and microservice architectures with NestJS, Node.js and Java: services that scale, perform under load and stay easy to maintain.',
+    'hero.cta1': 'View projects',
     'hero.cta2': 'Get in touch',
 
-    'stack.title': 'Stack <span class="muted">// tools of the trade</span>',
-    'f.all': '--all', 'f.lang': '--languages', 'f.data': '--data',
+    'stack.sub': 'What I use every day to design, build and ship.',
+    'f.all': 'All', 'f.lang': 'Languages', 'f.data': 'Data',
 
-    'exp.title': 'Experience <span class="muted">// commit history</span>',
+    'exp.title': 'Experience',
+    'exp.sub': 'Where I’ve worked and what I’ve built.',
     'exp1.date': '2026 — Present',
     'exp1.role': 'Development Engineer',
     'exp1.list': `
-        <li>Development and maintenance of REST APIs (Java | NestJS)</li>
-        <li>Web development on NestJS</li>
-        <li>Server-side development and maintenance for multiple software products</li>
-        <li>Ethical Hacking: Pen-Testing in Windows/Linux environments</li>
-        <li>Offensive Security: ARP Spoofing, Post-Exploitation and Evasion</li>`,
+            <li>Development and maintenance of REST APIs (Java | NestJS)</li>
+            <li>Web development on NestJS</li>
+            <li>Server-side development and maintenance for multiple software products</li>
+            <li>Ethical Hacking: Pen-Testing in Windows/Linux environments</li>
+            <li>Offensive Security: ARP Spoofing, Post-Exploitation and Evasion</li>`,
     'exp2.date': '2026 — Present',
     'exp2.role': 'Backend Developer',
     'exp2.list': `
-        <li>Designed and built 5+ scalable services and microservice architectures with NestJS, handling over 5,000 concurrent queries</li>
-        <li>Development and maintenance of robust REST APIs for resource management</li>
-        <li>Efficient communication between the frontend (Angular) and the database (MySQL)</li>
-        <li>Contributed to Notilab, a web tool for the computer lab</li>`,
-    'exp3.tag': 'tag: support-tier-1',
+            <li>Designed and built 5+ scalable services and microservice architectures with NestJS, handling over 5,000 concurrent queries</li>
+            <li>Development and maintenance of robust REST APIs for resource management</li>
+            <li>Efficient communication between the frontend (Angular) and the database (MySQL)</li>
+            <li>Contributed to Notilab, a web tool for the computer lab</li>`,
     'exp3.role': 'IT Support Specialist I',
     'exp3.list': `
-        <li>Bash automation scripts for bulk workstation configuration</li>
-        <li>Preventive and corrective maintenance of high-performance hardware</li>
-        <li>Tier 1 and 2 technical support for students and academic staff</li>
-        <li>Real-time missing-peripheral detection system (Python, Java, HTTP alerts)</li>`,
-    'exp4.tag': 'tag: first-commit',
+            <li>Bash automation scripts for bulk workstation configuration</li>
+            <li>Preventive and corrective maintenance of high-performance hardware</li>
+            <li>Tier 1 and 2 technical support for students and academic staff</li>
+            <li>Real-time missing-peripheral detection system (Python, Java, HTTP alerts)</li>`,
     'exp4.role': 'IT Support Specialist',
     'exp4.list': `
-        <li>Hardware lifecycle: diagnostics, migration and equipment upgrades</li>
-        <li>CRM management (Tawk.to) for tracking and analyzing user data</li>
-        <li>Real-time incident diagnosis and resolution</li>`,
+            <li>Hardware lifecycle: diagnostics, migration and equipment upgrades</li>
+            <li>CRM management (Tawk.to) for tracking and analyzing user data</li>
+            <li>Real-time incident diagnosis and resolution</li>`,
 
-    'proj.eyebrow': 'ls -la ./projects',
-    'proj.title': 'Projects <span class="muted">// applied work</span>',
-    'p1.badge': 'internal',
+    'proj.title': 'Projects',
+    'proj.sub': 'Internal tools, live sites and production systems.',
+    'act.details': 'View details',
+    'act.demo': 'View demo',
+    'p1.badge': 'Internal · URBE',
     'p1.desc': 'Web tool for organizing and managing the lab team: resource control and team workflow.',
-    'p1.more': './view-details',
-    'p2.badge': 'real-time',
-    'p2.title': 'Peripheral detection',
-    'p2.desc': 'Real-time monitoring system that detects missing or disconnected peripherals on lab workstations: event logging, automatic reconnection and HTTP alerts.',
-    'p3.badge': 'live',
+    'p2.badge': 'Fan site · live',
+    'p2.desc': 'Unofficial fan site for the game Blasphemous. “El peregrinaje del Penitente” walks through the story of Cvstodia in six chapters with its bosses, guides the three endings behind a spoiler warning, and includes a playable Penitent simulator and the full map.',
+    'p3.badge': 'Campaign · live',
     'p3.desc': 'Citizen road-safety campaign in Venezuela. Users pick MOTORCYCLE or CAR and get a tailored experience: recent sourced statistics, educational videos, a risk quiz, emergency numbers and a shareable pledge.',
-    'p4.badge': 'automation',
-    'p4.title': 'Workstation automation',
-    'p4.desc': 'Bash scripts for bulk configuration of workstations in computer labs, cutting deployment time.',
-    'p5.badge': 'production',
-    'p5.title': 'Microservices architecture',
+    'p4.title': 'Peripheral detection',
+    'p4.badge': 'Real-time',
+    'p4.desc': 'Real-time monitoring system that detects missing or disconnected peripherals on lab workstations: event logging, automatic reconnection and HTTP alerts.',
+    'p5.title': 'Microservices',
+    'p5.badge': 'In production',
     'p5.desc': '5+ scalable services built with NestJS, handling over 5,000 concurrent queries for resource management.',
+    'p6.title': 'Workstation automation',
+    'p6.badge': 'Automation',
+    'p6.desc': 'Bash scripts for bulk configuration of workstations in computer labs, cutting deployment time.',
 
-    'edu.eyebrow': 'cat education.md',
-    'edu.title': 'Education <span class="muted">// academic</span>',
-    'edu.h3': 'academic',
+    'edu.title': 'Education',
+    'edu.sub': 'Academic background.',
+    'edu1.yr': '2022 — Present',
     'edu1.degree': 'B.S. in Computer Engineering',
     'edu1.note': '· 10th trimester',
-    'edu1.yr': '2022 — Present',
     'edu2.degree': 'High School Diploma in Science',
 
     'contact.h2': 'Shall we build something together?',
     'contact.p': 'Open to new opportunities as a Backend Developer. Drop me a line and I’ll get back to you as soon as possible.',
-    'contact.phone': 'phone',
-    'contact.loc': 'location',
+    'contact.phone': 'Phone',
+    'contact.loc': 'Location',
 
     'foot.made': 'made with',
     'foot.by': 'by',
   };
 
   const EN_ARIA = {
+    'aria.nav': 'Main',
+    'aria.home': 'iFlame, home',
     'aria.phone': 'Phone',
     'aria.filters': 'Filter technologies by category',
-    'aria.notilab': 'View Notilab details',
     'aria.love': 'love',
     'aria.top': 'Back to top',
     'aria.close': 'Close',
@@ -952,130 +1014,273 @@
   // Textos que genera el JS
   const STR = {
     es: {
-      metaDesc: 'Portafolio de Jose Hernandez, Desarrollador Backend especializado en NestJS, Node.js y arquitecturas de microservicios.',
+      title: 'Jose Hernandez (iFlame) — Desarrollador Backend · NestJS, Node.js y Java',
+      metaDesc: 'Jose Hernandez (iFlame), desarrollador backend en Maracaibo, Venezuela. APIs REST y microservicios con NestJS, Node.js y Java. Proyectos, stack y contacto.',
       langBtn: 'Switch to English',
       menuOpen: 'Abrir menú', menuClose: 'Cerrar menú',
       showing: n => `Mostrando ${n} tecnologías`,
-      shots: n => `${n} capturas disponibles`,
-      more: 'Ver más', less: 'Ver menos',
+      shots: n => `${n} capturas`,
+      more: 'Ver capturas', less: 'Ocultar capturas',
       viewLarge: cap => `Ver en grande: ${cap}`,
       pending: 'captura pendiente',
-      status: 'status: online — construyendo APIs',
+      project: 'Proyecto',
       cats: { backend:'backend', lenguaje:'lenguaje', frontend:'frontend', datos:'datos', infra:'infra' },
-      term: [
-        { prompt: '$', text: 'whoami', type: 'cmd' },
-        { text: 'jose_hernandez', type: 'out' },
-        { prompt: '$', text: 'cat role.txt', type: 'cmd' },
-        { text: 'Backend Developer — Node.js · NestJS · Java', type: 'out' },
-        { prompt: '$', text: 'cat location.txt', type: 'cmd' },
-        { text: 'Maracaibo, Venezuela', type: 'out' },
-        { prompt: '$', text: 'grep -c "APIs" experiencia.log', type: 'cmd' },
-        { text: '5+ servicios en producción, 5,000+ req concurrentes', type: 'out' },
-      ],
     },
     en: {
-      metaDesc: 'Portfolio of Jose Hernandez, Backend Developer specialized in NestJS, Node.js and microservice architectures.',
+      title: 'Jose Hernandez (iFlame) — Backend Developer · NestJS, Node.js and Java',
+      metaDesc: 'Jose Hernandez (iFlame), backend developer in Maracaibo, Venezuela. REST APIs and microservices with NestJS, Node.js and Java. Projects, stack and contact.',
       langBtn: 'Cambiar a español',
       menuOpen: 'Open menu', menuClose: 'Close menu',
       showing: n => `Showing ${n} technologies`,
-      shots: n => `${n} screenshots available`,
-      more: 'Show more', less: 'Show less',
+      shots: n => `${n} screenshots`,
+      more: 'View screenshots', less: 'Hide screenshots',
       viewLarge: cap => `View larger: ${cap}`,
       pending: 'screenshot pending',
-      status: 'status: online — building APIs',
+      project: 'Project',
       cats: { backend:'backend', lenguaje:'language', frontend:'frontend', datos:'data', infra:'infra' },
-      term: [
-        { prompt: '$', text: 'whoami', type: 'cmd' },
-        { text: 'jose_hernandez', type: 'out' },
-        { prompt: '$', text: 'cat role.txt', type: 'cmd' },
-        { text: 'Backend Developer — Node.js · NestJS · Java', type: 'out' },
-        { prompt: '$', text: 'cat location.txt', type: 'cmd' },
-        { text: 'Maracaibo, Venezuela', type: 'out' },
-        { prompt: '$', text: 'grep -c "APIs" experience.log', type: 'cmd' },
-        { text: '5+ services in production, 5,000+ concurrent req', type: 'out' },
-      ],
     },
   };
 
   // Guarda el español original del HTML para poder volver a él
-  const i18nEls = [...document.querySelectorAll('[data-i18n]')].map(el => ({ el, key: el.dataset.i18n, es: el.innerHTML }));
-  const i18nAria = [...document.querySelectorAll('[data-i18n-aria]')].map(el => ({ el, key: el.dataset.i18nAria, es: el.getAttribute('aria-label') }));
+  const i18nEls  = $$('[data-i18n]').map(el => ({ el, key: el.dataset.i18n, es: el.innerHTML }));
+  const i18nAria = $$('[data-i18n-aria]').map(el => ({ el, key: el.dataset.i18nAria, es: el.getAttribute('aria-label') }));
 
-  let lang = 'es';
-  try { lang = localStorage.getItem('lang') || ''; } catch(e) { lang = ''; }
+  // Prioridad: ?lang= en la URL > elección guardada > idioma del navegador
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  let lang = '';
+  try { lang = localStorage.getItem('lang') || ''; } catch(e) {}
+  if(urlLang === 'es' || urlLang === 'en') lang = urlLang;
   if(lang !== 'es' && lang !== 'en') lang = (navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en';
   const t = () => STR[lang];
 
-  // ---------- terminal typing ----------
-  const termBody = document.getElementById('termBody');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let termRun = 0;   // se incrementa para cancelar una animación en curso
+  // ---------- color ----------
+  const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+  const mix = (a, b, k) => a.map((v, i) => v + (b[i] - v) * k);
+  const rgb = c => `rgb(${c.map(v => Math.round(v)).join(',')})`;
+  const toHex = c => '#' + c.map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+  const lum = c => {
+    const [r, g, b] = c.map(v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; });
+    return .2126 * r + .7152 * g + .0722 * b;
+  };
 
-  function renderStatic(){
-    termBody.innerHTML = t().term.map(l => {
-      if(l.type === 'cmd'){
-        return `<div class="term-line"><span class="prompt">${l.prompt}</span><span class="out">${l.text}</span></div>`;
-      }
-      return `<div class="term-line" style="padding-left:18px;"><span class="comment">${l.text}</span></div>`;
-    }).join('') + `<div class="status-line"><span class="sdot"></span> ${t().status}<span class="cursor"></span></div>`;
+  // Paletas de la flama: [borde, cuerpo, núcleo]
+  const PAL = {
+    warm:   ['#b8281c', '#de4f22', '#ee8a26'].map(hex),
+    ember:  ['#4a160f', '#8f2f17', '#d4542a'].map(hex),
+    violet: ['#5b21b6', '#a855f7', '#f1e4ff'].map(hex),
+  };
+
+  // Recorrido: crema cálido → arena → carbón (la flama se apaga) → violeta (renace)
+  const S = {
+    paper:   { bg:'#f6efe4', acc:'#c2410c', pal:'warm',   i:1   },
+    sand:    { bg:'#efe2cf', acc:'#bb3e0e', pal:'warm',   i:.85 },
+    toast:   { bg:'#e2cdb0', acc:'#ad380d', pal:'warm',   i:.6  },
+    charred: { bg:'#261a15', acc:'#ef7f45', pal:'ember',  i:.3  },
+    ash:     { bg:'#131010', acc:'#d6693e', pal:'ember',  i:.03 },
+    dusk:    { bg:'#160f22', acc:'#a77bf0', pal:'violet', i:.4  },
+    night:   { bg:'#1d0f35', acc:'#bb8cff', pal:'violet', i:1   },
+    deep:    { bg:'#230f3d', acc:'#c39bff', pal:'violet', i:1   },
+  };
+  Object.values(S).forEach(s => { s.bg = hex(s.bg); s.acc = hex(s.acc); s.pal = PAL[s.pal]; });
+
+  const flame = { pal: PAL.warm, i: 1 };   // estado global que leen las flamas
+  const themeMeta = $('meta[name="theme-color"]');
+  let stops = [];
+
+  function computeStops(){
+    const top = el => el.getBoundingClientRect().top + window.scrollY;
+    const vh = window.innerHeight;
+    const doc = document.documentElement.scrollHeight;
+    const mid = el => top(el) + el.offsetHeight / 2;
+    const exp = $('#trayectoria');
+    stops = [
+      { at: vh * .5,                          s: S.paper   },
+      { at: mid($('#stack')),                 s: S.sand    },
+      { at: top(exp) + vh * .05,              s: S.toast   },
+      { at: top(exp) + vh * .42,              s: S.charred },
+      { at: mid($('#proyectos')),             s: S.ash     },
+      { at: mid($('#formacion')),             s: S.dusk    },
+      { at: top($('#contacto')) + vh * .35,   s: S.night   },
+      { at: Math.max(doc - vh * .5, 1),       s: S.deep    },
+    ];
   }
 
-  const sleep = ms => new Promise(r=>setTimeout(r, ms));
+  let lastHex = '';
+  function applyTheme(){
+    const pos = window.scrollY + window.innerHeight * .5;
+    let a = stops[0], b = stops[0], k = 0;
+    if(pos >= stops[stops.length - 1].at){ a = b = stops[stops.length - 1]; }
+    else for(let n = 0; n < stops.length - 1; n++){
+      if(pos >= stops[n].at && pos < stops[n + 1].at){
+        a = stops[n]; b = stops[n + 1];
+        k = (pos - a.at) / (b.at - a.at);
+        k = k * k * (3 - 2 * k);
+        break;
+      }
+    }
+    const bg = mix(a.s.bg, b.s.bg, k);
+    flame.pal = a.s.pal.map((c, n) => mix(c, b.s.pal[n], k));
+    flame.i = a.s.i + (b.s.i - a.s.i) * k;
 
-  async function typeLine(container, text, speed, run){
-    for(let i=0;i<=text.length;i++){
-      if(run !== termRun) return;
-      container.textContent = text.slice(0,i);
-      await sleep(speed);
+    const root = document.documentElement;
+    root.style.setProperty('--bg', rgb(bg));
+    root.style.setProperty('--accent', rgb(mix(a.s.acc, b.s.acc, k)));
+    root.classList.toggle('dark', lum(bg) < .2);
+    const hx = toHex(bg);
+    if(hx !== lastHex){ themeMeta.content = hx; lastHex = hx; }
+    if(reducedMotion) drawStill();
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { ticking = false; applyTheme(); });
+  }, { passive: true });
+
+  // ---------- logo: flama pixelada (16×16) ----------
+  const logo = $('#logoFlame').getContext('2d');
+  logo.translate(0, 16);
+  logo.scale(1, -1);
+  const FY = [2, 1, 0, 0, 0, 0, 1, 2];
+  const FMAX = [7, 9, 11, 13, 13, 11, 9, 7];
+  const FMIN = [4, 7, 8, 10, 10, 8, 7, 4];
+  const rand = (lo, hi) => Math.random() * (hi - lo + 1) + lo;
+
+  function drawLogo(){
+    const k = Math.max(0, Math.min(1, flame.i));
+    const [c0, c1, c2] = flame.pal.map(rgb);
+    logo.clearRect(0, 0, 16, 16);
+    const col = (x, y0, a) => {
+      const top = y0 + (a - y0) * k;
+      if(top - y0 < .5) return;
+      logo.beginPath(); logo.moveTo(x + .5, y0); logo.lineTo(x + .5, top); logo.stroke();
+    };
+    logo.strokeStyle = c0;
+    for(let x = 4, i = 0; x < 12; x++, i++) col(x, FY[i], rand(FMIN[i], FMAX[i]));
+    logo.strokeStyle = c1;
+    for(let x = 5, j = 1; x < 11; x++, j++) col(x, FY[j] + 1, rand(FMIN[j] - 5, FMAX[j] - 5));
+    logo.strokeStyle = c2;
+    for(let x = 7, m = 3; x < 9; x++, m++) col(x, FY[m], rand(FMIN[m] - 9, FMAX[m] - 9));
+    // casi apagada: quedan brasas en la base
+    if(k < .3){
+      logo.fillStyle = c1; logo.fillRect(5, 0, 6, 1);
+      logo.fillStyle = c2;
+      for(let x = 5; x < 11; x++) if(Math.random() < .45) logo.fillRect(x, 0, 1, 1);
     }
   }
 
-  async function bootTerminal(){
-    const run = ++termRun;
-    termBody.replaceChildren();
-    if(reducedMotion){ renderStatic(); return; }
-    for(const l of t().term){
-      if(run !== termRun) return;
-      const row = document.createElement('div');
-      row.className = 'term-line';
-      if(l.type === 'cmd'){
-        const prompt = document.createElement('span');
-        prompt.className = 'prompt'; prompt.textContent = l.prompt;
-        const out = document.createElement('span');
-        out.className = 'out';
-        row.appendChild(prompt); row.appendChild(out);
-        termBody.appendChild(row);
-        await typeLine(out, l.text, 32, run);
-        await sleep(180);
-      } else {
-        row.style.paddingLeft = '18px';
-        const out = document.createElement('span');
-        out.className = 'comment';
-        row.appendChild(out);
-        termBody.appendChild(row);
-        await typeLine(out, l.text, 14, run);
-        await sleep(260);
+  // ---------- flama ASCII ----------
+  const RAMP = ' .,:;-=+*#%@';
+  class AsciiFlame {
+    constructor(canvas){
+      this.c = canvas; this.ctx = canvas.getContext('2d');
+      this.W = 20; this.H = 26; this.t = Math.random() * 10; this.visible = false;
+      this.heat = Array.from({ length: this.H }, () => new Float32Array(this.W));
+      this.resize();
+      for(let n = 0; n < 90; n++) this.step(1);
+    }
+    resize(){
+      const r = this.c.getBoundingClientRect();
+      const d = Math.min(window.devicePixelRatio || 1, 2);
+      this.c.width = Math.max(1, Math.round(r.width * d));
+      this.c.height = Math.max(1, Math.round(r.height * d));
+      this.cw = this.c.width / this.W; this.ch = this.c.height / this.H;
+      this.fs = Math.min(this.ch * 1.08, this.cw / .6);
+    }
+    step(intensity = flame.i){
+      const { W, H, heat } = this;
+      this.t += .07;
+      const sway = Math.sin(this.t * 1.1) * .9 + Math.sin(this.t * 2.7) * .4;
+      const cx = (W - 1) / 2;
+      for(let x = 0; x < W; x++){
+        const d = (x - cx) / (W * .3);
+        heat[H - 1][x] = Math.min(1, Math.exp(-d * d) * (.9 + Math.random() * .3)) * intensity;
+      }
+      for(let y = 0; y < H - 1; y++){
+        const below = heat[y + 1], row = heat[y];
+        const shift = sway * (1 - y / (H - 1)) * .45;   // la punta se mece más que la base
+        for(let x = 0; x < W; x++){
+          const xs = x - shift;
+          const x0 = Math.max(0, Math.min(W - 1, Math.round(xs)));
+          const blur = (below[Math.max(0, x0 - 1)] + below[x0] * 3 + below[Math.min(W - 1, x0 + 1)]) / 5;
+          const side = Math.abs(xs - cx) / (W / 2);
+          row[x] = Math.max(0, blur - (.01 + Math.random() * .045 + side * side * .075));
+        }
       }
     }
-    if(run !== termRun) return;
-    const status = document.createElement('div');
-    status.className = 'status-line';
-    status.innerHTML = `<span class="sdot"></span> ${t().status}<span class="cursor"></span>`;
-    termBody.appendChild(status);
+    draw(){
+      const { ctx, W, H, heat, cw, ch } = this;
+      ctx.clearRect(0, 0, this.c.width, this.c.height);
+      ctx.font = `700 ${this.fs}px "JetBrains Mono", ui-monospace, monospace`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const N = 12, cols = [];
+      for(let b = 0; b < N; b++){
+        const v = (b + .5) / N;
+        cols.push(rgb(v < .5 ? mix(flame.pal[0], flame.pal[1], v * 2) : mix(flame.pal[1], flame.pal[2], (v - .5) * 2)));
+      }
+      for(let y = 0; y < H; y++){
+        for(let x = 0; x < W; x++){
+          const v = heat[y][x];
+          if(v < .05) continue;
+          const g = RAMP[Math.min(RAMP.length - 1, Math.floor(Math.pow(v, .65) * RAMP.length))];
+          if(g === ' ') continue;
+          ctx.fillStyle = cols[Math.min(N - 1, Math.floor(v * N))];
+          ctx.fillText(g, (x + .5) * cw, (y + .5) * ch);
+        }
+      }
+    }
   }
 
-  // ---------- scroll reveal ----------
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  const flames = $$('.ascii-flame').map(c => new AsciiFlame(c));
+  const flameIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      const f = flames.find(f => f.c === e.target);
+      if(!f) return;
+      f.visible = e.isIntersecting;
+      if(f.visible) f.draw();
     });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el=>io.observe(el));
+  });
+  flames.forEach(f => flameIO.observe(f.c));
 
-  // ---------- mobile menu ----------
-  const burger = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobileMenu');
+  // Sin animación: un solo fotograma que solo se actualiza con el scroll
+  let stillKey = '';
+  function drawStill(){
+    const key = flame.i.toFixed(2) + rgb(flame.pal[1]);
+    if(key === stillKey) return;
+    stillKey = key;
+    drawLogo();
+    flames.forEach(f => { if(f.visible) f.draw(); });
+  }
+
+  let lastLogo = 0, lastAscii = 0;
+  function loop(now){
+    if(now - lastLogo > 1000 / 7){ lastLogo = now; drawLogo(); }
+    if(now - lastAscii > 45){
+      lastAscii = now;
+      flames.forEach(f => { if(f.visible){ f.step(); f.draw(); } });
+    }
+    requestAnimationFrame(loop);
+  }
+
+  // Coloca cada flama justo encima del palo de la "ı"
+  function measureWordmarks(){
+    $$('.wordmark').forEach(wm => {
+      const wi = $('.wm-i', wm), x = $('.wm-x', wm);
+      wi.style.setProperty('--xb', (wi.getBoundingClientRect().bottom - x.getBoundingClientRect().top) + 'px');
+    });
+    flames.forEach(f => { f.resize(); f.draw(); });
+  }
+
+  // ---------- revelado al hacer scroll ----------
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .08 });
+  $$('.reveal').forEach(el => io.observe(el));
+
+  // ---------- menú móvil ----------
+  const burger = $('#burger');
+  const mobileMenu = $('#mobileMenu');
   function setMenu(open){
     burger.classList.toggle('open', open);
     mobileMenu.classList.toggle('open', open);
@@ -1083,77 +1288,69 @@
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? t().menuClose : t().menuOpen);
   }
-  burger.addEventListener('click', ()=> setMenu(!mobileMenu.classList.contains('open')));
-  mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> setMenu(false)));
-  document.addEventListener('keydown', e=>{
+  burger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => {
     if(e.key === 'Escape' && mobileMenu.classList.contains('open')){ setMenu(false); burger.focus(); }
   });
-  // si se agranda la ventana con el menú abierto, lo cierra
-  window.matchMedia('(min-width: 861px)').addEventListener('change', e=>{ if(e.matches) setMenu(false); });
+  window.matchMedia('(min-width: 961px)').addEventListener('change', e => { if(e.matches) setMenu(false); });
 
   // ---------- sección activa en el nav ----------
-  const navLinks = [...document.querySelectorAll('.nav-links a, .mobile-menu a')];
-  const spy = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
+  const navLinks = $$('.nav-links a, .mobile-menu a');
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
       if(!e.isIntersecting) return;
-      navLinks.forEach(a=>{
+      navLinks.forEach(a => {
         const on = a.getAttribute('href') === '#' + e.target.id;
         a.classList.toggle('active', on);
         if(on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
       });
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  document.querySelectorAll('main section[id]').forEach(sec => spy.observe(sec));
+  $$('main section[id]').forEach(sec => spy.observe(sec));
 
   // ---------- filtro del stack ----------
-  const techs = [...document.querySelectorAll('.tech')];
-  const filterBtns = [...document.querySelectorAll('.filter-btn')];
-
-  filterBtns.forEach(btn=>{
+  const techs = $$('.tech');
+  const filterBtns = $$('.filter-btn');
+  const stackStatus = $('#stackStatus');
+  filterBtns.forEach(btn => {
     const f = btn.dataset.filter;
-    const n = f === 'todo' ? techs.length : techs.filter(t => t.dataset.cat === f).length;
-    btn.querySelector('.count').textContent = `(${n})`;
+    btn.querySelector('.count').textContent = f === 'todo' ? techs.length : techs.filter(x => x.dataset.cat === f).length;
   });
-
-  const stackStatus = document.getElementById('stackStatus');
-
   function applyFilter(f){
     filterBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === f)));
     let i = 0, shown = 0;
-    techs.forEach(t=>{
-      const match = f === 'todo' || t.dataset.cat === f;
-      t.classList.remove('in');
-      t.hidden = !match;
-      if(match) shown++;
-      if(match && !reducedMotion){
-        t.style.animationDelay = `${i++ * 28}ms`;
-        void t.offsetWidth;          // reinicia la animación
-        t.classList.add('in');
+    techs.forEach(el => {
+      const match = f === 'todo' || el.dataset.cat === f;
+      el.classList.remove('in');
+      el.hidden = !match;
+      if(!match) return;
+      shown++;
+      if(!reducedMotion){
+        el.style.animationDelay = `${i++ * 28}ms`;
+        void el.offsetWidth;   // reinicia la animación
+        el.classList.add('in');
       }
     });
     stackStatus.textContent = t().showing(shown);
   }
+  filterBtns.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
 
-  filterBtns.forEach(btn => btn.addEventListener('click', ()=> applyFilter(btn.dataset.filter)));
-
-  // ---------- back to top ----------
-  const toTop = document.getElementById('toTop');
-  const toggleToTop = ()=> toTop.classList.toggle('show', window.scrollY > 600);
+  // ---------- volver arriba ----------
+  const toTop = $('#toTop');
+  const toggleToTop = () => toTop.classList.toggle('show', window.scrollY > 600);
   toggleToTop();
-  window.addEventListener('scroll', toggleToTop, { passive:true });
-  toTop.addEventListener('click', ()=>{
-    window.scrollTo({ top:0, behavior: reducedMotion ? 'auto' : 'smooth' });
-  });
+  window.addEventListener('scroll', toggleToTop, { passive: true });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' }));
 
-  // ---------- project modal ----------
-  // Capturas: coloca las imágenes en assets/proyectos/ con estos nombres.
+  // ---------- ventana de proyecto ----------
   const projects = {
     notilab: {
+      idx: '//01',
       tags: ['NestJS', 'Angular', 'MySQL', 'REST'],
       shots: ['assets/proyectos/notilab-2.jpg', 'assets/proyectos/notilab-1.jpg', 'assets/proyectos/notilab-3.jpg'],
       es: {
-        path: '~/proyectos/notilab',
-        badge: 'interno',
+        badge: 'Interno · URBE',
         title: 'Notilab',
         desc: 'Herramienta web desarrollada para el laboratorio de computación de URBE. Centraliza la organización y administración del equipo de laboratorio: control de recursos, seguimiento del flujo de trabajo y comunicación entre el frontend y la base de datos a través de una API propia.',
         points: [
@@ -1165,8 +1362,7 @@
         caps: ['Estado de los equipos del laboratorio', 'Inicio de sesión', 'Registro de chequeos por turno'],
       },
       en: {
-        path: '~/projects/notilab',
-        badge: 'internal',
+        badge: 'Internal · URBE',
         title: 'Notilab',
         desc: 'Web tool built for the URBE computer lab. It centralizes the organization and management of the lab team: resource control, workflow tracking and communication between the frontend and the database through a custom API.',
         points: [
@@ -1180,10 +1376,9 @@
     },
   };
 
-  const modal = document.getElementById('projModal');
-  const $ = id => document.getElementById(id);
-  const moreBtn = $('modalMore');
-  const gallery = $('modalGallery');
+  const modal = $('#projModal');
+  const moreBtn = $('#modalMore');
+  const gallery = $('#modalGallery');
 
   function el(tag, cls, text){
     const n = document.createElement(tag);
@@ -1196,12 +1391,11 @@
     const fig = el('figure', 'shot');
     const img = new Image();
     img.src = s.src; img.alt = s.cap; img.loading = 'lazy';
-    img.addEventListener('error', ()=>{
+    img.addEventListener('error', () => {
       const ph = el('div', 'shot-ph');
-      ph.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-8 8"/></svg>';
       ph.append(el('span', '', t().pending), el('code', '', s.src));
       img.replaceWith(ph);
-    }, { once:true });
+    }, { once: true });
     fig.append(img, el('figcaption', '', s.cap));
     fig.dataset.cap = s.cap;
     return fig;
@@ -1209,13 +1403,9 @@
 
   // Solo las miniaturas (no la principal) son clicables
   function syncShots(){
-    [...gallery.children].forEach((f, i)=>{
-      if(i === 0){
-        f.removeAttribute('tabindex'); f.removeAttribute('role'); f.removeAttribute('aria-label');
-      } else {
-        f.tabIndex = 0; f.setAttribute('role', 'button');
-        f.setAttribute('aria-label', t().viewLarge(f.dataset.cap));
-      }
+    [...gallery.children].forEach((f, i) => {
+      if(i === 0){ f.removeAttribute('tabindex'); f.removeAttribute('role'); f.removeAttribute('aria-label'); }
+      else { f.tabIndex = 0; f.setAttribute('role', 'button'); f.setAttribute('aria-label', t().viewLarge(f.dataset.cap)); }
     });
   }
 
@@ -1227,143 +1417,104 @@
     gallery.insertBefore(fig, main);
     gallery.insertBefore(main, next);
     syncShots();
-    if(!reducedMotion){
-      fig.classList.remove('promoted'); void fig.offsetWidth; fig.classList.add('promoted');
-    }
+    if(!reducedMotion){ fig.classList.remove('promoted'); void fig.offsetWidth; fig.classList.add('promoted'); }
     fig.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest' });
   }
-
-  gallery.addEventListener('click', e=> promoteShot(e.target.closest('.shot')));
-  gallery.addEventListener('keydown', e=>{
-    if((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('shot')){
-      e.preventDefault();
-      promoteShot(e.target);
-    }
+  gallery.addEventListener('click', e => promoteShot(e.target.closest('.shot')));
+  gallery.addEventListener('keydown', e => {
+    if((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('shot')){ e.preventDefault(); promoteShot(e.target); }
   });
 
   function openProject(key){
     const p = projects[key];
     if(!p) return;
     const c = p[lang];
-    $('modalPath').textContent = c.path;
-    $('modalBadge').textContent = c.badge;
-    $('modalTitle').textContent = c.title;
-    $('modalDesc').textContent = c.desc;
-    $('modalPoints').replaceChildren(...c.points.map(txt => el('li', '', txt)));
-    $('modalTags').replaceChildren(...p.tags.map(txt => el('span', 'tag', txt)));
-    $('modalCount').textContent = t().shots(p.shots.length);
+    $('#modalKicker').textContent = `${t().project} · ${p.idx}`;
+    $('#modalBadge').textContent = c.badge;
+    $('#modalTitle').textContent = c.title;
+    $('#modalDesc').textContent = c.desc;
+    $('#modalPoints').replaceChildren(...c.points.map(txt => el('li', '', txt)));
+    $('#modalTags').replaceChildren(...p.tags.map(txt => el('li', '', txt)));
+    $('#modalCount').textContent = t().shots(p.shots.length);
     gallery.replaceChildren(...p.shots.map((src, i) => shotFigure({ src, cap: c.caps[i] })));
     syncShots();
     gallery.hidden = true;
     moreBtn.setAttribute('aria-expanded', 'false');
-    $('modalMoreLabel').textContent = t().more;
+    $('#modalMoreLabel').textContent = t().more;
     modal.showModal();
-    modal.querySelector('.modal-body').scrollTop = 0;
+    $('.modal-body', modal).scrollTop = 0;
     document.body.classList.add('modal-open');
   }
 
   function closeModal(){
     if(!modal.open || modal.classList.contains('closing')) return;
-    const finish = ()=>{ modal.classList.remove('closing'); modal.close(); document.body.classList.remove('modal-open'); };
+    const finish = () => { modal.classList.remove('closing'); modal.close(); document.body.classList.remove('modal-open'); };
     if(reducedMotion){ finish(); return; }
     modal.classList.add('closing');
     setTimeout(finish, 180);
   }
 
-  document.querySelectorAll('.proj-card[data-project]').forEach(card=>{
-    card.addEventListener('click', ()=> openProject(card.dataset.project));
-    card.addEventListener('keydown', e=>{
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openProject(card.dataset.project); }
-    });
+  // Toda la fila de Notilab abre la ventana; el botón es la vía accesible
+  $$('.proj[data-project]').forEach(row => {
+    row.addEventListener('click', () => openProject(row.dataset.project));
   });
 
-  moreBtn.addEventListener('click', ()=>{
+  moreBtn.addEventListener('click', () => {
     const open = gallery.hidden;
     gallery.hidden = !open;
     moreBtn.setAttribute('aria-expanded', String(open));
-    $('modalMoreLabel').textContent = open ? t().less : t().more;
+    $('#modalMoreLabel').textContent = open ? t().less : t().more;
     if(open) gallery.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
   });
-
-  $('modalClose').addEventListener('click', closeModal);
-  modal.addEventListener('click', e=>{ if(e.target === modal) closeModal(); });
-  modal.addEventListener('cancel', e=>{ e.preventDefault(); closeModal(); });
-  modal.addEventListener('close', ()=> document.body.classList.remove('modal-open'));
-
-  // ---------- ambient node network background ----------
-  const canvas = document.getElementById('nodes');
-  const ctx = canvas.getContext('2d');
-  let w, h, nodes = [];
-  function resize(){
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = Math.min(window.innerHeight * 1.1, 900);
-  }
-  function initNodes(){
-    const count = w < 700 ? 18 : 36;
-    nodes = Array.from({length:count}, ()=>({
-      x: Math.random()*w, y: Math.random()*h,
-      vx: (Math.random()-0.5)*0.18, vy:(Math.random()-0.5)*0.18
-    }));
-  }
-  function drawNodes(){
-    ctx.clearRect(0,0,w,h);
-    nodes.forEach(n=>{
-      n.x += n.vx; n.y += n.vy;
-      if(n.x<0||n.x>w) n.vx*=-1;
-      if(n.y<0||n.y>h) n.vy*=-1;
-    });
-    for(let i=0;i<nodes.length;i++){
-      for(let j=i+1;j<nodes.length;j++){
-        const a=nodes[i], b=nodes[j];
-        const d = Math.hypot(a.x-b.x, a.y-b.y);
-        if(d < 150){
-          ctx.strokeStyle = `rgba(94,234,212,${0.09 * (1-d/150)})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-        }
-      }
-    }
-    nodes.forEach(n=>{
-      ctx.fillStyle = 'rgba(94,234,212,0.5)';
-      ctx.beginPath(); ctx.arc(n.x,n.y,1.6,0,Math.PI*2); ctx.fill();
-    });
-    if(!reducedMotion) requestAnimationFrame(drawNodes);
-  }
-  resize(); initNodes(); drawNodes();
-  // En móvil la barra del navegador dispara "resize" al hacer scroll:
-  // solo se regeneran los nodos si cambia el ancho.
-  let lastW = window.innerWidth;
-  window.addEventListener('resize', ()=>{
-    if(window.innerWidth === lastW) return;
-    lastW = window.innerWidth;
-    resize(); initNodes();
-    if(reducedMotion) drawNodes();
-  });
+  $('#modalClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+  modal.addEventListener('cancel', e => { e.preventDefault(); closeModal(); });
+  modal.addEventListener('close', () => document.body.classList.remove('modal-open'));
 
   // ---------- aplicar idioma ----------
-  const langBtn = document.getElementById('langBtn');
+  const langBtn = $('#langBtn');
+  const canonical = $('link[rel="canonical"]');
+  const BASE = 'https://iflam3.github.io/portfolio/';
 
-  function applyLang(next, { animateTerm = false } = {}){
+  function applyLang(next){
     lang = next;
     document.documentElement.lang = lang;
-    document.querySelector('meta[name="description"]').content = t().metaDesc;
+    document.title = t().title;
+    $('meta[name="description"]').content = t().metaDesc;
+    canonical.href = lang === 'en' ? BASE + '?lang=en' : BASE;
     i18nEls.forEach(({ el, key, es }) => { el.innerHTML = lang === 'en' ? EN[key] : es; });
     i18nAria.forEach(({ el, key, es }) => el.setAttribute('aria-label', lang === 'en' ? EN_ARIA[key] : es));
-    document.querySelectorAll('.tech .cat').forEach(c => { c.textContent = t().cats[c.closest('.tech').dataset.cat]; });
+    $$('.tech .cat').forEach(c => { c.textContent = t().cats[c.closest('.tech').dataset.cat]; });
     burger.setAttribute('aria-label', mobileMenu.classList.contains('open') ? t().menuClose : t().menuOpen);
     langBtn.querySelectorAll('[data-l]').forEach(sp => sp.classList.toggle('on', sp.dataset.l === lang));
     langBtn.setAttribute('aria-label', t().langBtn);
-    if(animateTerm) bootTerminal();
-    else { termRun++; renderStatic(); }
   }
 
-  langBtn.addEventListener('click', ()=>{
+  langBtn.addEventListener('click', () => {
     const next = lang === 'es' ? 'en' : 'es';
     try { localStorage.setItem('lang', next); } catch(e) {}
     applyLang(next);
+    // la URL refleja el idioma para poder compartirla
+    const url = new URL(location.href);
+    if(next === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
+    history.replaceState(null, '', url);
+    requestAnimationFrame(() => { computeStops(); applyTheme(); });
   });
 
-  applyLang(lang, { animateTerm: true });
+  // ---------- arranque ----------
+  applyLang(lang);
+  function layout(){ measureWordmarks(); computeStops(); applyTheme(); }
+  layout();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+  window.addEventListener('load', layout);
+  // En móvil la barra del navegador dispara "resize" al hacer scroll: solo se recalcula si cambia el ancho
+  let lastW = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if(window.innerWidth === lastW){ computeStops(); return; }
+    lastW = window.innerWidth;
+    layout();
+  });
+  if(reducedMotion) drawStill(); else requestAnimationFrame(loop);
 </script>
 
 </body>
