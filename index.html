@@ -243,7 +243,11 @@
   .hero-top{display:flex; justify-content:space-between; gap:16px; color:var(--muted);}
   .hero-top strong{color:var(--fg); font-weight:700;}
   .hero-top .coords{text-transform:none; letter-spacing:.02em;}
-  .hero-main{flex:1; display:flex; align-items:center; justify-content:flex-end; padding-top:32px; padding-bottom:32px;}
+  /* Dos columnas: flama + iFlame a la izquierda, texto a la derecha */
+  .hero-main{
+    flex:1; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,600px); align-items:center; gap:48px;
+    padding-top:32px; padding-bottom:clamp(40px, 6vw, 80px);
+  }
   .hero-copy{max-width:600px;}
   .hero h1{
     font-family:var(--display); font-weight:800; font-stretch:82%;
@@ -280,9 +284,9 @@
   }
   /* El del hero va completo y más pequeño; el del pie conserva el tamaño grande y recortado */
   .hero .wordmark{
-    --wm-size:min(calc((min(100vw, var(--maxw)) - 2 * var(--pad)) / 2.42 * .62), 34svh);
-    --flame-h:clamp(170px, 36svh, 360px);
-    margin-bottom:clamp(28px, 4vw, 52px);
+    --wm-size:clamp(110px, calc((min(100vw, var(--maxw)) - 2 * var(--pad) - 700px) / 2.42), 30svh);
+    --flame-h:clamp(220px, 50svh, 500px);
+    align-self:end; margin:0; padding-left:0;   /* la flama puede asomar sobre el margen de la página */
   }
 
   /* ---------- secciones ---------- */
@@ -504,7 +508,9 @@
   @media (max-width:960px){
     .nav-links, .nav-cta{display:none;}
     .burger{display:flex;}
-    .hero-main{justify-content:flex-start;}
+    .hero-main{grid-template-columns:1fr; gap:0;}
+    .hero-copy{order:-1;}
+    .hero .wordmark{--wm-size:calc((100vw - 2 * var(--pad)) / 2.42 * .7); --flame-h:clamp(200px, 32svh, 300px); margin-top:calc(var(--flame-h) + 24px); padding-left:max(0px, calc(var(--flame-w) / 2 - .11em + 4px));}
     .job{grid-template-columns:150px minmax(0,1fr); }
     .job .ticks{grid-column:2;}
     .proj{grid-template-columns:56px minmax(0,1fr) auto;}
@@ -515,9 +521,8 @@
 
   @media (max-width:640px){
     .hero-top{flex-direction:column; gap:2px;}
-    .hero-main{padding-top:26px; padding-bottom:calc(var(--flame-h-m) + 12px); align-items:flex-start;}
-    .hero{--flame-h-m:clamp(160px, 26svh, 230px);}
-    .hero .wordmark{--flame-h:var(--flame-h-m); --wm-size:calc((100vw - 2 * var(--pad)) / 2.42 * .8);}
+    .hero-main{padding-top:26px;}
+    .hero .wordmark{--flame-h:clamp(160px, 26svh, 230px); --wm-size:calc((100vw - 2 * var(--pad)) / 2.42 * .8);}
     .hero-actions .btn{flex:1 1 auto; justify-content:center;}
 
     .sec-sub{max-width:none; padding-bottom:0;}
@@ -590,6 +595,9 @@
     </div>
 
     <div class="hero-main wrap" id="contenido">
+      <div class="wordmark" aria-hidden="true">
+        <span class="wm-i">ı<span class="wm-x"></span><canvas class="ascii-flame" id="heroFlame"></canvas></span>Flame
+      </div>
       <div class="hero-copy">
         <h1 id="heroTitle" data-i18n="hero.h1">Construyo sistemas backend <em>sólidos y escalables</em>.</h1>
         <p class="lead" data-i18n="hero.lead">Diseño APIs REST y arquitecturas de microservicios con NestJS, Node.js y Java: servicios que escalan, rinden bajo carga y se mantienen sin dolor.</p>
@@ -611,11 +619,6 @@
       </div>
     </div>
 
-    <div class="wrap">
-      <div class="wordmark" aria-hidden="true">
-        <span class="wm-i">ı<span class="wm-x"></span><canvas class="ascii-flame" id="heroFlame"></canvas></span>Flame
-      </div>
-    </div>
   </section>
 
   <!-- STACK -->
