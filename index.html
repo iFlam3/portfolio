@@ -243,7 +243,7 @@
   .hero-top{display:flex; justify-content:space-between; gap:16px; color:var(--muted);}
   .hero-top strong{color:var(--fg); font-weight:700;}
   .hero-top .coords{text-transform:none; letter-spacing:.02em;}
-  /* Dos columnas: flama + iFlame a la izquierda, texto a la derecha */
+  /* Dos columnas: flama a la izquierda, texto a la derecha */
   .hero-main{
     flex:1; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,600px); align-items:center; gap:48px;
     padding-top:32px; padding-bottom:clamp(40px, 6vw, 80px);
@@ -282,11 +282,45 @@
     width:var(--flame-w); height:var(--flame-h); max-width:none; transform:translateX(-50%);
     pointer-events:none;
   }
-  /* El del hero va completo y más pequeño; el del pie conserva el tamaño grande y recortado */
-  .hero .wordmark{
-    --wm-size:clamp(110px, calc((min(100vw, var(--maxw)) - 2 * var(--pad) - 700px) / 2.42), 30svh);
-    --flame-h:clamp(220px, 50svh, 500px);
-    align-self:end; margin:0; padding-left:0;   /* la flama puede asomar sobre el margen de la página */
+  /* En el hero va solo la flama, a la altura del bloque de texto */
+  .hero-flame{
+    --flame-h:clamp(360px, 80svh, 720px);
+    justify-self:center;
+  }
+  .hero-flame{position:relative; isolation:isolate;}
+  /* resplandor: luz real detrás del fuego; color e intensidad los pone el JS (--glow-c) */
+  .hero-flame::before{
+    content:''; position:absolute; inset:-14% -24% -8%; z-index:-1; pointer-events:none;
+    background:radial-gradient(ellipse closest-side at 50% 62%, var(--glow-c, transparent), transparent);
+  }
+  .ext-mode .ascii-flame{pointer-events:auto; touch-action:none; cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Crect x='5' y='9' width='8' height='13' rx='3' fill='%23d23a24' stroke='%231d1612' stroke-width='1.2'/%3E%3Cpath d='M9 9V6M6 6h6l8-3' fill='none' stroke='%231d1612' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") 22 4, crosshair;}
+  .ext-mode.ext-3d .ascii-flame{cursor:none;}   /* con el extintor 3D, el cursor sobra */
+  .ext-3d-canvas{position:fixed; inset:0; width:100%; height:100%; z-index:95; pointer-events:none;}
+  .ext-btn[hidden]{display:none;}
+  .ext-btn.pop{animation:extPop .6s cubic-bezier(.2,1.5,.4,1);}
+  @keyframes extPop{from{opacity:0; transform:scale(0) rotate(-50deg);}}
+  .ext-btn{
+    position:absolute; right:2%; bottom:6%; width:38px; height:38px; border-radius:50%; cursor:pointer;
+    display:grid; place-items:center; background:var(--bg); color:var(--muted); border:1px solid var(--line);
+    opacity:.5; transition:opacity .2s ease, color .2s ease, border-color .2s ease, transform .25s ease;
+  }
+  .ext-btn:hover, .ext-btn:focus-visible, .ext-btn[aria-pressed="true"]{opacity:1; color:var(--accent); border-color:var(--accent);}
+  .ext-btn[aria-pressed="true"]{transform:rotate(-14deg);}
+  .ext-btn::after{
+    content:attr(aria-label); position:absolute; right:calc(100% + 8px); white-space:nowrap;
+    font:500 11px var(--mono); color:var(--muted); opacity:0; transition:opacity .2s ease; pointer-events:none;
+  }
+  .ext-btn:hover::after, .ext-btn:focus-visible::after{opacity:1;}
+  .fire-msg{
+    position:absolute; left:50%; bottom:-4px; transform:translate(-50%, 8px); width:max-content; max-width:min(340px, 88vw);
+    padding:9px 14px; border-radius:12px; background:var(--fg); color:var(--bg);
+    font:500 12.5px/1.45 var(--mono); text-align:center; opacity:0; pointer-events:none;
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .fire-msg.show{opacity:1; transform:translate(-50%, 0);}
+  .hero-flame .ascii-flame{
+    position:static; display:block; transform:none;
+    width:calc(var(--flame-h) * .706); height:var(--flame-h);   /* 80 columnas × 0.6em / 68 filas (fuego + halo + brasas) */
   }
 
   /* ---------- secciones ---------- */
@@ -508,9 +542,9 @@
   @media (max-width:960px){
     .nav-links, .nav-cta{display:none;}
     .burger{display:flex;}
-    .hero-main{grid-template-columns:1fr; gap:0;}
+    .hero-main{grid-template-columns:1fr; gap:0; align-content:center;}
     .hero-copy{order:-1;}
-    .hero .wordmark{--wm-size:calc((100vw - 2 * var(--pad)) / 2.42 * .7); --flame-h:clamp(200px, 32svh, 300px); margin-top:calc(var(--flame-h) + 24px); padding-left:max(0px, calc(var(--flame-w) / 2 - .11em + 4px));}
+    .hero-flame{--flame-h:clamp(280px, 46svh, 420px); margin-top:20px;}
     .job{grid-template-columns:150px minmax(0,1fr); }
     .job .ticks{grid-column:2;}
     .proj{grid-template-columns:56px minmax(0,1fr) auto;}
@@ -522,7 +556,7 @@
   @media (max-width:640px){
     .hero-top{flex-direction:column; gap:2px;}
     .hero-main{padding-top:26px;}
-    .hero .wordmark{--flame-h:clamp(160px, 26svh, 230px); --wm-size:calc((100vw - 2 * var(--pad)) / 2.42 * .8);}
+    .hero-flame{--flame-h:clamp(240px, 40svh, 340px);}
     .hero-actions .btn{flex:1 1 auto; justify-content:center;}
 
     .sec-sub{max-width:none; padding-bottom:0;}
@@ -595,9 +629,7 @@
     </div>
 
     <div class="hero-main wrap" id="contenido">
-      <div class="wordmark" aria-hidden="true">
-        <span class="wm-i">ı<span class="wm-x"></span><canvas class="ascii-flame" id="heroFlame"></canvas></span>Flame
-      </div>
+      <div class="hero-flame"><canvas class="ascii-flame" id="heroFlame" aria-hidden="true"></canvas><button class="ext-btn" id="extBtn" type="button" hidden aria-pressed="false" aria-label="¿Lo apagamos?" data-i18n-aria="aria.ext"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="9" width="8" height="12" rx="3"/><path d="M11 9V6M8 6h6l5-2.5M9 6 6.5 3.5"/><path d="M10 14h2"/></svg></button><p class="fire-msg" id="fireMsg" role="status" aria-live="polite"></p></div>
       <div class="hero-copy">
         <h1 id="heroTitle" data-i18n="hero.h1">Construyo sistemas backend <em>sólidos y escalables</em>.</h1>
         <p class="lead" data-i18n="hero.lead">Diseño APIs REST y arquitecturas de microservicios con NestJS, Node.js y Java: servicios que escalan, rinden bajo carga y se mantienen sin dolor.</p>
@@ -1007,6 +1039,7 @@
   const EN_ARIA = {
     'aria.nav': 'Main',
     'aria.home': 'iFlame, home',
+    'aria.ext': 'Shall we put it out?',
     'aria.phone': 'Phone',
     'aria.filters': 'Filter technologies by category',
     'aria.love': 'love',
@@ -1027,6 +1060,9 @@
       viewLarge: cap => `Ver en grande: ${cap}`,
       pending: 'captura pendiente',
       project: 'Proyecto',
+      fireUnlocked: '🧯 Extintor desbloqueado. Úsalo bajo tu propio riesgo.',
+      fireHint: 'Mantén presionado sobre el fuego 🧯',
+      fireOut: '🏆 Logro desbloqueado: bombero de guardia. Tranquilo, esta llama siempre vuelve a encender…',
       cats: { backend:'backend', lenguaje:'lenguaje', frontend:'frontend', datos:'datos', infra:'infra' },
     },
     en: {
@@ -1040,6 +1076,9 @@
       viewLarge: cap => `View larger: ${cap}`,
       pending: 'screenshot pending',
       project: 'Project',
+      fireUnlocked: '🧯 Fire extinguisher unlocked. Use at your own risk.',
+      fireHint: 'Press and hold on the fire 🧯',
+      fireOut: '🏆 Achievement unlocked: on-call firefighter. Relax, this flame always comes back…',
       cats: { backend:'backend', lenguaje:'language', frontend:'frontend', datos:'data', infra:'infra' },
     },
   };
@@ -1235,7 +1274,515 @@
     }
   }
 
-  const flames = $$('.ascii-flame').map(c => new AsciiFlame(c));
+  // ---------- fuego del hero ----------
+  // Silueta procedural: base ancha y redondeada + tres lenguas, con turbulencia que sube,
+  // halo de luz alrededor y brasas/ceniza que se desprenden. Coordenadas "visuales":
+  // fx = horizontal desde el centro, fy = altura desde la base, ambas en alturas del fuego.
+  const HALO = '.·:';
+  const TONGUES = [
+    // x0/w: centro y medio ancho en la base; b→h: altura donde nace y donde acaba; xt: x de la punta
+    { x0:  .00, w: .21, b: .22, h: 1.00, xt: -.05, ph: 0 },
+    { x0:  .19, w: .16, b: .28, h:  .73, xt:  .19, ph: 2.1 },
+    { x0: -.21, w: .17, b: .22, h:  .58, xt: -.38, ph: 4.2 },
+  ];
+  class HeroFire {
+    constructor(canvas){
+      this.c = canvas; this.ctx = canvas.getContext('2d');
+      this.GW = 80; this.GH = 68;          // celdas; proporción 80×0.6/68 en el CSS de .hero-flame
+      this.base = 64; this.FH = 52;        // fila de la base y altura del fuego en filas
+      this.cx = (this.GW - 1) / 2;
+      this.t = Math.random() * 10; this.visible = false;
+      this.D = new Float32Array(this.GW * this.GH);
+      this.B = new Float32Array(this.GW * this.GH);
+      this.tmp = new Float32Array(this.GW * this.GH);
+      this.sparks = [];
+      this.douse = 0;        // 0 = fuego vivo, 1 = apagado (easter egg del extintor)
+      this.spray = null;     // celda donde apunta el extintor mientras se rocía
+      this.out = false; this.relight = false; this.smoke = 0; this.onOut = null;
+      this.resize();
+      for(let n = 0; n < 60; n++) this.step(1);
+    }
+    resize(){
+      const r = this.c.getBoundingClientRect();
+      const d = Math.min(window.devicePixelRatio || 1, 2);
+      this.c.width = Math.max(1, Math.round(r.width * d));
+      this.c.height = Math.max(1, Math.round(r.height * d));
+      this.cw = this.c.width / this.GW; this.ch = this.c.height / this.GH;
+      this.fs = Math.min(this.ch * 1.08, this.cw / .6);
+    }
+    // celda ↔ coordenadas visuales
+    toV(x, y){ return [(x - this.cx) * .6 / this.FH, (this.base - y) / this.FH]; }
+    toCell(fx, fy){ return [this.cx + fx * this.FH / .6, this.base - fy * this.FH]; }
+    tongue(T, s){
+      const t = this.t;
+      const sway = Math.sin(t * 1.3 + T.ph) * .035 + Math.sin(t * 2.9 + T.ph * 2) * .015;
+      return T.x0 + (T.xt - T.x0 + sway) * s * s;
+    }
+    field(fx, fy, k){
+      const t = this.t;
+      fy /= k;                                              // al apagarse, el fuego se encoge hacia la base
+      // cuerpo: superelipse achatada, de base redonda
+      const ex = Math.abs(fx / .38), ey = Math.abs((fy - .26) / .27);
+      let F = 1 - (ex ** 2.4 + ey ** 2.4);
+      for(const T of TONGUES){
+        const h = T.h * (1 + .05 * Math.sin(t * 2.1 + T.ph));
+        if(fy < T.b || fy > h) continue;
+        const s = (fy - T.b) / (h - T.b);
+        const hw = T.w * Math.pow(1 - s, .85);
+        F = Math.max(F, 1 - Math.abs(fx - this.tongue(T, s)) / hw);
+      }
+      if(F <= -.2) return 0;
+      // turbulencia que sube: bordes irregulares y vivos
+      const n = .5 + .25 * Math.sin(fx * 23 + Math.sin(fy * 9 - t * 3) * 1.5) * Math.sin(fy * 17 - t * 6.5)
+                   + .25 * Math.sin(fx * 41 - t * 2 + fy * 13) * Math.sin(fy * 29 - t * 9);
+      const v = Math.max(0, Math.min(1, (F - n * (.22 + .3 * fy)) * 1.5));
+      // núcleo más caliente abajo y al centro
+      const core = Math.max(0, 1 - Math.hypot(fx / .3, (fy - .2) / .38));
+      return v * (.5 + .5 * core) * Math.min(1, k * 1.4);
+    }
+    step(intensity = flame.i){
+      this.t += .07;
+      // brasas y ceniza: nacen en las puntas y el borde superior, suben ondulando y se apagan
+      const k = Math.max(.15, intensity);
+      this.extinguisher();
+      if(Math.random() < .55 * intensity * (1 - this.douse)){
+        const [tx, ty] = FLAME_TIPS[Math.floor(Math.random() * FLAME_TIPS.length)];
+        const s = .75 + Math.random() * .25;   // de la punta hacia abajo
+        const [x, y] = this.toCell(tx + (Math.random() - .5) * .1, ty * s * k);
+        this.sparks.push({ x, y, vx: (Math.random() - .5) * .25, vy: -(.35 + Math.random() * .5), age: 0, life: 35 + Math.random() * 55, ph: Math.random() * 6 });
+      }
+      this.sparks = this.sparks.filter(p => {
+        p.age++;
+        p.x += p.vx + Math.sin(p.age * .18 + p.ph) * (p.kind === 'foam' ? .03 : .12);
+        p.y += p.vy; p.vy = p.vy * .985 + (p.g || 0);
+        return p.age < p.life && p.y > -1 && p.y < this.GH + 1;
+      });
+    }
+    // Espuma donde apunta el extintor; si cae sobre el fuego, lo va apagando. Al apagarse sale humo.
+    extinguisher(){
+      const R = Math.random;
+      if(this.spray && !this.out){
+        const [sx, sy] = this.spray;
+        for(let n = 0; n < 5; n++){
+          this.sparks.push({ kind: 'foam', x: sx + (R() - .5) * 2, y: sy + (R() - .5) * 1.5, vx: (R() - .5) * .9, vy: (R() - .7) * .5, g: .045, age: 0, life: 16 + R() * 16, ph: R() * 6 });
+        }
+        // cuenta toda el área de la flama a tamaño completo: al apagarse se encoge y no hay que perseguirla
+        const [fx, fy] = this.toV(sx, sy);
+        if(Math.abs(fx) < .4 && fy > -.08 && fy < 1.05) this.douse = Math.min(1, this.douse + .015);   // ≈ 3 s rociando
+      } else if(this.relight){
+        this.douse = Math.max(0, this.douse - .012);
+        if(!this.douse) this.relight = false;
+      } else if(!this.out){
+        this.douse = Math.max(0, this.douse - .004);   // si dejas de rociar, el fuego se recupera
+      }
+      if(this.douse >= 1 && !this.out){
+        this.out = true; this.smoke = 70; this.spray = null;
+        if(this.onOut) this.onOut();
+      }
+      if(this.smoke > 0){
+        this.smoke--;
+        for(let n = 0; n < 2; n++){
+          const [x, y] = this.toCell((R() - .5) * .45, R() * .35);
+          this.sparks.push({ kind: 'smoke', x, y, vx: (R() - .5) * .15, vy: -(.18 + R() * .25), age: 0, life: 50 + R() * 50, ph: R() * 6 });
+        }
+      }
+    }
+    // Desenfoque de caja separable (radio 1) sobre B, repetido n veces
+    blur(n){
+      const { GW, GH, B, tmp } = this;
+      for(let k = 0; k < n; k++){
+        for(let y = 0; y < GH; y++) for(let x = 0; x < GW; x++){
+          const i = y * GW + x;
+          tmp[i] = (B[i - (x > 0)] + B[i] + B[i + (x < GW - 1)]) / 3;
+        }
+        for(let y = 0; y < GH; y++) for(let x = 0; x < GW; x++){
+          const i = y * GW + x;
+          B[i] = (tmp[i - (y > 0) * GW] + tmp[i] + tmp[i + (y < GH - 1) * GW]) / 3;
+        }
+      }
+    }
+    draw(){
+      const { ctx, GW, GH, cw, ch, D, B } = this;
+      const live = 1 - this.douse;
+      const k = Math.max(.15, flame.i) * (.25 + .75 * live);
+      ctx.clearRect(0, 0, this.c.width, this.c.height);
+      ctx.font = `700 ${this.fs}px "JetBrains Mono", ui-monospace, monospace`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+
+      // borde oscuro → medio → claro → núcleo casi blanco
+      const stops = [...flame.pal, mix(flame.pal[2], [255, 236, 170], .35)];
+      const N = 16, cols = [];
+      for(let b = 0; b < N; b++){
+        const f = (b + .5) / N * (stops.length - 1), j = Math.floor(f);
+        cols.push(rgb(mix(stops[j], stops[Math.min(j + 1, stops.length - 1)], f - j)));
+      }
+
+      if(this.sample) this.sample(this.t, k);
+      else for(let y = 0; y < GH; y++) for(let x = 0; x < GW; x++){
+        const [fx, fy] = this.toV(x, y);
+        D[y * GW + x] = fy < -.02 ? 0 : this.field(fx, fy, k);
+      }
+      if(live < 1) for(let i = 0; i < GW * GH; i++) D[i] *= live;
+
+      // resplandor detrás del canvas (CSS): color del núcleo, titila y se apaga con el fuego
+      const glow = .4 * Math.min(1, flame.i * 1.2) * live * (.88 + .12 * Math.sin(this.t * 5.3) * Math.sin(this.t * 3.1));
+      const gc = mix(flame.pal[2], flame.pal[1], .3).map(Math.round);
+      this.c.parentElement.style.setProperty('--glow-c', `rgba(${gc.join(',')},${glow.toFixed(3)})`);
+
+      // halo de luz: el fuego difuminado hacia afuera, en puntos rojizos cada vez más ralos
+      B.set(D); this.blur(5);
+      ctx.fillStyle = rgb(flame.pal[1]);
+      for(let i = 0; i < GW * GH; i++){
+        if(D[i] >= .05) continue;
+        const h = Math.min(1, B[i] * 4);
+        if(h < .1 || Math.random() > .35 + h * .65) continue;
+        ctx.globalAlpha = .12 + h * .45;
+        ctx.fillText(HALO[Math.min(HALO.length - 1, Math.floor(h * HALO.length))], (i % GW + .5) * cw, (Math.floor(i / GW) + .5) * ch);
+      }
+
+      // brasas: brillantes al nacer, luego rojas y al final ceniza gris; espuma azulada; humo gris
+      for(const p of this.sparks){
+        const a = p.age / p.life;
+        if(p.kind === 'foam'){
+          ctx.globalAlpha = 1 - a; ctx.fillStyle = 'rgb(96,150,190)';
+          ctx.fillText(a < .3 ? 'o' : a < .65 ? '°' : '·', (p.x + .5) * cw, (p.y + .5) * ch);
+          continue;
+        }
+        if(p.kind === 'smoke'){
+          ctx.globalAlpha = .55 * (1 - a) * Math.min(1, a * 6); ctx.fillStyle = 'rgb(140,130,124)';
+          ctx.fillText(a < .4 ? '~' : a < .75 ? '°' : '.', (p.x + .5) * cw, (p.y + .5) * ch);
+          continue;
+        }
+        const c = a < .5 ? mix(flame.pal[2], flame.pal[0], a * 2) : mix(flame.pal[0], [125, 115, 105], (a - .5) * 2);
+        ctx.globalAlpha = Math.min(1, (1 - a) * 1.6);
+        ctx.fillStyle = rgb(c);
+        ctx.fillText(a < .35 && p.vy < -.4 ? "'" : a < .7 ? '·' : '.', (p.x + .5) * cw, (p.y + .5) * ch);
+      }
+      ctx.globalAlpha = 1;
+
+      for(let i = 0; i < GW * GH; i++){
+        const v = D[i];
+        if(v < .05) continue;
+        const g = RAMP[Math.min(RAMP.length - 1, Math.floor(Math.pow(v, .65) * RAMP.length))];
+        if(g === ' ') continue;
+        ctx.fillStyle = cols[Math.min(N - 1, Math.floor(v * N))];
+        ctx.fillText(g, (i % GW + .5) * cw, (Math.floor(i / GW) + .5) * ch);
+      }
+    }
+  }
+
+
+  // ---------- silueta de la flama en Three.js ----------
+  // Curvas bezier en unidades de "altura del fuego" (base y=0, punta y=1). Se pintan en orden:
+  // cuerpo → cortes (0 = vacío) → flama interior. El shader las hace ondular y les da gradiente.
+  const FLAME_PATHS = [
+    { val: .78, d: [   // contorno: punta principal, lengua derecha y lengua izquierda, separadas por muescas
+      [-.037, 1],
+      [.07, .90, .15, .70, .12, .53],        // borde derecho de la lengua principal → muesca
+      [.14, .60, .17, .68, .18, .755],       // sube a la punta derecha
+      [.24, .66, .33, .50, .33, .32],        // borde exterior derecho
+      [.33, .13, .18, 0, 0, 0],              // base redonda
+      [-.18, 0, -.33, .13, -.33, .32],
+      [-.33, .48, -.25, .60, -.165, .70],    // borde exterior izquierdo → punta izquierda
+      [-.15, .64, -.13, .60, -.125, .54],    // baja a la muesca izquierda
+      [-.13, .70, -.10, .86, -.037, 1],      // borde izquierdo de la lengua principal
+    ]},
+    { val: 0, d: [     // hueco alrededor de la flama interior, inclinado a la derecha
+      [.10, .52],
+      [.21, .36, .20, .12, .04, .04],
+      [-.06, 0, -.17, .06, -.15, .18],
+      [-.12, .30, .02, .36, .10, .52],
+    ]},
+    { val: 1, d: [     // flama interior, la parte más caliente
+      [.04, .36],
+      [.12, .27, .13, .13, .05, .07],
+      [-.01, .03, -.09, .07, -.08, .14],
+      [-.06, .22, 0, .26, .04, .36],
+    ]},
+  ];
+  // Puntas de donde salen las brasas
+  const FLAME_TIPS = [[-.037, 1], [.18, .755], [-.165, .70]];
+
+  const FLAME_VS = `
+    uniform float uT, uK;
+    varying vec2 vP;
+    void main(){
+      vec3 p = position;
+      float h = clamp(p.y, 0., 1.);
+      // ondulación: más fuerte arriba, la base casi quieta
+      p.x += (sin(p.y * 7. - uT * 4.2) * .024 + sin(p.y * 13. - uT * 7.1 + p.x * 4.) * .009) * h * h;
+      p.y *= uK * (1. + .035 * sin(uT * 2.3 + p.x * 5.) * h);
+      vP = p.xy;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.);
+    }`;
+  const FLAME_FS = `
+    uniform float uT, uVal;
+    varying vec2 vP;
+    void main(){
+      float core = max(0., 1. - length(vec2(vP.x / .3, (vP.y - .18) / .4)));
+      float n = sin(vP.x * 23. + sin(vP.y * 9. - uT * 3.) * 1.5) * sin(vP.y * 17. - uT * 6.5);
+      float v = uVal * (.6 + .4 * core) * (1. - .3 * vP.y) * (.88 + .12 * n);
+      gl_FragColor = vec4(vec3(clamp(v, 0., 1.)), 1.);
+    }`;
+
+  // Three.js se descarga una sola vez, bajo demanda, y lo comparten la flama y el extintor
+  let threeP = null;
+  const loadThree = () => threeP || (threeP = import('https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js'));
+
+  // Si Three.js no carga (sin red), el hero usa el fuego procedural
+  async function initFlameGL(fire){
+    try{
+      const THREE = await loadThree();
+      const SS = 2;   // supermuestreo: cada celda ASCII promedia 2×2 píxeles
+      const w = fire.GW * SS, h = fire.GH * SS;
+      const renderer = new THREE.WebGLRenderer({ canvas: document.createElement('canvas'), antialias: false });
+      renderer.setSize(w, h, false);
+      renderer.setClearColor(0x000000, 1);
+      const rt = new THREE.WebGLRenderTarget(w, h);
+      // Cámara que encuadra la rejilla ASCII: 1 unidad = altura del fuego, columnas de 0.6
+      const halfW = fire.GW * .6 / fire.FH / 2, bottom = -(fire.GH - fire.base) / fire.FH;
+      const camera = new THREE.OrthographicCamera(-halfW, halfW, bottom + fire.GH / fire.FH, bottom, -1, 1);
+      const scene = new THREE.Scene();
+      const shared = { uT: { value: 0 }, uK: { value: 1 } };
+      FLAME_PATHS.forEach((p, i) => {
+        const s = new THREE.Shape();
+        s.moveTo(...p.d[0]);
+        p.d.slice(1).forEach(c => s.bezierCurveTo(...c));
+        const mat = new THREE.ShaderMaterial({
+          uniforms: { ...shared, uVal: { value: p.val } },
+          vertexShader: FLAME_VS, fragmentShader: FLAME_FS, depthTest: false,
+        });
+        const mesh = new THREE.Mesh(new THREE.ShapeGeometry(s, 32), mat);
+        mesh.renderOrder = i;
+        scene.add(mesh);
+      });
+      const px = new Uint8Array(w * h * 4);
+      fire.sample = (t, k) => {
+        shared.uT.value = t; shared.uK.value = k;
+        renderer.setRenderTarget(rt);
+        renderer.render(scene, camera);
+        renderer.readRenderTargetPixels(rt, 0, 0, w, h, px);
+        const { D, GW, GH } = fire;
+        for(let y = 0; y < GH; y++) for(let x = 0; x < GW; x++){
+          let sum = 0;
+          for(let j = 0; j < SS; j++) for(let i = 0; i < SS; i++){
+            sum += px[(((GH - 1 - y) * SS + j) * w + x * SS + i) * 4];   // WebGL tiene el origen abajo
+          }
+          D[y * GW + x] = sum / (SS * SS * 255);
+        }
+      };
+      fire.draw();
+    } catch(e) { /* sin Three.js: queda el fuego procedural */ }
+  }
+
+  const flames = $$('.ascii-flame').map(c => c.closest('.hero-flame') ? new HeroFire(c) : new AsciiFlame(c));
+  flames.forEach(f => { if(f instanceof HeroFire) initFlameGL(f); });
+
+  // ---------- easter egg: el extintor ----------
+  // Oculto hasta pulsar F. Un extintor 3D (Three.js) sigue al puntero, apunta adonde rocías
+  // y lanza un chorro de espuma; el ASCII de la flama recibe la espuma y se va apagando.
+
+  // Extintor 3D en un canvas transparente sobre la página. Devuelve null si Three.js no carga.
+  async function initExt3D(fire){
+    try{
+      const THREE = await loadThree();
+      const cv = document.createElement('canvas');
+      cv.className = 'ext-3d-canvas'; cv.setAttribute('aria-hidden', 'true');
+      document.body.append(cv);
+      const PR = Math.min(window.devicePixelRatio || 1, 2);
+      const renderer = new THREE.WebGLRenderer({ canvas: cv, alpha: true, antialias: true });
+      renderer.setPixelRatio(PR);
+      // cámara en píxeles de pantalla: x a la derecha, y hacia arriba (por eso se niega clientY)
+      const camera = new THREE.OrthographicCamera(0, 1, 0, -1, -500, 500);
+      const fit = () => {
+        renderer.setSize(innerWidth, innerHeight, false);
+        camera.right = innerWidth; camera.bottom = -innerHeight; camera.updateProjectionMatrix();
+      };
+      fit(); window.addEventListener('resize', fit);
+      const scene = new THREE.Scene();
+      scene.add(new THREE.HemisphereLight(0xfff4e6, 0x3a2a20, 1.7));
+      const sun = new THREE.DirectionalLight(0xffffff, 2.4);
+      sun.position.set(-1, 2, 3); scene.add(sun);
+
+      // ----- modelo (en px): cuerpo vertical, boquilla arriba a la izquierda en (-38, 46) -----
+      const M = (color, metalness, roughness) => new THREE.MeshStandardMaterial({ color, metalness, roughness });
+      const red = M(0xd23a24, .25, .35), steel = M(0xa3abb3, .85, .3), black = M(0x1d1612, .1, .7), white = M(0xf3ece6, 0, .6);
+      const model = new THREE.Group();
+      const part = (geo, mat, x, y, rz = 0, parent = model) => {
+        const m = new THREE.Mesh(geo, mat);
+        m.position.set(x, y, 0); m.rotation.z = rz; parent.add(m); return m;
+      };
+      part(new THREE.CylinderGeometry(15, 15, 56, 32), red, 0, 0);                                 // cuerpo
+      part(new THREE.SphereGeometry(15, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2), red, 0, 28);     // hombro
+      part(new THREE.CylinderGeometry(15.4, 15.4, 3, 32), black, 0, -27);                          // base
+      part(new THREE.CylinderGeometry(15.3, 15.3, 13, 32), white, 0, -3);                          // etiqueta
+      part(new THREE.CylinderGeometry(5, 6, 10, 16), steel, 0, 39);                                // válvula
+      part(new THREE.BoxGeometry(26, 4, 8), steel, 5, 45);                                         // mango fijo
+      const lever = new THREE.Group(); lever.position.set(-7, 47, 0); model.add(lever);            // gatillo (pivota)
+      part(new THREE.BoxGeometry(26, 3.5, 7), steel, 12, 3, 0, lever);
+      const hose = new THREE.CatmullRomCurve3([[-3, 41], [-14, 39], [-22, 43], [-27, 46]].map(([x, y]) => new THREE.Vector3(x, y, 0)));
+      model.add(new THREE.Mesh(new THREE.TubeGeometry(hose, 20, 2.6, 8), black));                // manguera
+      part(new THREE.CylinderGeometry(5.5, 2.5, 12, 16), black, -32, 46, Math.PI / 2);            // boquilla (sale por -x)
+      model.position.set(38, -46, 0);   // la punta de la boquilla queda en el origen del rig
+      model.rotation.y = -.45;          // un poco de perfil para que se lea el volumen
+      const rig = new THREE.Group(); rig.add(model); scene.add(rig);
+
+      // ----- chorro de espuma: partículas que salen de la boquilla, se abren y se desvanecen -----
+      const MAX = 280;
+      const pos = new Float32Array(MAX * 3), vel = new Float32Array(MAX * 2);
+      const life = new Float32Array(MAX).fill(1), rate = new Float32Array(MAX), size = new Float32Array(MAX);
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      geo.setAttribute('aLife', new THREE.BufferAttribute(life, 1));
+      geo.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
+      const foam = new THREE.Points(geo, new THREE.ShaderMaterial({
+        uniforms: { uPR: { value: PR } },
+        transparent: true, depthWrite: false,
+        vertexShader: `
+          attribute float aLife, aSize; uniform float uPR; varying float vL;
+          void main(){ vL = aLife; gl_PointSize = aSize * uPR; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+        fragmentShader: `
+          varying float vL;
+          void main(){
+            if(vL >= 1.) discard;
+            float d = length(gl_PointCoord - .5);
+            float a = smoothstep(.5, .12, d) * (1. - vL) * .8;
+            gl_FragColor = vec4(mix(vec3(.95, .98, 1.), vec3(.55, .70, .82), vL), a);
+          }`,
+      }));
+      foam.frustumCulled = false; scene.add(foam);
+      let next = 0;
+      const emit = (x, y, dx, dy) => {
+        const i = next; next = (next + 1) % MAX;
+        const a = Math.atan2(dy, dx) + (Math.random() - .5) * .32, sp = 10 + Math.random() * 5;
+        pos[i * 3] = x; pos[i * 3 + 1] = y; pos[i * 3 + 2] = 10;
+        vel[i * 2] = Math.cos(a) * sp; vel[i * 2 + 1] = Math.sin(a) * sp;
+        life[i] = 0; rate[i] = 1 / (16 + Math.random() * 10); size[i] = 4 + Math.random() * 3;
+      };
+
+      // ----- animación -----
+      const target = new THREE.Vector2(innerWidth / 2, innerHeight / 2);   // puntero (px de pantalla)
+      const at = new THREE.Vector2();                                       // boquilla (px de pantalla)
+      let home = null, vis = 0, visT = 0, spin = 0, aimZ = 0, t = 0, running = false;
+      const center = r => [r.left + r.width / 2, r.top + r.height / 2];
+      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+      function frame(){
+        t += 1;
+        vis += (visT - vis) * .14;
+        // la boquilla se queda abajo a la derecha del puntero, apuntándolo; al irse vuelve al botón
+        const [hx, hy] = visT ? [clamp(target.x + 105, 30, innerWidth - 30), clamp(target.y + 75, 30, innerHeight - 10)] : center(home);
+        at.lerp(new THREE.Vector2(hx, hy), visT ? .2 : .12);
+        const spraying = !!fire.spray && visT > 0;
+        const shake = spraying ? (Math.random() - .5) * 3.5 : 0;
+        const bob = Math.sin(t * .06) * 2 + (spin ? Math.sin(spin * Math.PI) * 34 : 0);
+        rig.position.set(at.x + shake, -(at.y + shake) + bob, 0);
+
+        const dx = target.x - at.x, dy = -(target.y - at.y);
+        aimZ += ((Math.atan2(dy, dx) - Math.PI) - aimZ) * .25;   // la boquilla apunta hacia -x
+        rig.rotation.z = visT ? aimZ : aimZ * .9;
+        rig.scale.setScalar(Math.max(.001, (vis + Math.sin(vis * Math.PI) * .22) * 1.1));
+        lever.rotation.z += ((spraying ? .02 : .32) - lever.rotation.z) * .35;
+        if(spin){ spin = Math.min(1, spin + .03); model.rotation.y = -.45 + spin * Math.PI * 2; if(spin >= 1){ spin = 0; model.rotation.y = -.45; } }
+
+        if(spraying) for(let n = 0; n < 7; n++) emit(rig.position.x, rig.position.y, dx, dy);
+        let alive = 0;
+        for(let i = 0; i < MAX; i++){
+          if(life[i] >= 1) continue;
+          alive++;
+          pos[i * 3] += vel[i * 2]; pos[i * 3 + 1] += vel[i * 2 + 1];
+          vel[i * 2] *= .92; vel[i * 2 + 1] = vel[i * 2 + 1] * .92 - .12;
+          life[i] = Math.min(1, life[i] + rate[i]); size[i] += 1.1;
+        }
+        geo.attributes.position.needsUpdate = geo.attributes.aLife.needsUpdate = geo.attributes.aSize.needsUpdate = true;
+        renderer.render(scene, camera);
+
+        if(!visT && vis < .01 && !alive && !spin){ running = false; renderer.clear(); return; }
+        requestAnimationFrame(frame);
+      }
+      const run = () => { if(!running){ running = true; requestAnimationFrame(frame); } };
+
+      return {
+        show(r){ home = r; [at.x, at.y] = center(r); visT = 1; run(); },
+        hide(r){ home = r; visT = 0; run(); },
+        celebrate(r){ home = r; spin = .001; run(); setTimeout(() => { visT = 0; }, 900); },
+        target(x, y){ target.set(x, y); },
+      };
+    } catch(e) { return null; }   // sin Three.js: queda el cursor SVG
+  }
+
+  {
+    const fire = flames.find(f => f instanceof HeroFire);
+    const box = $('.hero-flame'), btn = $('#extBtn'), msg = $('#fireMsg');
+    let msgTimer = 0, ext = null, extP = null;
+    const say = (text, ms = 0) => {
+      clearTimeout(msgTimer);
+      msg.textContent = text;
+      msg.classList.toggle('show', !!text);
+      if(text && ms) msgTimer = setTimeout(() => say(''), ms);
+    };
+    const inMode = () => box.classList.contains('ext-mode');
+    const loadExt = () => extP || (extP = initExt3D(fire).then(e => { ext = e; box.classList.toggle('ext-3d', !!e); }));
+    const setMode = on => {
+      box.classList.toggle('ext-mode', on);
+      btn.setAttribute('aria-pressed', String(on));
+      if(!on) fire.spray = null;
+      if(ext) (on ? ext.show : ext.hide)(btn.getBoundingClientRect());
+      say(on ? t().fireHint : '');
+    };
+    fire.onOut = () => {
+      box.classList.remove('ext-mode');
+      btn.setAttribute('aria-pressed', 'false');
+      if(ext) ext.celebrate(btn.getBoundingClientRect());
+      say(t().fireOut);
+      msgTimer = setTimeout(() => {
+        fire.out = false; fire.relight = true;
+        if(reducedMotion){ fire.douse = 0; fire.relight = false; fire.draw(); }
+        say('');
+      }, 5000);
+    };
+    btn.addEventListener('click', async () => {
+      if(fire.out) return;
+      if(reducedMotion){ fire.douse = 1; fire.extinguisher(); fire.draw(); return; }   // sin animación: se apaga de golpe
+      await loadExt();
+      setMode(!inMode());
+    });
+    const aim = e => {
+      const r = fire.c.getBoundingClientRect();
+      fire.spray = [(e.clientX - r.left) / r.width * fire.GW, (e.clientY - r.top) / r.height * fire.GH];
+    };
+    fire.c.addEventListener('pointerdown', e => {
+      if(!inMode()) return;
+      fire.c.setPointerCapture(e.pointerId); aim(e);
+      if(ext) ext.target(e.clientX, e.clientY);
+    });
+    window.addEventListener('pointermove', e => {
+      if(!inMode()) return;
+      if(ext) ext.target(e.clientX, e.clientY);
+      if(fire.spray) aim(e);
+    }, { passive: true });
+    ['pointerup', 'pointercancel'].forEach(ev => fire.c.addEventListener(ev, () => { fire.spray = null; }));
+
+    // F (o 5 toques seguidos sobre la flama, en móvil) desbloquea el extintor; sin eso el botón no aparece nunca
+    const unlock = () => {
+      btn.hidden = false;
+      if(!reducedMotion){ btn.classList.add('pop'); loadExt(); }
+      say(t().fireUnlocked, 3500);
+    };
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape' && inMode()){ setMode(false); return; }
+      if(!btn.hidden || e.repeat || e.ctrlKey || e.metaKey || e.altKey || e.key.toLowerCase() !== 'f') return;
+      if(e.target.closest('input, textarea, select, [contenteditable]')) return;
+      unlock();
+    });
+    let taps = [];
+    box.addEventListener('pointerdown', e => {
+      if(!btn.hidden || e.target !== box) return;   // el canvas no recibe eventos fuera del modo extintor: llegan al contenedor
+      const now = e.timeStamp;
+      taps = taps.filter(ts => now - ts < 2000).concat(now);
+      if(taps.length >= 5){ taps = []; unlock(); }
+    });
+  }
   const flameIO = new IntersectionObserver(entries => {
     entries.forEach(e => {
       const f = flames.find(f => f.c === e.target);
