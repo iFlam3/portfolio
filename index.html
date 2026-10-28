@@ -318,6 +318,49 @@
     transition:opacity .3s ease, transform .3s ease;
   }
   .fire-msg.show{opacity:1; transform:translate(-50%, 0);}
+
+  /* ---------- logro: entra desde el borde izquierdo ---------- */
+  .achv{
+    --gold:#f6c25a; --ic1:#ffd978; --ic2:#e0782b; --ic-fg:#4a2306;
+    position:fixed; left:16px; bottom:24px; z-index:96;
+    display:flex; align-items:center; gap:14px;
+    width:max-content; max-width:calc(100vw - 32px); padding:14px 22px 16px 14px;
+    background:var(--fg); color:var(--bg); border-radius:18px;
+    box-shadow:0 22px 48px -16px rgba(0,0,0,.5), 0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent);
+    transform:translateX(calc(-100% - 40px)); visibility:hidden;
+    transition:transform .6s cubic-bezier(.2,1.25,.3,1), visibility 0s .6s;
+  }
+  .achv.show{transform:none; visibility:visible; transition:transform .6s cubic-bezier(.2,1.25,.3,1), visibility 0s;}
+  .achv-ic{
+    position:relative; overflow:hidden; flex-shrink:0;
+    width:52px; height:52px; border-radius:14px; display:grid; place-items:center;
+    background:linear-gradient(140deg, var(--ic1), var(--ic2)); color:var(--ic-fg);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.4), 0 6px 16px -6px rgba(224,120,43,.8);
+  }
+  .achv.show .achv-ic{animation:achvIcon .7s .25s cubic-bezier(.2,1.6,.4,1) both;}
+  .achv-ic::after{   /* destello que cruza el ícono */
+    content:''; position:absolute; inset:-40%; transform:translateX(-120%) rotate(25deg);
+    background:linear-gradient(90deg, transparent 40%, rgba(255,255,255,.75) 50%, transparent 60%);
+  }
+  .achv.show .achv-ic::after{animation:achvShine 1s .7s ease-out;}
+  .achv-tx{display:flex; flex-direction:column; gap:2px; min-width:0;}
+  .achv-k{font:600 10.5px/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--gold);}
+  .achv-n{font:800 19px/1.15 var(--display); font-stretch:90%; letter-spacing:-.01em;}
+  .achv-d{font:400 13.5px/1.4 var(--sans); color:color-mix(in srgb, var(--bg) 72%, var(--fg));}
+  .achv::after{   /* barra de tiempo que se vacía */
+    content:''; position:absolute; left:18px; right:18px; bottom:7px; height:2px; border-radius:2px;
+    background:var(--gold); opacity:.7; transform-origin:left; transform:scaleX(0);
+  }
+  .achv.show::after{animation:achvBar 5s linear forwards;}
+  .achv[data-tier="bronze"]{--gold:#e9a46a; --ic1:#f5c89b; --ic2:#9c5426; --ic-fg:#3b1a05;}
+  .achv[data-tier="silver"]{--gold:#cfd6dd; --ic1:#ffffff; --ic2:#8d969f; --ic-fg:#2a3036;}
+  .achv[data-tier="gold"]{--gold:#f6c25a; --ic1:#ffe08a; --ic2:#d9761f; --ic-fg:#4a2306;}
+  .achv[data-tier="obsidian"]{--gold:#bb8cff; --ic1:#7a55d1; --ic2:#120a1f; --ic-fg:#efe4ff;
+    box-shadow:0 22px 48px -16px rgba(0,0,0,.6), 0 0 0 1px rgba(187,140,255,.55), 0 0 32px -6px rgba(168,85,247,.65);}
+  @keyframes achvIcon{from{transform:scale(.3) rotate(-30deg); opacity:0;}}
+  @keyframes achvShine{to{transform:translateX(120%) rotate(25deg);}}
+  @keyframes achvBar{from{transform:scaleX(1);} to{transform:scaleX(0);}}
+  @media (max-width:640px){ .achv{left:12px; right:12px; bottom:16px; width:auto;} }
   .hero-flame .ascii-flame{
     position:static; display:block; transform:none;
     width:calc(var(--flame-h) * .706); height:var(--flame-h);   /* 80 columnas × 0.6em / 68 filas (fuego + halo + brasas) */
@@ -687,6 +730,7 @@
         <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/linux.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Linux</span><span class="cat label">infra</span></span></li>
         <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/bash.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Bash</span><span class="cat label">infra</span></span></li>
         <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/powershell.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">PowerShell</span><span class="cat label">infra</span></span></li>
+        <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/docker.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Docker</span><span class="cat label">infra</span></span></li>
         <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/git.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">Git</span><span class="cat label">infra</span></span></li>
         <li class="tech" data-cat="infra"><span class="tech-ic"><img src="assets/icons/github.svg" alt="" loading="lazy" width="27" height="27"></span><span><span class="name">GitHub</span><span class="cat label">infra</span></span></li>
       </ul>
@@ -918,6 +962,8 @@
   </div>
 </footer>
 
+<div class="achv" id="achv" role="status" aria-live="polite"><span class="achv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 6h3v2a3 3 0 0 1-3 3M7 6H4v2a3 3 0 0 0 3 3"/></svg></span><span class="achv-tx"><span class="achv-k" id="achvK"></span><span class="achv-n" id="achvN"></span><span class="achv-d" id="achvD"></span></span></div>
+
 <button class="to-top" id="toTop" type="button" aria-label="Volver al inicio de la página" data-i18n-aria="aria.top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
@@ -1062,7 +1108,14 @@
       project: 'Proyecto',
       fireUnlocked: '🧯 Extintor desbloqueado. Úsalo bajo tu propio riesgo.',
       fireHint: 'Mantén presionado sobre el fuego 🧯',
-      fireOut: '🏆 Logro desbloqueado: bombero de guardia. Tranquilo, esta llama siempre vuelve a encender…',
+      achvK: 'Logro desbloqueado',
+      tiers: {
+        bronze:   ['Bronce',    'Bombero local',            'Tranquilo, esta llama siempre vuelve a encender…'],
+        silver:   ['Plata',     'Anti-Firewall',            '¿QA?'],
+        gold:     ['Oro',       'DaFlame',                  'Piromaníaco'],
+        obsidian: ['Obsidiana', 'El extintor era opcional', 'Se acabó la fiesta'],
+      },
+      fireCount: n => `🔥 Apagado ×${n}`,
       cats: { backend:'backend', lenguaje:'lenguaje', frontend:'frontend', datos:'datos', infra:'infra' },
     },
     en: {
@@ -1078,7 +1131,14 @@
       project: 'Project',
       fireUnlocked: '🧯 Fire extinguisher unlocked. Use at your own risk.',
       fireHint: 'Press and hold on the fire 🧯',
-      fireOut: '🏆 Achievement unlocked: on-call firefighter. Relax, this flame always comes back…',
+      achvK: 'Achievement unlocked',
+      tiers: {
+        bronze:   ['Bronze',   'Local firefighter',             'Relax, this flame always comes back…'],
+        silver:   ['Silver',   'Anti-Firewall',                 'QA?'],
+        gold:     ['Gold',     'DaFlame',                       'Pyromaniac'],
+        obsidian: ['Obsidian', 'The extinguisher was optional', 'Party’s over'],
+      },
+      fireCount: n => `🔥 Put out ×${n}`,
       cats: { backend:'backend', lenguaje:'language', frontend:'frontend', datos:'data', infra:'infra' },
     },
   };
@@ -1296,6 +1356,8 @@
       this.B = new Float32Array(this.GW * this.GH);
       this.tmp = new Float32Array(this.GW * this.GH);
       this.sparks = [];
+      this.pending = true;   // no dibuja hasta que cargue Three.js (evita ver el fuego de respaldo un instante)
+      this.pal = null;       // paleta propia (logro obsidiana); si no, la del scroll
       this.douse = 0;        // 0 = fuego vivo, 1 = apagado (easter egg del extintor)
       this.spray = null;     // celda donde apunta el extintor mientras se rocía
       this.out = false; this.relight = false; this.smoke = 0; this.onOut = null;
@@ -1406,11 +1468,13 @@
       const live = 1 - this.douse;
       const k = Math.max(.15, flame.i) * (.25 + .75 * live);
       ctx.clearRect(0, 0, this.c.width, this.c.height);
+      if(this.pending) return;
+      const pal = this.pal || flame.pal;
       ctx.font = `700 ${this.fs}px "JetBrains Mono", ui-monospace, monospace`;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
 
       // borde oscuro → medio → claro → núcleo casi blanco
-      const stops = [...flame.pal, mix(flame.pal[2], [255, 236, 170], .35)];
+      const stops = [...pal, mix(pal[2], [255, 236, 170], .35)];
       const N = 16, cols = [];
       for(let b = 0; b < N; b++){
         const f = (b + .5) / N * (stops.length - 1), j = Math.floor(f);
@@ -1426,12 +1490,12 @@
 
       // resplandor detrás del canvas (CSS): color del núcleo, titila y se apaga con el fuego
       const glow = .4 * Math.min(1, flame.i * 1.2) * live * (.88 + .12 * Math.sin(this.t * 5.3) * Math.sin(this.t * 3.1));
-      const gc = mix(flame.pal[2], flame.pal[1], .3).map(Math.round);
+      const gc = mix(pal[2], pal[1], .3).map(Math.round);
       this.c.parentElement.style.setProperty('--glow-c', `rgba(${gc.join(',')},${glow.toFixed(3)})`);
 
       // halo de luz: el fuego difuminado hacia afuera, en puntos rojizos cada vez más ralos
       B.set(D); this.blur(5);
-      ctx.fillStyle = rgb(flame.pal[1]);
+      ctx.fillStyle = rgb(pal[1]);
       for(let i = 0; i < GW * GH; i++){
         if(D[i] >= .05) continue;
         const h = Math.min(1, B[i] * 4);
@@ -1453,7 +1517,7 @@
           ctx.fillText(a < .4 ? '~' : a < .75 ? '°' : '.', (p.x + .5) * cw, (p.y + .5) * ch);
           continue;
         }
-        const c = a < .5 ? mix(flame.pal[2], flame.pal[0], a * 2) : mix(flame.pal[0], [125, 115, 105], (a - .5) * 2);
+        const c = a < .5 ? mix(pal[2], pal[0], a * 2) : mix(pal[0], [125, 115, 105], (a - .5) * 2);
         ctx.globalAlpha = Math.min(1, (1 - a) * 1.6);
         ctx.fillStyle = rgb(c);
         ctx.fillText(a < .35 && p.vy < -.4 ? "'" : a < .7 ? '·' : '.', (p.x + .5) * cw, (p.y + .5) * ch);
@@ -1571,12 +1635,16 @@
           D[y * GW + x] = sum / (SS * SS * 255);
         }
       };
-      fire.draw();
-    } catch(e) { /* sin Three.js: queda el fuego procedural */ }
+      fire.pending = false; fire.draw();
+    } catch(e) { fire.pending = false; /* sin Three.js: queda el fuego procedural */ }
   }
 
   const flames = $$('.ascii-flame').map(c => c.closest('.hero-flame') ? new HeroFire(c) : new AsciiFlame(c));
-  flames.forEach(f => { if(f instanceof HeroFire) initFlameGL(f); });
+  flames.forEach(f => {
+    if(!(f instanceof HeroFire)) return;
+    initFlameGL(f);
+    setTimeout(() => { f.pending = false; }, 4000);   // red lenta: tras 4 s se muestra el fuego de respaldo
+  });
 
   // ---------- easter egg: el extintor ----------
   // Oculto hasta pulsar F. Un extintor 3D (Three.js) sigue al puntero, apunta adonde rocías
@@ -1714,7 +1782,8 @@
   {
     const fire = flames.find(f => f instanceof HeroFire);
     const box = $('.hero-flame'), btn = $('#extBtn'), msg = $('#fireMsg');
-    let msgTimer = 0, ext = null, extP = null;
+    let msgTimer = 0, ext = null, extP = null, outs = 0;   // outs: veces apagado en esta visita
+    const TIERS = { 1: 'bronze', 3: 'silver', 5: 'gold', 10: 'obsidian' };
     const say = (text, ms = 0) => {
       clearTimeout(msgTimer);
       msg.textContent = text;
@@ -1734,11 +1803,25 @@
       box.classList.remove('ext-mode');
       btn.setAttribute('aria-pressed', 'false');
       if(ext) ext.celebrate(btn.getBoundingClientRect());
-      say(t().fireOut);
-      msgTimer = setTimeout(() => {
+      say('');
+      // acumulador: cada vez que se apaga suma; en 1, 3, 5 y 10 hay logro, si no, un aviso con el conteo
+      outs++;
+      const tier = TIERS[outs];
+      const achv = $('#achv');
+      if(tier){
+        const [tierName, name, desc] = t().tiers[tier];
+        $('#achvK').textContent = `${t().achvK} · ${tierName}`;
+        $('#achvN').textContent = name; $('#achvD').textContent = desc;
+        achv.dataset.tier = tier;
+        achv.classList.remove('show'); void achv.offsetWidth; achv.classList.add('show');
+        if(tier === 'obsidian') fire.pal = PAL.violet;   // la flama renace morada hasta recargar la página
+      } else {
+        say(t().fireCount(outs), 4500);
+      }
+      setTimeout(() => {
+        achv.classList.remove('show');
         fire.out = false; fire.relight = true;
         if(reducedMotion){ fire.douse = 0; fire.relight = false; fire.draw(); }
-        say('');
       }, 5000);
     };
     btn.addEventListener('click', async () => {
