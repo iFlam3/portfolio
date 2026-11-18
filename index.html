@@ -77,10 +77,11 @@
       "@type": "ItemList",
       "name": "Proyectos",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "Notilab", "description": "Herramienta web para administrar el laboratorio de computación de URBE.", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
-        { "@type": "ListItem", "position": 2, "item": { "@type": "WebSite", "name": "Blasphemous · El peregrinaje del Penitente", "url": "https://blasphemousfan.vercel.app/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
-        { "@type": "ListItem", "position": 3, "item": { "@type": "WebSite", "name": "Circula", "url": "https://iflam3.github.io/Circula/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
-        { "@type": "ListItem", "position": 4, "item": { "@type": "WebSite", "name": "Un-Plugged · Detección de periféricos", "url": "https://iflam3.github.io/Un-Plugged/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } }
+        { "@type": "ListItem", "position": 1, "item": { "@type": "WebSite", "name": "Mi Ternerita House · Entradas y eventos", "url": "https://miternerita.app/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Notilab", "description": "Herramienta web para administrar el laboratorio de computación de URBE.", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "WebSite", "name": "Blasphemous · El peregrinaje del Penitente", "url": "https://blasphemousfan.vercel.app/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "WebSite", "name": "Circula", "url": "https://iflam3.github.io/Circula/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } },
+        { "@type": "ListItem", "position": 5, "item": { "@type": "WebSite", "name": "Un-Plugged · Detección de periféricos", "url": "https://iflam3.github.io/Un-Plugged/", "creator": { "@id": "https://iflam3.github.io/portfolio/#person" } } }
       ]
     }
   ]
@@ -815,8 +816,21 @@
       </header>
 
       <ol class="rows">
-        <li class="proj" data-project="notilab">
+        <li class="proj">
           <span class="proj-idx label">//01</span>
+          <div>
+            <h3 class="proj-name">Mi Ternerita</h3>
+            <span class="proj-badge label" data-i18n="p8.badge">MVP · en vivo</span>
+          </div>
+          <div class="proj-info">
+            <p class="proj-desc" data-i18n="p8.desc">Venta de entradas para conciertos, fiestas y eventos de Mi Ternerita House en Maracaibo: compra desde el móvil, pago con Pago Móvil o Zelle y entrada con código QR enviada por correo.</p>
+            <ul class="proj-tags"><li>Angular</li><li>NestJS</li><li>MySQL</li></ul>
+          </div>
+          <div class="proj-act"><a class="proj-btn label" href="https://miternerita.app/" target="_blank" rel="noopener"><span data-i18n="act.demo">Ver demo</span> <span class="arr" aria-hidden="true">↗</span></a></div>
+        </li>
+
+        <li class="proj" data-project="notilab">
+          <span class="proj-idx label">//02</span>
           <div>
             <h3 class="proj-name">Notilab</h3>
             <span class="proj-badge label" data-i18n="p1.badge">Interno · URBE</span>
@@ -829,7 +843,7 @@
         </li>
 
         <li class="proj">
-          <span class="proj-idx label">//02</span>
+          <span class="proj-idx label">//03</span>
           <div>
             <h3 class="proj-name">Velvet 21</h3>
             <span class="proj-badge label" data-i18n="p7.badge">Juego · en vivo</span>
@@ -842,7 +856,7 @@
         </li>
 
         <li class="proj">
-          <span class="proj-idx label">//03</span>
+          <span class="proj-idx label">//04</span>
           <div>
             <h3 class="proj-name">Blasphemous</h3>
             <span class="proj-badge label" data-i18n="p2.badge">Fan site · en vivo</span>
@@ -855,7 +869,7 @@
         </li>
 
         <li class="proj">
-          <span class="proj-idx label">//04</span>
+          <span class="proj-idx label">//05</span>
           <div>
             <h3 class="proj-name">Circula</h3>
             <span class="proj-badge label" data-i18n="p3.badge">Campaña · en vivo</span>
@@ -868,7 +882,7 @@
         </li>
 
         <li class="proj">
-          <span class="proj-idx label">//05</span>
+          <span class="proj-idx label">//06</span>
           <div>
             <h3 class="proj-name" data-i18n="p4.title">Detección de periféricos</h3>
             <span class="proj-badge label" data-i18n="p4.badge">Tiempo real</span>
@@ -1039,6 +1053,8 @@
     'proj.sub': 'Tools, games and live sites I’ve built.',
     'act.details': 'View details',
     'act.demo': 'View demo',
+    'p8.badge': 'MVP · live',
+    'p8.desc': 'Ticketing for concerts, parties and events at Mi Ternerita House in Maracaibo: buy from your phone, pay with Pago Móvil or Zelle and get a QR ticket by email.',
     'p1.badge': 'Internal · URBE',
     'p1.desc': 'Web tool for organizing and managing the lab team: resource control and team workflow.',
     'p7.badge': 'Game · live',
@@ -1964,7 +1980,7 @@
   // ---------- ventana de proyecto ----------
   const projects = {
     notilab: {
-      idx: '//01',
+      idx: '//02',
       tags: ['NestJS', 'Angular', 'MySQL', 'REST'],
       shots: ['assets/proyectos/notilab-2.jpg', 'assets/proyectos/notilab-1.jpg', 'assets/proyectos/notilab-3.jpg'],
       es: {
